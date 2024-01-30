@@ -19,7 +19,6 @@ const AboutUs = () => {
   const toggleShowMore = () => {
     setShowMore(!showMore);
   };
-  
 
   const text1 =
     "BIVAB Yashila envisions being the ultimate destination for seaside luxury living in Jagannathdham. With a focus on architectural brilliance, environmental responsibility, and unparalleled amenities, we strive to create a legacy where dreams of a sophisticated coastal lifestyle become a reality.";
@@ -89,12 +88,21 @@ const AboutUs = () => {
             sx={{
               display: "flex",
               justifyContent: "space-around",
-              margin: {xs: "10px 20px",sm:"50px 150px", md: "50px 100px"},
-              flexDirection: { xs: 'column', sm: 'column', md: 'row', lg: 'row'}
+              margin: { xs: "10px 20px", sm: "50px 150px", md: "50px 100px" },
+              flexDirection: {
+                xs: "column",
+                sm: "column",
+                md: "row",
+                lg: "row",
+              },
             }}
           >
             <Box
-              sx={{ display: "flex", flexDirection: "column", width: { xs: '100%', sm: '100%', md: '40vw', lg: '40vw'},  }}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: { xs: "100%", sm: "100%", md: "40vw", lg: "40vw" },
+              }}
             >
               <Typography
                 variant="h4"
@@ -102,7 +110,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "700",
                   marginBottom: "15px",
-                  fontSize: { xs: '0.6rem',sm: "0.9rem", md: '1rem', lg: '2rem' },
+                  fontSize: {
+                    xs: "0.6rem",
+                    sm: "0.9rem",
+                    md: "1rem",
+                    lg: "2rem",
+                  },
                 }}
               >
                 ABOUT BIVAB
@@ -113,7 +126,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  fontSize: { xs:'0.5rem',sm: '0.6rem',md: "0.8rem", lg: '1rem' },
+                  fontSize: {
+                    xs: "0.5rem",
+                    sm: "0.6rem",
+                    md: "0.8rem",
+                    lg: "1rem",
+                  },
                 }}
               >
                 BIVAB® Developers is an eminent company redefining real estate
@@ -125,7 +143,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  fontSize: { xs:'0.5rem',sm: '0.6rem',md: "0.8rem", lg: '1rem' },
+                  fontSize: {
+                    xs: "0.5rem",
+                    sm: "0.6rem",
+                    md: "0.8rem",
+                    lg: "1rem",
+                  },
                 }}
               >
                 Welcome to BIVAB® Yashila, a distinctive residential enclave in
@@ -139,7 +162,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  fontSize: { xs:'0.5rem',sm: '0.6rem',md: "0.8rem", lg: '1rem' },
+                  fontSize: {
+                    xs: "0.5rem",
+                    sm: "0.6rem",
+                    md: "0.8rem",
+                    lg: "1rem",
+                  },
                 }}
               >
                 Nestled in the tranquil ambiance of Puri, our latest project
@@ -154,7 +182,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  fontSize: { xs:'0.5rem',sm: '0.6rem',md: "0.8rem", lg: '1rem' },
+                  fontSize: {
+                    xs: "0.5rem",
+                    sm: "0.6rem",
+                    md: "0.8rem",
+                    lg: "1rem",
+                  },
                 }}
               >
                 Discover a harmonious living experience with thoughtfully
@@ -168,7 +201,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  fontSize: { xs:'0.5rem',sm: '0.6rem',md: "0.8rem", lg: '1rem' },
+                  fontSize: {
+                    xs: "0.5rem",
+                    sm: "0.6rem",
+                    md: "0.8rem",
+                    lg: "1rem",
+                  },
                 }}
               >
                 Immerse yourself in the coastal charm of Puri and elevate your
@@ -182,7 +220,12 @@ const AboutUs = () => {
                   color: colors.black[100],
                   fontWeight: "400",
                   marginBottom: "5px",
-                  fontSize: { xs:'0.5rem',sm: '0.6rem',md: "0.8rem", lg: '1rem' },
+                  fontSize: {
+                    xs: "0.5rem",
+                    sm: "0.6rem",
+                    md: "0.8rem",
+                    lg: "1rem",
+                  },
                 }}
               >
                 Explore the allure of Puri living at BIVAB Yashila—where home is
@@ -197,7 +240,7 @@ const AboutUs = () => {
                   borderRadius: "9px",
                   fontWeight: "900",
                   marginTop: "32px",
-                  width: {xs:'30vw',sm: '30vw',md: "20vw", lg: '20vw' },
+                  width: { xs: "52vw", sm: "30vw", md: "20vw", lg: "20vw" },
                   padding: "16px 0px",
                   "&:hover": {
                     color: colors.yellow[100],
@@ -211,12 +254,24 @@ const AboutUs = () => {
             <Box
               sx={{
                 backgroundColor: colors.white[100],
-                width: {xs: '100%', sm: "100%", md: '40vw', lg: '40vw', xl: '40vw'},
+                width: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "40vw",
+                  lg: "40vw",
+                  xl: "40vw",
+                },
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 position: "relative",
-                top: {xs: '10px', sm: "10px", md: '-85px', lg: '-85px', xl: '-85px'},
+                top: {
+                  xs: "10px",
+                  sm: "10px",
+                  md: "-85px",
+                  lg: "-85px",
+                  xl: "-85px",
+                },
               }}
             >
               <img
@@ -241,8 +296,13 @@ const AboutUs = () => {
               justifyContent: "space-around",
               margin: "50px 100px",
               alignItems: "center",
-              flexDirection: { xs: 'column',md: 'row', lg: 'row'},
-              textAlign:{xs: 'center',sm:'center',md: 'start', lg: 'start'}
+              flexDirection: { xs: "column", md: "row", lg: "row" },
+              textAlign: {
+                xs: "center",
+                sm: "center",
+                md: "start",
+                lg: "start",
+              },
             }}
           >
             <Box
@@ -272,7 +332,7 @@ const AboutUs = () => {
                   color: colors.darkblue[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  textAlign: {xs: 'center'}
+                  textAlign: { xs: "center" },
                 }}
               >
                 {displayedText1}
@@ -313,7 +373,7 @@ const AboutUs = () => {
                   color: colors.darkblue[100],
                   fontWeight: "400",
                   marginBottom: "15px",
-                  textAlign: {xs: 'center'}
+                  textAlign: { xs: "center" },
                 }}
               >
                 {displayedText2}
@@ -338,168 +398,116 @@ const AboutUs = () => {
               alignItems: "center",
               margin: "100px 0px",
               backgroundColor: colors.darkblue[200],
-              flexDirection: { xs: 'column', lg: 'row'}
+              flexDirection: { xs: "column", lg: "row" },
             }}
           >
             {/* One */}
-            <Typography
-              variant="h1"
-              style={{
-                color: colors.darkGreen[100],
-                fontWeight: "700",
-                fontSize: "45px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginRight: "30px",
-              }}
-            >
+            <Box sx={{display:'flex', alignItems:'center', width:'52vh', marginRight:'7px', justifyContent:'space-around'}}>
               <PlaylistAddCircleIcon
-                sx={{ fontSize: "65px", marginRight: "30px" }}
+                sx={{ fontSize: "65px" }}
               />
-              <Typography
-                variant="h1"
-                style={{
-                  color: colors.darkblue[100],
-                  fontWeight: "400",
-                  marginBottom: "10px",
-                  fontSize: "70px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                23
+              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
                 <Typography
-                  variant="h4"
+                  variant="h2"
+                  style={{
+                    color: colors.darkblue[100],
+                    fontWeight: "400",
+                    marginBottom: "5px",
+                    fontSize: "70px",
+                  }}
+                >23+
+                </Typography>
+                <Typography
+                  variant="h5"
                   style={{
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >
-                  Experience
+                >Experience
                 </Typography>
-              </Typography>
-            </Typography>
+              </Box>
+            </Box>
 
             {/* Two */}
-            <Typography
-              variant="h1"
-              style={{
-                color: colors.darkGreen[100],
-                fontWeight: "700",
-                marginRight: "30px",
-                fontSize: "45px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <Box sx={{display:'flex', alignItems:'center',width:'52vh', justifyContent:'space-around', marginRight:'7px'}}>
               <PlaylistAddCheckCircleIcon
-                sx={{ fontSize: "65px", marginRight: "30px" }}
+                sx={{ fontSize: "65px" }}
               />
-              <Typography
-                variant="h1"
-                style={{
-                  color: colors.darkblue[100],
-                  fontWeight: "400",
-                  marginBottom: "10px",
-                  fontSize: "70px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                100+
+              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
                 <Typography
-                  variant="h4"
+                  variant="h2"
+                  style={{
+                    color: colors.darkblue[100],
+                    fontWeight: "400",
+                    marginBottom: "10px",
+                    fontSize: "70px",
+                  }}
+                >100+
+                </Typography>
+                <Typography
+                  variant="h5"
                   style={{
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >
-                  Project Done
+                >Project Done
                 </Typography>
-              </Typography>
-            </Typography>
+              </Box>
+            </Box>
 
             {/* Three */}
-            <Typography
-              variant="h1"
-              style={{
-                color: colors.darkGreen[100],
-                fontWeight: "700",
-                marginRight: "30px",
-                fontSize: "45px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <Box sx={{display:'flex', alignItems:'center',width:'52vh', justifyContent:'space-around', marginRight:'7px'}}>
               <EmojiEmotionsIcon
-                sx={{ fontSize: "65px", marginRight: "30px" }}
+                sx={{ fontSize: "65px" }}
               />
-              <Typography
-                variant="h1"
-                style={{
-                  color: colors.darkblue[100],
-                  fontWeight: "400",
-                  marginBottom: "10px",
-                  fontSize: "70px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                100+
+              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
                 <Typography
-                  variant="h4"
+                  variant="h2"
+                  style={{
+                    color: colors.darkblue[100],
+                    fontWeight: "400",
+                    marginBottom: "10px",
+                    fontSize: "70px",
+                  }}
+                >100+
+                </Typography>
+                <Typography
+                  variant="h5"
                   style={{
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >
-                  Happy Client
+                >Happy Client
                 </Typography>
-              </Typography>
-            </Typography>
+              </Box>
+            </Box>
 
             {/* Four */}
-            <Typography
-              variant="h1"
-              style={{
-                color: colors.darkGreen[100],
-                fontWeight: "700",
-                marginRight: "30px",
-                fontSize: "45px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <Box sx={{display:'flex', alignItems:'center', width:'52vh', justifyContent:'space-around'}}>
               <PersonSearchIcon
-                sx={{ fontSize: "65px", marginRight: "30px" }}
+                sx={{ fontSize: "65px" }}
               />
-              <Typography
-                variant="h1"
-                style={{
-                  color: colors.darkblue[100],
-                  fontWeight: "400",
-                  marginBottom: "10px",
-                  fontSize: "70px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                18
+              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
                 <Typography
-                  variant="h4"
+                  variant="h2"
+                  style={{
+                    color: colors.darkblue[100],
+                    fontWeight: "400",
+                    marginBottom: "10px",
+                    fontSize: "70px",
+                  }}
+                >18
+                </Typography>
+                <Typography
+                  variant="h5"
                   style={{
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >
-                  Expert System
+                >Expert System
                 </Typography>
-              </Typography>
-            </Typography>
+              </Box>
+            </Box>
           </Box>
           {/* End */}
 
@@ -509,20 +517,25 @@ const AboutUs = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              flexDirection:{ xs: 'column',sm: 'column', md: 'row', lg: 'row'},
-              margin: {xs: "0px 0px",sm:"0px 0px", md: "50px 100px"},
+              flexDirection: {
+                xs: "column",
+                sm: "column",
+                md: "row",
+                lg: "row",
+              },
+              margin: { xs: "0px 0px", sm: "0px 0px", md: "50px 100px" },
             }}
           >
             <Box
               sx={{
                 backgroundColor: colors.darkblue[200],
-                width: {sm:'55%',md: '40%',lg:"40%"},
+                width: { sm: "55%", md: "40%", lg: "40%" },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
                 marginLeft: "10px",
                 padding: "20px",
-                marginBottom: { xs: '15px',sm: '15px', md: '0px', lg: '0px'},
+                marginBottom: { xs: "15px", sm: "15px", md: "0px", lg: "0px" },
               }}
             >
               <img
@@ -561,7 +574,7 @@ const AboutUs = () => {
             <Box
               sx={{
                 backgroundColor: colors.darkblue[200],
-                width: {sm:'55%',md: '40%',lg:"40%"},
+                width: { sm: "55%", md: "40%", lg: "40%" },
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",

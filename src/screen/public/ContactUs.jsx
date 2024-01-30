@@ -23,6 +23,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 
 import { POSTNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
+import { Link } from 'react-router-dom';
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -180,6 +181,7 @@ const ContactUs = () => {
                     fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
                   }}
                 >
+                  <Link to='https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8' style={{textDecoration:'none', color:colors.darkGreen[100]}}>
                   <ExploreIcon
                     sx={{
                       fontSize: "50px",
@@ -189,8 +191,12 @@ const ContactUs = () => {
                       padding: "7px",
                     }}
                   />
+                    </Link>
+                  
+                  <Link to='https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8' style={{textDecoration:'none', color:colors.darkGreen[100]}}>
                   4th Floor, Bivab Gulmohar Commercial Nayapalli, Bhubaneswar –
                   751012, Odisha
+                    </Link>
                 </Typography>
                 <Typography
                   variant="h6"
@@ -203,6 +209,14 @@ const ContactUs = () => {
                     fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
                   }}
                 >
+                  <Link
+                  style={{
+                    textDecoration: "none",
+                    color: colors.darkGreen[100],
+                  }}
+                  rel="stylesheet"
+                  to="mailto:sales@bivabyashila.com"
+                >
                   <MarkEmailReadIcon
                     sx={{
                       fontSize: "50px",
@@ -211,8 +225,19 @@ const ContactUs = () => {
                       color: colors.yellow[100],
                       padding: "7px",
                     }}
-                  />
+                  /> 
+                </Link>
+                  
+                  <Link
+                  style={{
+                    textDecoration: "none",
+                    color: colors.darkGreen[100],
+                  }}
+                  rel="stylesheet"
+                  to="mailto:sales@bivabyashila.com"
+                >
                   Email Us : sales@bivabyashila.com
+                </Link>
                 </Typography>
                 <Typography
                   variant="h6"
@@ -234,7 +259,23 @@ const ContactUs = () => {
                       padding: "7px",
                     }}
                   />
-                  Phone : +91 731262666 , +91 73810 97302
+                  Phone : &nbsp;
+                  <Typography
+                      variant="p"
+                      style={{ color: colors.darkblue[100] }}
+                    >
+                      <Link to="tel:+919437345524" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
+                        +91 9437345524
+                      </Link>{" "}
+                      /{" "}
+                      <Link to="tel:+917381863666" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
+                        7381863666
+                      </Link>{" "}
+                      /{" "}
+                      <Link to="tel:+919937129034" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
+                        9937129034
+                      </Link>
+                    </Typography>
                 </Typography>
               </Box>
               <Box
@@ -259,7 +300,8 @@ const ContactUs = () => {
                   Follow Us :
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <FacebookIcon
+                <Link to="https://www.facebook.com/BivabDevelopers/">
+                <FacebookIcon
                     sx={{
                       backgroundColor: "#4d68a1",
                       color: colors.white[100],
@@ -269,6 +311,9 @@ const ContactUs = () => {
                       marginLeft: "15px",
                     }}
                   />
+                </Link>
+
+                  <Link to="https://www.instagram.com/bivab_developers/">
                   <InstagramIcon
                     sx={{
                       backgroundColor: "#262626",
@@ -278,7 +323,9 @@ const ContactUs = () => {
                       marginRight: "10px",
                     }}
                   />
-
+                  </Link>
+                  
+                  <Link to="https://twitter.com/BivabOfficial">
                   <TwitterIcon
                     sx={{
                       backgroundColor: "#1da0f0",
@@ -288,6 +335,9 @@ const ContactUs = () => {
                       padding: "2px",
                     }}
                   />
+                  </Link>
+                  
+                  <Link to="https://www.youtube.com/@bivabyashila">
                   <YouTubeIcon
                     sx={{
                       backgroundColor: "#cb201f",
@@ -296,6 +346,8 @@ const ContactUs = () => {
                       padding: "2px",
                     }}
                   />
+                  </Link>
+                  
                 </Box>
               </Box>
             </Box>
