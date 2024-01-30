@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import { Pannellum } from "pannellum-react";
 import dataScene from "../../helpers/dataScene";
-import UseModal from "../../hooks/useModal";
-import Modal from "./modal";
-import ModalContainer from "./modalContainer";
-import { Box } from "@mui/material";
 
 export default function Scene() {
 
-  const {isOpen, openModal, closeModal} = UseModal(false);
   const [scene, setScene] = useState(dataScene["outsideHome"]);
-  const [modal, setModal] = useState(null);
 
   const hotSpots = (Element,i) => {
     if(Element.cssClass === 'hotSpotElement') return (
@@ -21,7 +15,6 @@ export default function Scene() {
             pitch={Element.pitch}
             cssClass={Element.cssClass} 
             text={Element.text}
-            // handleClick={ ()=> {openModal(); setModal(Element.nameModal)}}
         />
     );
     else if(Element.cssClass === 'moveScene') return (
@@ -58,9 +51,7 @@ export default function Scene() {
         {Object.values(scene.hotSpots).map((Element, i) => (hotSpots(Element,i)))}
       </Pannellum>
 
-      <Modal isOpen={isOpen} close={()=>closeModal()}>
-        {isOpen ? <ModalContainer nameModal={modal}/> : null}
-      </Modal>
+
     </>
   );
 }
