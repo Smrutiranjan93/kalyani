@@ -264,16 +264,12 @@ const ContactUs = () => {
                       variant="p"
                       style={{ color: colors.darkblue[100] }}
                     >
-                      <Link to="tel:+919437345524" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                        +91 9437345524
+                      <Link to="tel:+917381097302" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
+                      +91 7381097302
                       </Link>{" "}
                       /{" "}
-                      <Link to="tel:+917381863666" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                        7381863666
-                      </Link>{" "}
-                      /{" "}
-                      <Link to="tel:+919937129034" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                        9937129034
+                      <Link to="tel:+917381262666" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
+                          7381262666
                       </Link>
                     </Typography>
                 </Typography>

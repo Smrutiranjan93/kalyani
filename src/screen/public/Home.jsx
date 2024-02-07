@@ -221,7 +221,7 @@ const Home = () => {
                   color: colors.darkblue[100],
                 }}
               >
-                RERA &nbsp; <ArrowForwardIcon />
+                RERA &nbsp; <ArrowForwardIcon /> &nbsp; MP/26/23/01025
               </Link>
             </Typography>
           </Box>
@@ -554,36 +554,25 @@ const Home = () => {
                     style={{ color: colors.darkblue[100] }}
                   >
                     <Link
-                      href="tel:+919437345524"
+                      href="tel:+917381097302"
                       style={{
                         textDecoration: "none",
                         color: colors.darkGreen[100],
                         fontWeight: 700,
                       }}
                     >
-                      +91 9437345524
+                      +91 7381097302
                     </Link>{" "}
                     /{" "}
                     <Link
-                      href="tel:+917381863666"
+                      href="tel:+917381262666"
                       style={{
                         textDecoration: "none",
                         color: colors.darkGreen[100],
                         fontWeight: 700,
                       }}
                     >
-                      7381863666
-                    </Link>{" "}
-                    /{" "}
-                    <Link
-                      href="tel:+919937129034"
-                      style={{
-                        textDecoration: "none",
-                        color: colors.darkGreen[100],
-                        fontWeight: 700,
-                      }}
-                    >
-                      9937129034
+                      7381262666
                     </Link>
                   </Typography>
                 </Typography>

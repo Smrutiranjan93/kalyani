@@ -276,16 +276,12 @@ const FirstFooter = () => {
                       variant="p"
                       style={{ color: colors.white[100] }}
                     >
-                      <Link href="tel:+919437345524" color="inherit" style={{textDecoration:'none'}}>
-                        +91 9437345524
+                      <Link href="tel:+917381097302" color="inherit" style={{textDecoration:'none'}}>
+                      +91 7381097302
                       </Link>{" "}
                       /{" "}
-                      <Link href="tel:+917381863666" color="inherit" style={{textDecoration:'none'}}>
-                        7381863666
-                      </Link>{" "}
-                      /{" "}
-                      <Link href="tel:+919937129034" color="inherit" style={{textDecoration:'none'}}>
-                        9937129034
+                      <Link href="tel:+917381262666" color="inherit" style={{textDecoration:'none'}}>
+                            7381262666
                       </Link>
                     </Typography>
                   </Box>
