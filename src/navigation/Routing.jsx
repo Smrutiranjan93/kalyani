@@ -8,6 +8,9 @@ import ContactUs from '../screen/public/ContactUs';
 import PhotoGallery from '../screen/public/PhotoGallery';
 import Amentities from '../screen/public/Amentities';
 import VirtualTour from '../screen/public/VirtualTour';
+import UserProfile from '../screen/private/UserProfile';
+import OurProperties from '../screen/private/OurProperties';
+import PropertyDetails from '../screen/private/PropertyDetails';
 
 function Routing() {
   return (
@@ -19,6 +22,9 @@ function Routing() {
         <Route path='/about-us' element={<AboutUs />} />
         <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/virtualtour' element={<VirtualTour />} />
+        <Route path='/profile' element={<UserProfile />} />
+        <Route path='/properties' element={<OurProperties />} />
+        <Route path='/property/:id' element={<PropertyDetails />} />
       </Routes>
     </BrowserRouter>
   );

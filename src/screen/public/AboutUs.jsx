@@ -1,32 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../../components/global/Layout";
-import { Box, Typography, Button, useTheme } from "@mui/material";
+import { Box, Typography, Button, useTheme, Grid } from "@mui/material";
 import { tokens } from "../../constants/theme";
 import aboutBg from "../../assets/images/about-bg.jpeg";
 import bivabBuilding from "../../assets/images/bivab-building.png";
 import profileTwo from "../../assets/images/profile2.jpeg";
 import profileThree from "../../assets/images/profile3.jpeg";
 
+import PlaylistAddCheckCircleIcon from "@mui/icons-material/PlaylistAddCheckCircle";
 import PlaylistAddCircleIcon from "@mui/icons-material/PlaylistAddCircle";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-import PlaylistAddCheckCircleIcon from "@mui/icons-material/PlaylistAddCheckCircle";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CounterUp from "../../components/reusable/CounterUp";
+
+import { GETNETWORK } from "../../utils/network";
+import ApiUrl from "../../utils/url";
 
 const AboutUs = () => {
-  const [showMore, setShowMore] = useState(false);
+  const [showMoreMission, setShowMoreMission] = useState(false);
+  const [showMoreVision, setShowMoreVision] = useState(false);
 
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
+  const toggleShowMoreMission = () => {
+    setShowMoreMission(!showMoreMission);
   };
 
-  const text1 =
+  const toggleShowMoreVision = () => {
+    setShowMoreVision(!showMoreVision);
+  };
+
+  {
+    /* API Integration */
+  }
+  const [aboutOwner, setAboutOwner] = useState([]);
+
+  useEffect(() => {
+    const aboutOwnerData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.ABOUT_OWNER_URL);
+        if (response.status) {
+          setAboutOwner(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    aboutOwnerData();
+  }, []);
+  {
+    /* END API Integration */
+  }
+
+  const mission =
     "BIVAB Yashila envisions being the ultimate destination for seaside luxury living in Jagannathdham. With a focus on architectural brilliance, environmental responsibility, and unparalleled amenities, we strive to create a legacy where dreams of a sophisticated coastal lifestyle become a reality.";
-  const text2 =
+  const vision =
     "BIVAB Yashila envisions being the ultimate destination for seaside luxury living in Jagannathdham. With a focus on architectural brilliance, environmental responsibility, and unparalleled amenities, we strive to create a legacy where dreams of a sophisticated coastal lifestyle become a reality.";
 
-  const displayedText1 = showMore ? text1 : `${text1.slice(0, 150)}...`;
-  const displayedText2 = showMore ? text2 : `${text2.slice(0, 150)}...`;
+  const displayMissionText = showMoreMission
+    ? mission
+    : `${mission.slice(0, 150)}...`;
+  const displayVisionText = showMoreVision
+    ? vision
+    : `${vision.slice(0, 150)}...`;
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -40,11 +79,39 @@ const AboutUs = () => {
         xl: 1920,
       },
     },
+    typography: {
+      fontFamily: ["Playfair Display", "serif"].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 18,
+      },
+      h6: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 15,
+      },
+    },
   });
   return (
     <Layout>
       <ThemeProvider theme={styleTheme}>
-        <Box>
+        <Box marginBottom="50px">
           {/* Intro bg Details */}
           <Box
             sx={{
@@ -105,7 +172,7 @@ const AboutUs = () => {
               }}
             >
               <Typography
-                variant="h4"
+                variant="h5"
                 style={{
                   color: colors.black[100],
                   fontWeight: "700",
@@ -308,7 +375,7 @@ const AboutUs = () => {
             <Box
               sx={{
                 borderBottom: `2px solid ${colors.yellow[100]}`,
-                marginRight: "20px",
+                marginRight: { xs: "0px", sm: "0px", md: "20px", lg: "20px" },
                 padding: "10px 61px",
                 "&:hover": {
                   background: "linear-gradient(to top, #0d5a4194, white)",
@@ -335,21 +402,21 @@ const AboutUs = () => {
                   textAlign: { xs: "center" },
                 }}
               >
-                {displayedText1}
+                {displayMissionText}
               </Typography>
-              {text1.length > 150 && (
+              {mission.length > 150 && (
                 <Button
-                  onClick={toggleShowMore}
+                  onClick={toggleShowMoreMission}
                   style={{ color: colors.darkblue[100] }}
                 >
-                  {showMore ? "See less" : "See more"}
+                  {showMoreMission ? "See less" : "See more"}
                 </Button>
               )}
             </Box>
             <Box
               sx={{
                 borderBottom: `2px solid ${colors.yellow[100]}`,
-                marginLeft: "20px",
+                marginLeft: { xs: "0px", sm: "0px", md: "20px", lg: "20px" },
                 padding: "10px 61px",
                 "&:hover": {
                   background: "linear-gradient(to top, #0d5a4194, white)",
@@ -376,14 +443,14 @@ const AboutUs = () => {
                   textAlign: { xs: "center" },
                 }}
               >
-                {displayedText2}
+                {displayVisionText}
               </Typography>
-              {text2.length > 150 && (
+              {vision.length > 150 && (
                 <Button
                   style={{ color: colors.darkblue[100] }}
-                  onClick={toggleShowMore}
+                  onClick={toggleShowMoreVision}
                 >
-                  {showMore ? "See less" : "See more"}
+                  {showMoreVision ? "See less" : "See more"}
                 </Button>
               )}
             </Box>
@@ -402,11 +469,23 @@ const AboutUs = () => {
             }}
           >
             {/* One */}
-            <Box sx={{display:'flex', alignItems:'center', width:'52vh', marginRight:'7px', justifyContent:'space-around'}}>
-              <PlaylistAddCircleIcon
-                sx={{ fontSize: "65px" }}
-              />
-              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                width: "52vh",
+                marginRight: "7px",
+                justifyContent: "space-around",
+              }}
+            >
+              <PlaylistAddCircleIcon sx={{ fontSize: "65px" }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "start",
+                }}
+              >
                 <Typography
                   variant="h2"
                   style={{
@@ -415,7 +494,8 @@ const AboutUs = () => {
                     marginBottom: "5px",
                     fontSize: "70px",
                   }}
-                >23+
+                >
+                  <CounterUp prop={23} />
                 </Typography>
                 <Typography
                   variant="h5"
@@ -423,17 +503,30 @@ const AboutUs = () => {
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >Experience
+                >
+                  Experience
                 </Typography>
               </Box>
             </Box>
 
             {/* Two */}
-            <Box sx={{display:'flex', alignItems:'center',width:'52vh', justifyContent:'space-around', marginRight:'7px'}}>
-              <PlaylistAddCheckCircleIcon
-                sx={{ fontSize: "65px" }}
-              />
-              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                width: "52vh",
+                justifyContent: "space-around",
+                marginRight: "7px",
+              }}
+            >
+              <PlaylistAddCheckCircleIcon sx={{ fontSize: "65px" }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "start",
+                }}
+              >
                 <Typography
                   variant="h2"
                   style={{
@@ -442,7 +535,8 @@ const AboutUs = () => {
                     marginBottom: "10px",
                     fontSize: "70px",
                   }}
-                >100+
+                >
+                  <CounterUp prop={100} />
                 </Typography>
                 <Typography
                   variant="h5"
@@ -450,17 +544,30 @@ const AboutUs = () => {
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >Project Done
+                >
+                  Project Done
                 </Typography>
               </Box>
             </Box>
 
             {/* Three */}
-            <Box sx={{display:'flex', alignItems:'center',width:'52vh', justifyContent:'space-around', marginRight:'7px'}}>
-              <EmojiEmotionsIcon
-                sx={{ fontSize: "65px" }}
-              />
-              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                width: "52vh",
+                justifyContent: "space-around",
+                marginRight: "7px",
+              }}
+            >
+              <EmojiEmotionsIcon sx={{ fontSize: "65px" }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "start",
+                }}
+              >
                 <Typography
                   variant="h2"
                   style={{
@@ -469,7 +576,8 @@ const AboutUs = () => {
                     marginBottom: "10px",
                     fontSize: "70px",
                   }}
-                >100+
+                >
+                  <CounterUp prop={100} />
                 </Typography>
                 <Typography
                   variant="h5"
@@ -477,17 +585,29 @@ const AboutUs = () => {
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >Happy Client
+                >
+                  Happy Client
                 </Typography>
               </Box>
             </Box>
 
             {/* Four */}
-            <Box sx={{display:'flex', alignItems:'center', width:'52vh', justifyContent:'space-around'}}>
-              <PersonSearchIcon
-                sx={{ fontSize: "65px" }}
-              />
-              <Box sx={{display:'flex', flexDirection:'column', textAlign:'start'}}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                width: "52vh",
+                justifyContent: "space-around",
+              }}
+            >
+              <PersonSearchIcon sx={{ fontSize: "65px" }} />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "start",
+                }}
+              >
                 <Typography
                   variant="h2"
                   style={{
@@ -496,7 +616,8 @@ const AboutUs = () => {
                     marginBottom: "10px",
                     fontSize: "70px",
                   }}
-                >18
+                >
+                  <CounterUp prop={18} />
                 </Typography>
                 <Typography
                   variant="h5"
@@ -504,7 +625,8 @@ const AboutUs = () => {
                     color: colors.darkGreen[100],
                     fontWeight: "400",
                   }}
-                >Expert System
+                >
+                  Expert System
                 </Typography>
               </Box>
             </Box>
@@ -512,6 +634,66 @@ const AboutUs = () => {
           {/* End */}
 
           {/* Founder Intro Success */}
+
+          {/* <Box sx={{ width: "85%", margin: "auto", marginTop: "50px" }}>
+          <Grid container spacing={6}>
+            {aboutOwner && aboutOwner.length > 0 && aboutOwner.map((about) => (
+                <Grid item xs={12} sm={6} md={4} lg={4} key={about.id}>
+                  <Box
+                    sx={{
+                      backgroundColor: colors.darkblue[200],
+                      width: { sm: "55%", md: "40%", lg: "40%" },
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "start",
+                      marginLeft: "10px",
+                      padding: "20px",
+                      marginBottom: {
+                        xs: "15px",
+                        sm: "15px",
+                        md: "0px",
+                        lg: "0px",
+                      },
+                    }}
+                  >
+                    <img
+                      alt="profile-user"
+                      width="100%"
+                      height="100%"
+                      src={about.image}
+                      style={{
+                        cursor: "pointer",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    />
+                    <Typography
+                      variant="h5"
+                      style={{
+                        color: colors.darkGreen[100],
+                        fontWeight: "400",
+                        marginBottom: "10px",
+                        borderLeft: `2px solid ${colors.yellow[100]}`,
+                        paddingLeft: "10px",
+                      }}
+                    >
+                      {about.name}
+                      <Typography
+                        variant="h6"
+                        style={{
+                          color: colors.yellow[100],
+                          fontWeight: "700",
+                        }}
+                      >
+                        {about.designation}
+                      </Typography>
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+          </Grid>
+          </Box> */}
+
           <Box
             sx={{
               display: "flex",

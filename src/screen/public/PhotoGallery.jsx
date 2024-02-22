@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 const PhotoGallery = () => {
   return (
     <Layout>
-      <Box sx={{marginTop:'15px'}}>
+      <Box sx={{marginTop:'130px', marginBottom:'100px'}}>
         <PhotoGalleryComponent/>
       </Box>
     </Layout>

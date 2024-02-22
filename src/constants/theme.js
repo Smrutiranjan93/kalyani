@@ -23,6 +23,7 @@ export const tokens = (mode) => ({
         yellow: {
           100: "#ffd700", // main
           200: "#e0b027", // text color
+          300: "#bf953f",  // golden
         },
       }
     : {
@@ -44,6 +45,7 @@ export const tokens = (mode) => ({
         yellow: {
           100: "#ffd700", // main
           200: "#e0b027", // text color
+          300: "#bf953f",  // golden
         },
       }),
 });
@@ -51,33 +53,32 @@ export const tokens = (mode) => ({
 //mui theme settings
 
 export const themeSettings = (mode) => {
-
   return {
     typography: {
-      fontFamily: ["Cairo", "Sans-serif"].join(","),
-      fontSize: 12,
+      fontFamily: ['Playfair Display', 'serif'].join(","),
+      fontSize: 14,
       h1: {
-        fontFamily: ["Cairo", "Sans-serif"].join(","),
-        fontSize: 40,
+        fontFamily: ['Kaushan Script', 'cursive'].join(","),
+        fontSize: 100,
       },
       h2: {
-        fontFamily: ["Cairo", "Sans-serif"].join(","),
+        fontFamily: ['Playfair Display', 'serif'].join(","),
         fontSize: 32,
       },
       h3: {
-        fontFamily: ["Cairo", "Sans-serif"].join(","),
+        fontFamily: ['Playfair Display', 'serif'].join(","),
         fontSize: 24,
       },
       h4: {
-        fontFamily: ["Cairo", "Sans-serif"].join(","),
+        fontFamily: ['Playfair Display', 'serif'].join(","),
         fontSize: 18,
       },
       h5: {
-        fontFamily: ["Cairo", "Sans-serif"].join(","),
+        fontFamily: ['Playfair Display', 'serif'].join(","),
         fontSize: 16,
       },
       h6: {
-        fontFamily: ["Cairo", "Sans-serif"].join(","),
+        fontFamily: ['Playfair Display', 'serif'].join(","),
         fontSize: 12,
       },
     },

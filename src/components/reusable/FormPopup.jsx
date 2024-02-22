@@ -51,7 +51,7 @@ const PopupForm = ({ open, onClose }) => {
     };
 
     try {
-      const loginResponse = await POSTNETWORK(ApiUrl.LOGIN_URL, loginPayload);
+      const loginResponse = await POSTNETWORK(ApiUrl.CONTACT_URL, loginPayload);
       if (loginResponse.status) {
         console.log("Login successful:", loginResponse);
         setOpenSnackbar(true);
@@ -72,6 +72,7 @@ const PopupForm = ({ open, onClose }) => {
     }, 2000);
     
   };
+  
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
   };
@@ -84,6 +85,34 @@ const PopupForm = ({ open, onClose }) => {
         md: 900,
         lg: 1280,
         xl: 1920,
+      },
+    },
+    typography: {
+      fontFamily: ['Playfair Display', 'serif'].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ['Kaushan Script', 'cursive'].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 18,
+      },
+      h5: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 12,
       },
     },
   });
@@ -103,10 +132,13 @@ const PopupForm = ({ open, onClose }) => {
       </DialogTitle>
       <DialogContent sx={{textAlign:'center'}}>
         <Typography
-          variant="h4"
+          variant="h2"
           fontWeight="700"
           sx={{
-            color: colors.yellow[100],
+            background: (theme) => `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                display: 'inline-block',
             marginBottom: "40px",
           }}
         >

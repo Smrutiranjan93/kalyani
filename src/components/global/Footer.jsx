@@ -28,12 +28,39 @@ const FirstFooter = () => {
         xl: 1920,
       },
     },
+    typography: {
+      fontFamily: ["Playfair Display", "serif"].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ["Kaushan Script", "cursive"].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 14,
+      },
+      h6: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 13,
+      },
+    },
   });
   return (
     <ThemeProvider theme={styleTheme}>
       <footer
         style={{
-          marginTop: "50px",
           backgroundColor: colors.darkGreen[100],
           padding: "20px 0",
         }}
@@ -54,9 +81,14 @@ const FirstFooter = () => {
               }}
             >
               <Typography
-                variant="h5"
+                variant="h3"
                 fontWeight="bold"
-                style={{ color: colors.yellow[100] }}
+                sx={{ 
+                  background: (theme) => `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                display: 'inline-block',
+                }}
               >
                 QUICK LINKS
               </Typography>
@@ -69,78 +101,98 @@ const FirstFooter = () => {
                 }}
               >
                 <Typography
-                  variant="p"
+                  variant="h6"
                   sx={{ color: colors.white[100], marginBottom: "5px" }}
                 >
                   <Link
                     href={"/"}
-                    style={{
+                    sx={{
                       textDecoration: "none",
                       color: "white",
+                      '&:hover': {
+                        textDecoration: "none",
+                        color: colors.yellow[300],
+                      }
                     }}
                   >
                     {" "}
-                    HOME{" "}
+                    Home{" "}
                   </Link>
                 </Typography>
                 <Typography
-                  variant="p"
+                  variant="h6"
                   sx={{ color: colors.white[100], marginBottom: "5px" }}
                 >
                   <Link
                     href={"/amentities"}
-                    style={{
+                    sx={{
                       textDecoration: "none",
                       color: "white",
+                      '&:hover': {
+                        textDecoration: "none",
+                        color: colors.yellow[300],
+                      }
                     }}
                   >
                     {" "}
-                    AMENTITIES{" "}
+                    Amentities{" "}
                   </Link>
                 </Typography>
                 <Typography
-                  variant="p"
+                  variant="h6"
                   sx={{ color: colors.white[100], marginBottom: "5px" }}
                 >
                   <Link
                     href={"/photo-gallery"}
-                    style={{
+                    sx={{
                       textDecoration: "none",
                       color: "white",
+                      '&:hover': {
+                        textDecoration: "none",
+                        color: colors.yellow[300],
+                      }
                     }}
                   >
                     {" "}
-                    PHOTO GALLERY{" "}
+                    Photo Gallery{" "}
                   </Link>
                 </Typography>
                 <Typography
-                  variant="p"
+                  variant="h6"
                   sx={{ color: colors.white[100], marginBottom: "5px" }}
                 >
                   <Link
                     href={"/about-us"}
-                    style={{
+                    sx={{
                       textDecoration: "none",
                       color: "white",
+                      '&:hover': {
+                        textDecoration: "none",
+                        color: colors.yellow[300],
+                      }
                     }}
                   >
                     {" "}
-                    ABOUT US{" "}
+                    About Us{" "}
                   </Link>
                 </Typography>
                 <Typography
-                  variant="p"
+                  variant="h6"
                   sx={{ color: colors.white[100], marginBottom: "5px" }}
                 >
                   <Link
                     href={"/contact-us"}
-                    style={{
+                    sx={{
                       textDecoration: "none",
                       color: "white",
+                      '&:hover': {
+                        textDecoration: "none",
+                        color: colors.yellow[300],
+                      }
                     }}
                   >
                     {" "}
-                    CONTACT US{" "}
+                    Contact Us{" "}
                   </Link>
                 </Typography>
               </Box>
@@ -177,7 +229,7 @@ const FirstFooter = () => {
                   />
                 </Box>
 
-                <Typography variant="p" style={{ color: colors.white[100] }}>
+                <Typography variant="h5" style={{ color: colors.white[100] }}>
                   Coastal elegance meets modern living in Puri, Odisha.
                   Experience serenity by the sea and elevate your lifestyle with
                   timeless sophistication.
@@ -186,27 +238,27 @@ const FirstFooter = () => {
                   {/* Twitter */}
                   <Link href="https://twitter.com/BivabOfficial">
                     <TwitterIcon
-                      sx={{ color: colors.yellow[100], marginRight: "22px" }}
+                      sx={{ color: colors.yellow[300], marginRight: "22px" }}
                     />
                   </Link>
 
                   {/* Facebook */}
                   <Link href="https://www.facebook.com/BivabDevelopers/">
                     <FacebookIcon
-                      sx={{ color: colors.yellow[100], marginRight: "22px" }}
+                      sx={{ color: colors.yellow[300], marginRight: "22px" }}
                     />
                   </Link>
 
                   {/* Instagram */}
                   <Link href="https://www.instagram.com/bivab_developers/">
                     <InstagramIcon
-                      sx={{ color: colors.yellow[100], marginRight: "22px" }}
+                      sx={{ color: colors.yellow[300], marginRight: "22px" }}
                     />
                   </Link>
 
                   {/* Youtube */}
                   <Link href="https://www.youtube.com/@bivabyashila">
-                    <YouTubeIcon sx={{ color: colors.yellow[100] }} />
+                    <YouTubeIcon sx={{ color: colors.yellow[300] }} />
                   </Link>
                 </Box>
               </Box>
@@ -220,15 +272,21 @@ const FirstFooter = () => {
                 }}
               >
                 <Typography
-                  variant="h5"
+                  variant="h3"
                   fontWeight="bold"
-                  style={{ color: colors.yellow[100], marginBottom: "12px" }}
+                  sx={{ background: (theme) => `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent', marginBottom: "12px" }}
                 >
                   CONTACT INFO
                 </Typography>
                 <Box
                   sx={{
                     marginLeft: { xs: "0px", sm: "27%", md: "27%", lg: "27%" },
+                    textAlign:{xs:'center', sm:'left', md:'left', lg:'left'},
+                    display:'flex',
+                    flexDirection:'column',
+                    alignItems:{xs:'center', sm:'center', md:'start', lg:'start'}
                   }}
                 >
                   <Box sx={{ display: "flex", marginBottom: "12px" }}>
@@ -236,12 +294,12 @@ const FirstFooter = () => {
                         href="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
                         style={{
                           textDecoration: "none",
-                          color: colors.white[100],
+                          color: colors.white[300],
                         }}
                       >
                         <PinDropIcon
                       sx={{
-                        color: colors.yellow[100],
+                        color: colors.yellow[300],
                         marginRight: {
                           xs: "0px",
                           sm: "10px",
@@ -252,14 +310,18 @@ const FirstFooter = () => {
                     />
                       </Link>
                     <Typography
-                      variant="p"
+                      variant="h6"
                       style={{ color: colors.white[100] }}
                     >
                       <Link
                         href="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
-                        style={{
+                        sx={{
                           textDecoration: "none",
-                          color: colors.white[100],
+                          color: "white",
+                          '&:hover': {
+                            textDecoration: "none",
+                            color: colors.yellow[300],
+                          }
                         }}
                       >
                         4th Floor, Bivab Gulmohar Commercial Nayapalli,
@@ -270,18 +332,32 @@ const FirstFooter = () => {
 
                   <Box sx={{ display: "flex", marginBottom: "12px" }}>
                     <PhoneOutlinedIcon
-                      sx={{ color: colors.yellow[100], marginRight: "10px" }}
+                      sx={{ color: colors.yellow[300], marginRight: "10px" }}
                     />
                     <Typography
-                      variant="p"
+                      variant="h6"
                       style={{ color: colors.white[100] }}
                     >
-                      <Link href="tel:+917381097302" color="inherit" style={{textDecoration:'none'}}>
-                      +91 7381097302
+                      <Link href="tel:+917381097302" color="inherit" sx={{
+                          textDecoration: "none",
+                          color: "white",
+                          '&:hover': {
+                            textDecoration: "none",
+                            color: colors.yellow[300],
+                          }
+                        }}>
+                        +91 7381097302
                       </Link>{" "}
                       /{" "}
-                      <Link href="tel:+917381262666" color="inherit" style={{textDecoration:'none'}}>
-                            7381262666
+                      <Link href="tel:+917381262666" color="inherit" sx={{
+                          textDecoration: "none",
+                          color: "white",
+                          '&:hover': {
+                            textDecoration: "none",
+                            color: colors.yellow[300],
+                          }
+                        }}>
+                        7381262666
                       </Link>
                     </Typography>
                   </Box>
@@ -292,25 +368,29 @@ const FirstFooter = () => {
                           color: colors.white[100],
                         }}
                         rel="stylesheet"
-                        href="mailto:info@bivabdevelopers.com"
+                        href="mailto:sales@bivabyashila.com"
                       >
                         <EmailOutlinedIcon
-                      sx={{ color: colors.yellow[100], marginRight: "10px" }}
+                      sx={{ color: colors.yellow[300], marginRight: "10px" }}
                     />
                       </Link>
                     <Typography
-                      variant="p"
-                      style={{ color: colors.white[100] }}
+                      variant="h6"
+                      sx={{ color: colors.white[100], }}
                     >
                       <Link
-                        style={{
+                        sx={{
                           textDecoration: "none",
-                          color: colors.white[100],
+                          color: "white",
+                          '&:hover': {
+                            textDecoration: "none",
+                            color: colors.yellow[300],
+                          }
                         }}
                         rel="stylesheet"
-                        href="mailto:info@bivabdevelopers.com"
+                        href="mailto:sales@bivabyashila.com"
                       >
-                        info@bivabdevelopers.com
+                        sales@bivabyashila.com
                       </Link>
                     </Typography>
                   </Box>
@@ -327,12 +407,53 @@ const FirstFooter = () => {
 const SecondFooter = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const styleTheme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1280,
+        xl: 1920,
+      },
+    },
+    typography: {
+      fontFamily: ["Playfair Display", "serif"].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ["Kaushan Script", "cursive"].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 12,
+      },
+    },
+  });
   return (
+    <ThemeProvider theme={styleTheme}>
     <footer
       style={{
-        backgroundColor: colors.darkblue[100],
-        color: colors.white[100],
-        padding: "20px 0",
+        background:
+              "linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
+        color: colors.darkGreen[100],
+        padding: "10px 0",
       }}
     >
       <Container
@@ -343,12 +464,13 @@ const SecondFooter = () => {
           alignItems: "center",
         }}
       >
-        <Typography variant="h6">
+        <Typography variant="h6" fontWeight="700">
           Copyright ©2021 Bivab Developers (P) Limited. All Rights Reserved. |
           Privacy Policy | Sitemap | Created by brandflik
         </Typography>
       </Container>
     </footer>
+    </ThemeProvider>
   );
 };
 

@@ -59,7 +59,7 @@ const ContactUs = () => {
     };
 
     try {
-      const loginResponse = await POSTNETWORK(ApiUrl.LOGIN_URL, loginPayload);
+      const loginResponse = await POSTNETWORK(ApiUrl.CONTACT_URL, loginPayload);
       if (loginResponse.status) {
         console.log("Login successful:", loginResponse);
         setOpenSnackbar(true);
@@ -89,12 +89,40 @@ const ContactUs = () => {
         xl: 1920,
       },
     },
+    typography: {
+      fontFamily: ["Playfair Display", "serif"].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 64,
+      },
+      h3: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 18,
+      },
+      h6: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 15,
+      },
+    },
   });
 
   return (
     <Layout>
       <ThemeProvider theme={styleTheme}>
-        <Box>
+        <Box sx={{marginBottom:'50px'}}>
           {/* Intro bg Details */}
           <Box
             sx={{
@@ -265,11 +293,11 @@ const ContactUs = () => {
                       style={{ color: colors.darkblue[100] }}
                     >
                       <Link to="tel:+917381097302" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                      +91 7381097302
+                        +91 7381097302
                       </Link>{" "}
                       /{" "}
                       <Link to="tel:+917381262666" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                          7381262666
+                        7381262666
                       </Link>
                     </Typography>
                 </Typography>

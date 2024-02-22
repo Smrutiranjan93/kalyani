@@ -48,6 +48,34 @@ const AmentitiesComponent = () => {
         xl: 1920,
       },
     },
+    typography: {
+      fontFamily: ['Playfair Display', 'serif'].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ['Kaushan Script', 'cursive'].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ['Playfair Display', 'serif'].join(","),
+        fontSize: 12,
+      },
+    },
   });
 
   return (
@@ -59,16 +87,20 @@ const AmentitiesComponent = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "50px",
+              marginTop: "130px",
+              marginBottom:'50px',
               padding:'0px 50px',
-              background: `linear-gradient(to bottom, #0a3c2c 50%, #2a2c38 50%)`,
+              backgroundColor:colors.darkGreen[100]
             }}
           >
             <Typography
-              variant="h4"
+              variant="h2"
               fontWeight="700"
               sx={{
-                color: colors.white[100],
+                background: (theme) => `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+                display: 'inline-block',
                 marginBottom: "20px",
                 marginTop:'25px',
               }}
@@ -89,7 +121,7 @@ const AmentitiesComponent = () => {
                       margin:'10px 30px',
                       borderRadius:'15px',
                       "&:hover": {
-                        boxShadow: `0px 9px 0px 0px ${colors.yellow[100]}, 0px 0px 0px 0px ${colors.yellow[100]}, 0px 0px 0px 0px ${colors.yellow[100]}`,
+                        boxShadow: `0px 9px 0px 0px rgb(191, 149, 63)}, 0px 0px 0px 0px rgb(252, 246, 186), 0px 0px 0px 0px rgba(170, 119, 28, 0.82)`,
                       },
                     }}
                   >
@@ -97,14 +129,14 @@ const AmentitiesComponent = () => {
                       <Box sx={{ fontSize: 24, marginBottom: '2px', color:colors.yellow[100] }}>
                         {card.icon}
                       </Box>
-                      <Typography variant="h6" sx={{color:colors.white[100]}}>{card.text}</Typography>
+                      <Typography variant="h5" sx={{color:colors.white[100]}}>{card.text}</Typography>
                     </CardContent>
                   </Card>
                 </Grid>
               ))}
             </Grid>
             <Typography
-              variant="h4"
+              variant="h3"
               fontWeight="400"
               sx={{
                 color: colors.white[100],

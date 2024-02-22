@@ -4,7 +4,7 @@ import dataScene from "../../helpers/dataScene";
 
 export default function Scene() {
 
-  const [scene, setScene] = useState(dataScene["outsideHome"]);
+  const [scene, setScene] = useState(dataScene["pointTwo"]);
 
   const hotSpots = (Element,i) => {
     if(Element.cssClass === 'hotSpotElement') return (

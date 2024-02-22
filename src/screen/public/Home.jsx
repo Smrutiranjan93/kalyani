@@ -9,8 +9,12 @@ import {
   Snackbar,
 } from "@mui/material";
 import { tokens } from "../../constants/theme";
-import heroImage from "../../assets/images/hero-image-for-bivab.png";
-import ViewImage from "../../assets/images/view-2.jpeg";
+
+import heroImage from "../../assets/images/hero-image-for-bivab.jpg";
+import ViewImage from "../../assets/images/view-2.jpg";
+import ReraQRCode from "../../assets/images/rera-qrcode.jpeg";
+import ReraLogo from "../../assets/images/rera-logo.png";
+
 import React, { useState, useEffect } from "react";
 
 import AodIcon from "@mui/icons-material/Aod";
@@ -30,6 +34,7 @@ import ApiUrl from "../../utils/url";
 import AmentitiesComponent from "../../components/reusable/AmentitiesComponent";
 import PhotoGalleryComponent from "../../components/reusable/PhotoGalleryComponent";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Rera from "../../components/reusable/Rera";
 
 const Home = () => {
   const theme = useTheme();
@@ -63,7 +68,7 @@ const Home = () => {
     };
 
     try {
-      const loginResponse = await POSTNETWORK(ApiUrl.LOGIN_URL, loginPayload);
+      const loginResponse = await POSTNETWORK(ApiUrl.CONTACT_URL, loginPayload);
       if (loginResponse.status) {
         console.log("Login successful:", loginResponse);
         setOpenSnackbar(true);
@@ -108,6 +113,34 @@ const Home = () => {
         xl: 1920,
       },
     },
+    typography: {
+      fontFamily: ["Playfair Display", "serif"].join(","),
+      fontSize: 14,
+      h1: {
+        fontFamily: ["Kaushan Script", "cursive"].join(","),
+        fontSize: 100,
+      },
+      h2: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ["Playfair Display", "serif"].join(","),
+        fontSize: 12,
+      },
+    },
   });
 
   return (
@@ -115,6 +148,11 @@ const Home = () => {
       <ThemeProvider theme={styleTheme}>
         <FormProps open={showPopup} onClose={handleClosePopup} />
         <Box>
+          {/* ReRa Sticky side Botton */}
+          <Box>
+            <Rera />
+          </Box>
+
           {/* Hero Section */}
           <Box
             display="flex"
@@ -122,6 +160,7 @@ const Home = () => {
             justifyContent="center"
             textAlign="start"
             alignItems="start"
+            sx={{ marginTop: { xs: "12vh", sm: "12vh", md: "12vh", lg: "0" } }}
           >
             <img
               alt="profile-user"
@@ -135,29 +174,32 @@ const Home = () => {
               }}
             />
             <Typography
-              variant="h5"
+              variant="h1"
               fontWeight="400"
               sx={{
                 position: "absolute",
-                color: colors.darkGreen[100],
-                width: { xs: "60vw", sm: "35vw", md: "35vw", lg: "35vw" },
+                background: (theme) =>
+                  `linear-gradient(45deg, #0a3c2c, #1f5a23, #4d5062, #0a3c2c)`,
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                display: "inline-block",
+                width: { xs: "90vw", sm: "90vw", md: "36vw", lg: "36vw" },
                 zIndex: "1",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
-                fontSize: { xs: "15px", sm: "20px", md: "50px", lg: "50px" },
+                fontSize: { xs: "24px", sm: "35px", md: "54px", lg: "54px" },
                 marginLeft: "6vw",
-                fontFamily: "cursive",
               }}
             >
               Wake Up To The Sound Of Sea In The Land Of Lord
               <Typography
-                varient="h6"
-                fontWeight="700"
+                varient="h2"
+                fontWeight="400"
                 sx={{
-                  color: colors.black[200],
+                  color: colors.darkblue[100],
                   marginTop: "4vh",
-                  fontSize: { xs: "12px", sm: "15px", md: "18px", lg: "18px" },
+                  fontSize: { xs: "12px", sm: "15px", md: "20px", lg: "20px" },
                 }}
               >
                 Bivab Yashila where every sunrise is a melody, and every day is
@@ -167,7 +209,8 @@ const Home = () => {
                 variant="contained"
                 sx={{
                   color: colors.darkGreen[100],
-                  backgroundColor: colors.yellow[100],
+                  background:
+                    "linear-gradient(45deg, rgb(191, 149, 63), rgb(211, 204, 131), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
                   borderRadius: "9px",
                   fontWeight: "900",
                   marginTop: { xs: "10px", sm: "15px", md: "32px", lg: "32px" },
@@ -181,9 +224,11 @@ const Home = () => {
                   display: "flex",
                   alignItems: "center",
                   textAlign: "center",
+                  border: "none",
                   "&:hover": {
-                    color: colors.yellow[100],
+                    color: colors.white[100],
                     backgroundColor: colors.darkGreen[100],
+                    border: "none",
                   },
                 }}
                 onClick={handleOpenPopup}
@@ -196,35 +241,13 @@ const Home = () => {
           {/* Rera Website */}
           <Box
             sx={{
-              background: colors.yellow[100],
-              display: "flex",
+              background:
+                "linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
+              display: { xs: "none", sm: "none", md: "flex", lg: "flex" },
               alignItems: "center",
+              height: "20px",
             }}
-          >
-            <Typography
-              variant="h6"
-              fontWeight="700"
-              sx={{
-                color: colors.darkGreen[100],
-                display: "flex",
-                alignItems: "center",
-                marginLeft: "30px",
-              }}
-            >
-              <Link
-                target="_blank"
-                href="https://pacms.orera.in/PromoterDetails/pdfviewNew/1302"
-                sx={{
-                  alignItems: "center",
-                  display: "flex",
-                  textDecoration: "none",
-                  color: colors.darkblue[100],
-                }}
-              >
-                RERA &nbsp; <ArrowForwardIcon /> &nbsp; MP/26/23/01025
-              </Link>
-            </Typography>
-          </Box>
+          ></Box>
 
           {/* About Section */}
           <Box
@@ -232,102 +255,119 @@ const Home = () => {
               display: "flex",
               backgroundColor: colors.darkGreen[100],
               padding: "100px 50px",
+              flexDirection: "column",
             }}
           >
             <Box
               sx={{
-                marginRight: "20px",
                 display: "flex",
-                flexDirection: "column",
+                flexDirection: {
+                  xs: "column",
+                  sm: "column",
+                  md: "row",
+                  lg: "row",
+                },
               }}
             >
-              <Typography
-                variant="h6"
-                fontWeight="700"
+              <Box
                 sx={{
-                  color: colors.white[100],
-                  marginBottom: "15px",
+                  marginRight: "20px",
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
-                Why Our Company Is The Perfect Partner For You?
-              </Typography>
-              <Typography
-                variant="h6"
-                fontWeight="700"
-                sx={{
-                  color: colors.yellow[100],
-                  marginBottom: "15px",
-                }}
-              >
-                TALK TO AN EXPERT
-              </Typography>
-              <Typography
-                variant="p"
-                fontWeight="400"
-                sx={{
-                  color: colors.white[100],
-                  marginBottom: "15px",
-                }}
-              >
-                Welcome to BIVAB® Yashila, a distinctive residential enclave in
-                the heart of Puri, Odisha. Boasting over 300 meticulously
-                crafted apartments, BIVAB Yashila is set to redefine modern
-                living in this serene coastal town.
-              </Typography>
-              <Typography
-                variant="p"
-                fontWeight="400"
-                sx={{
-                  color: colors.white[100],
-                  marginBottom: "15px",
-                }}
-              >
-                Nestled in the tranquil ambiance of Puri, our latest project
-                reflects the essence of luxury, comfort, and innovation. BIVAB
-                Yashila is more than just a collection of homes; it’s a
-                lifestyle curated for those who seek the perfect blend of
-                tranquility and convenience.
-              </Typography>
-            </Box>
-            <Box display="flex" flexDirection="column">
-              <Typography
-                variant="p"
-                fontWeight="400"
-                sx={{
-                  color: colors.white[100],
-                  marginBottom: "15px",
-                }}
-              >
-                Discover a harmonious living experience with thoughtfully
-                designed spaces, modern amenities, and a scenic backdrop that
-                echoes the spirit of Puri. Each apartment at BIVAB Yashila is a
-                testament to our commitment to quality and excellence.
-              </Typography>
-              <Typography
-                variant="p"
-                fontWeight="400"
-                sx={{
-                  color: colors.white[100],
-                  marginBottom: "15px",
-                }}
-              >
-                Immerse yourself in the coastal charm of Puri and elevate your
-                living standards with BIVAB Yashila. Your dream home awaits in
-                this coastal paradise, where the beauty of the surroundings
-                meets the sophistication of modern architecture.
-              </Typography>
-              <Typography
-                variant="p"
-                fontWeight="400"
-                sx={{
-                  color: colors.white[100],
-                  marginBottom: "15px",
-                }}
-              >
-                Explore the allure of Puri living at BIVAB Yashila—where home is
-                not just a place; it’s an experience. Welcome to a new era of
-                residential excellence.
-              </Typography>
+                <Typography
+                  variant="h3"
+                  fontWeight="700"
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "15px",
+                  }}
+                >
+                  Why Our Company Is The Perfect Partner For You?
+                </Typography>
+                <Typography
+                  variant="h4"
+                  fontWeight="900"
+                  sx={{
+                    background: (theme) =>
+                      `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                    WebkitBackgroundClip: "text",
+                    color: "transparent",
+                    display: "inline-block",
+                    marginBottom: "15px",
+                  }}
+                >
+                  TALK TO AN EXPERT
+                </Typography>
+                <Typography
+                  variant="p"
+                  fontWeight="400"
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "15px",
+                  }}
+                >
+                  Welcome to BIVAB® Yashila, a distinctive residential enclave
+                  in the heart of Puri, Odisha. Boasting over 300 meticulously
+                  crafted apartments, BIVAB Yashila is set to redefine modern
+                  living in this serene coastal town.
+                </Typography>
+                <Typography
+                  variant="p"
+                  fontWeight="400"
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "15px",
+                  }}
+                >
+                  Nestled in the tranquil ambiance of Puri, our latest project
+                  reflects the essence of luxury, comfort, and innovation. BIVAB
+                  Yashila is more than just a collection of homes; it’s a
+                  lifestyle curated for those who seek the perfect blend of
+                  tranquility and convenience.
+                </Typography>
+              </Box>
+              <Box display="flex" flexDirection="column">
+                <Typography
+                  variant="p"
+                  fontWeight="400"
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "15px",
+                  }}
+                >
+                  Discover a harmonious living experience with thoughtfully
+                  designed spaces, modern amenities, and a scenic backdrop that
+                  echoes the spirit of Puri. Each apartment at BIVAB Yashila is
+                  a testament to our commitment to quality and excellence.
+                </Typography>
+                <Typography
+                  variant="p"
+                  fontWeight="400"
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "15px",
+                  }}
+                >
+                  Immerse yourself in the coastal charm of Puri and elevate your
+                  living standards with BIVAB Yashila. Your dream home awaits in
+                  this coastal paradise, where the beauty of the surroundings
+                  meets the sophistication of modern architecture.
+                </Typography>
+                <Typography
+                  variant="p"
+                  fontWeight="400"
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "15px",
+                  }}
+                >
+                  Explore the allure of Puri living at BIVAB Yashila—where home
+                  is not just a place; it’s an experience. Welcome to a new era
+                  of residential excellence.
+                </Typography>
+              </Box>
             </Box>
           </Box>
 
@@ -342,10 +382,10 @@ const Home = () => {
             }}
           >
             <Typography
-              variant="h4"
+              variant="h2"
               fontWeight="700"
               sx={{
-                color: colors.black[100],
+                color: colors.darkblue[100],
                 marginBottom: "30px",
               }}
             >
@@ -385,21 +425,30 @@ const Home = () => {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundAttachment: "fixed",
+              padding: {
+                xs: "30px 60px",
+                sm: "30px 60px",
+                md: "0px 0px",
+                lg: "0px 0px",
+              },
             }}
           >
             <Box
               sx={{ width: { xs: "100%", sm: "100%", md: "50vw", lg: "50vw" } }}
             >
               <Typography
-                variant="h6"
-                fontWeight="700"
+                variant="h3"
+                fontWeight="900"
                 sx={{
-                  color: colors.yellow[100],
+                  background: (theme) =>
+                    `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
                   marginBottom: "20px",
                   filter: "brightness(100%)",
                 }}
               >
-                BIVAB Yashila Commercial
+                BIVAB YASHILA COMMERCIAL
               </Typography>
               <Typography
                 variant="p"
@@ -409,7 +458,7 @@ const Home = () => {
                   filter: "brightness(100%)",
                 }}
               >
-                BIVAB Yashila Commercial redefines business in Puri with a prime
+                Bivab Yashila Commercial redefines business in Puri with a prime
                 location designed for success. Our commercial spaces offer a
                 strategic address, merging coastal allure with professional
                 efficacy. Elevate your enterprise in an environment that fosters
@@ -425,7 +474,9 @@ const Home = () => {
           <AmentitiesComponent />
 
           {/* GALLERY Section */}
-          <PhotoGalleryComponent />
+          <Box sx={{ marginTop: "50px", marginBottom: "100px" }}>
+            <PhotoGalleryComponent />
+          </Box>
 
           {/* Location Section */}
           <Box
@@ -440,7 +491,7 @@ const Home = () => {
             }}
           >
             <Typography
-              variant="h4"
+              variant="h2"
               fontWeight="700"
               sx={{
                 color: colors.black[100],
@@ -454,7 +505,7 @@ const Home = () => {
                 loading="lazy"
                 width="100%"
                 height="400px"
-                src="https://maps.google.com/maps?q=Bivab%20Yashila%2C%20Puri&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d938.5006152970777!2d85.806047!3d19.797493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c59cd6659919%3A0x3660000eaa52d5a5!2sPuri%20Project%20Bivab%20yashila!5e0!3m2!1sen!2sus!4v1708447147554!5m2!1sen!2sus"
                 title="Bivab Yashila, Puri"
                 aria-label="Bivab Yashila, Puri"
               ></iframe>
@@ -479,330 +530,526 @@ const Home = () => {
                 md: "row",
                 lg: "row",
               },
+              marginBottom:'50px'
             }}
           >
-            <Box>
-              <Typography
-                variant="h6"
-                fontWeight="700"
-                sx={{
-                  color: colors.darkGreen[100],
-                  marginBottom: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <AodIcon sx={{ fontSize: "40px", marginRight: "15px" }} />
-                Free Quote
-              </Typography>
-              <Typography
-                variant="h4"
-                fontWeight="700"
-                sx={{
-                  color: colors.darkGreen[100],
-                  marginBottom: "50px",
-                }}
-              >
-                Feel Free To Ask Any Questions To Us
-              </Typography>
-              <Box>
-                <Typography
-                  variant="p"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Link
-                    href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
-                    style={{
-                      textDecoration: "none",
-                      color: colors.darkGreen[100],
-                    }}
-                  >
-                    <ExploreIcon sx={{ fontSize: "24px", marginRight: "15px" }} />
-                  </Link>
-                  
-                  <Link
-                    href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
-                    style={{
-                      textDecoration: "none",
-                      color: colors.darkGreen[100],
-                    }}
-                  >
-                    Bivab Yashila, Puri
-                  </Link>
-                </Typography>
-                <Typography
-                  variant="p"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <ContactsIcon
-                    sx={{ fontSize: "24px", marginRight: "15px" }}
-                  />
-                  <Typography
-                    variant="p"
-                    style={{ color: colors.darkblue[100] }}
-                  >
-                    <Link
-                      href="tel:+917381097302"
-                      style={{
-                        textDecoration: "none",
-                        color: colors.darkGreen[100],
-                        fontWeight: 700,
-                      }}
-                    >
-                      +91 7381097302
-                    </Link>{" "}
-                    /{" "}
-                    <Link
-                      href="tel:+917381262666"
-                      style={{
-                        textDecoration: "none",
-                        color: colors.darkGreen[100],
-                        fontWeight: 700,
-                      }}
-                    >
-                      7381262666
-                    </Link>
-                  </Typography>
-                </Typography>
-                <Typography
-                  variant="p"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <AccessTimeFilledIcon
-                    sx={{ fontSize: "24px", marginRight: "15px" }}
-                  />
-                  Mon - Sat: 9:00am - 6:00pm
-                </Typography>
-                <Typography
-                  variant="p"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: colors.darkGreen[100],
-                    }}
-                    href="mailto:info@bivabdevelopers.com"
-                  >
-                    <MarkEmailReadIcon
-                    sx={{ fontSize: "24px", marginRight: "15px" }}
-                  />
-                  </Link>
-                  
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: colors.darkGreen[100],
-                    }}
-                    href="mailto:info@bivabdevelopers.com"
-                  >
-                    sales@bivabyashila.com
-                  </Link>
-                </Typography>
-              </Box>
-            </Box>
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-                marginLeft: { xs: "0px", sm: "0px", md: "50px", lg: "50px" },
+                width: { xs: "100%", sm: "100%", md: "70%", lg: "70%" },
+                marginRight: "20px",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                borderRadius: "20px",
+                flexDirection: {
+                  xs: "column",
+                  sm: "column",
+                  md: "row",
+                  lg: "row",
+                },
+                marginBottom: { xs: "20px", sm: "20px", md: "0px", lg: "0px" },
               }}
             >
-              {/* Contact form */}
-              <Snackbar
-                open={openSnackbar}
-                autoHideDuration={2000}
-                onClose={handleCloseSnackbar}
-                message="Form submitted successfully!"
+              {/* Section One */}
+              <Box
                 sx={{
-                  color: "#FFFFFF",
-                  position: "relative",
-
-                  "& .MuiSnackbarContent-message": {
-                    flex: "auto",
+                  backgroundColor: colors.darkGreen[100],
+                  color: colors.white[100],
+                  borderTopLeftRadius: "20px",
+                  borderBottomLeftRadius: "20px",
+                  borderTopRightRadius: {
+                    xs: "20px",
+                    sm: "20px",
+                    md: "0px",
+                    lg: "0px",
                   },
+                  borderBottomRightRadius: {
+                    xs: "20px",
+                    sm: "20px",
+                    md: "0px",
+                    lg: "0px",
+                  },
+                  padding: "20px",
+                  width: { xs: "95vw", sm: "95vw", md: "50vw", lg: "50vw" },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
                 }}
-              />
-              <form onSubmit={handelContact}>
-                <Grid container spacing={2}>
-                  {/* First Row */}
-                  <Grid item xs={6}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                  </Grid>
-
-                  {/* Second Row */}
-                  <Grid item xs={12}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Grid>
-
-                  {/* Third Row */}
-                  <Grid item xs={12}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                          borderRadius: "10px",
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                    />
-                  </Grid>
-
-                  {/* Fourth Row */}
-                  <Grid
-                    item
-                    xs={12}
+              >
+                <Typography
+                  variant="h3"
+                  fontWeight="700"
+                  sx={{
+                    marginBottom: "50px",
+                    color: colors.white[100],
+                  }}
+                >
+                  Feel Free To Ask Any Questions To Us
+                </Typography>
+                <Box>
+                  <Typography
+                    variant="p"
+                    fontWeight="700"
                     sx={{
+                      color: colors.white[100],
+                      marginBottom: "20px",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center",
                     }}
                   >
-                    <Button
-                      variant="contained"
-                      sx={{
-                        width: "10vw",
-                        color: colors.darkGreen[100],
-                        backgroundColor: colors.white[100],
-                        fontWeight: "bold",
-                        "&:hover": {
-                          color: colors.darkGreen[100],
-                          backgroundColor: colors.yellow[100],
-                        },
+                    <Link
+                      href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                      style={{
+                        textDecoration: "none",
+                        color: colors.yellow[300],
                       }}
-                      type="submit"
                     >
-                      Submit
-                    </Button>
-                  </Grid>
+                      <ExploreIcon
+                        sx={{ fontSize: "24px", marginRight: "15px" }}
+                      />
+                    </Link>
 
-                  {/* Display error message */}
-                  {formError && (
+                    <Link
+                      href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                      style={{
+                        textDecoration: "none",
+                        color: colors.white[100],
+                      }}
+                    >
+                      Bivab Yashila, Puri
+                    </Link>
+                  </Typography>
+                  <Typography
+                    variant="p"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.yellow[300],
+                      marginBottom: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ContactsIcon
+                      sx={{ fontSize: "24px", marginRight: "15px" }}
+                    />
+                    <Typography
+                      variant="p"
+                      style={{ color: colors.white[100] }}
+                    >
+                      <Link
+                        href="tel:+917381097302"
+                        style={{
+                          textDecoration: "none",
+                          color: colors.white[100],
+                          fontWeight: 700,
+                        }}
+                      >
+                        +91 7381097302
+                      </Link>{" "}
+                      /{" "}
+                      <Link
+                        href="tel:+917381262666"
+                        style={{
+                          textDecoration: "none",
+                          color: colors.white[100],
+                          fontWeight: 700,
+                        }}
+                      >
+                        7381262666
+                      </Link>
+                    </Typography>
+                  </Typography>
+                  <Typography
+                    variant="p"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.white[100],
+                      marginBottom: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <AccessTimeFilledIcon
+                      sx={{
+                        fontSize: "24px",
+                        marginRight: "15px",
+                        color: colors.yellow[300],
+                      }}
+                    />
+                    Mon - Sat: 9:00am - 6:00pm
+                  </Typography>
+                  <Typography
+                    variant="p"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.white[100],
+                      marginBottom: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Link
+                      style={{
+                        textDecoration: "none",
+                        color: colors.yellow[300],
+                      }}
+                      href="mailto:info@bivabdevelopers.com"
+                    >
+                      <MarkEmailReadIcon
+                        sx={{ fontSize: "24px", marginRight: "15px" }}
+                      />
+                    </Link>
+
+                    <Link
+                      style={{
+                        textDecoration: "none",
+                        color: colors.white[100],
+                      }}
+                      href="mailto:info@bivabdevelopers.com"
+                    >
+                      sales@bivabyashila.com
+                    </Link>
+                  </Typography>
+                </Box>
+              </Box>
+
+              {/* Section Two */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                  marginLeft: { xs: "0px", sm: "0px", md: "50px", lg: "50px" },
+                  padding: "20px",
+                }}
+              >
+                {/* Contact form */}
+                <Snackbar
+                  open={openSnackbar}
+                  autoHideDuration={2000}
+                  onClose={handleCloseSnackbar}
+                  message="Form submitted successfully!"
+                  sx={{
+                    color: "#FFFFFF",
+                    position: "relative",
+
+                    "& .MuiSnackbarContent-message": {
+                      flex: "auto",
+                    },
+                  }}
+                />
+                <form onSubmit={handelContact}>
+                  <Grid container spacing={2}>
+                    {/* First Row */}
+                    <Grid item xs={12}>
+                      <TextField
+                        InputLabelProps={{
+                          sx: {
+                            color: colors.darkGreen[100],
+                          },
+                        }}
+                        variant="outlined"
+                        fullWidth
+                        sx={{
+                          backgroundColor: colors.darkblue[200],
+                          borderRadius: "10px",
+                          "& .MuiOutlinedInput-root": {
+                            "&:hover fieldset": {
+                              borderColor: colors.darkGreen[100], // Border color on hover
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: colors.darkblue[100], // Border color when focused
+                            },
+                          },
+                        }}
+                        placeholder="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </Grid>
+
+                    {/* Second Row */}
+                    <Grid item xs={12}>
+                      <TextField
+                        InputLabelProps={{
+                          sx: {
+                            color: colors.darkGreen[100],
+                          },
+                        }}
+                        variant="outlined"
+                        fullWidth
+                        sx={{
+                          backgroundColor: colors.darkblue[200],
+                          borderRadius: "10px",
+                          "& .MuiOutlinedInput-root": {
+                            "&:hover fieldset": {
+                              borderColor: colors.darkGreen[100], // Border color on hover
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: colors.darkblue[100], // Border color when focused
+                            },
+                          },
+                        }}
+                        placeholder="Phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </Grid>
+
+                    {/* Thirt Row */}
+                    <Grid item xs={12}>
+                      <TextField
+                        InputLabelProps={{
+                          sx: {
+                            color: colors.darkGreen[100],
+                          },
+                        }}
+                        variant="outlined"
+                        fullWidth
+                        sx={{
+                          backgroundColor: colors.darkblue[200],
+                          borderRadius: "10px",
+                          "& .MuiOutlinedInput-root": {
+                            "&:hover fieldset": {
+                              borderColor: colors.darkGreen[100], // Border color on hover
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: colors.darkblue[100], // Border color when focused
+                            },
+                          },
+                        }}
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </Grid>
+
+                    {/* Fourth Row */}
+                    <Grid item xs={12}>
+                      <TextField
+                        InputLabelProps={{
+                          sx: {
+                            color: colors.darkGreen[100],
+                            borderRadius: "10px",
+                          },
+                        }}
+                        variant="outlined"
+                        fullWidth
+                        sx={{
+                          backgroundColor: colors.darkblue[200],
+                          borderRadius: "10px",
+                          "& .MuiOutlinedInput-root": {
+                            "&:hover fieldset": {
+                              borderColor: colors.darkGreen[100], // Border color on hover
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: colors.darkblue[100], // Border color when focused
+                            },
+                          },
+                        }}
+                        placeholder="Message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                      />
+                    </Grid>
+
+                    {/* Fifth Row */}
                     <Grid
                       item
                       xs={12}
-                      sx={{ color: "red", textAlign: "center" }}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
                     >
-                      {formError}
+                      <Button
+                        variant="contained"
+                        sx={{
+                          width: "10vw",
+                          color: colors.darkGreen[100],
+                          backgroundColor: colors.white[100],
+                          fontWeight: "bold",
+                          "&:hover": {
+                            color: colors.darkGreen[100],
+                            backgroundColor: colors.yellow[100],
+                          },
+                        }}
+                        type="submit"
+                      >
+                        Submit
+                      </Button>
                     </Grid>
-                  )}
-                </Grid>
-              </form>
+
+                    {/* Display error message */}
+                    {formError && (
+                      <Grid
+                        item
+                        xs={12}
+                        sx={{ color: "red", textAlign: "center" }}
+                      >
+                        {formError}
+                      </Grid>
+                    )}
+                  </Grid>
+                </form>
+              </Box>
+            </Box>
+
+            {/* Section Three */}
+            <Box
+              sx={{
+                width: { xs: "100%", sm: "100%", md: "30%", lg: "30%" },
+                marginRight: "20px",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                borderRadius: "20px",
+                padding: "20px",
+                display: "flex",
+                flexDirection: {xs:'column',sm:'row', md:'column', lg:'column' },
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "30px",
+                  width: {xs:'100%',sm:'50%', md:'100%', lg:'100%' }
+                }}
+              >
+                <Link
+                  target="_blank"
+                  href="https://pacms.orera.in/PromoterDetails/pdfviewNew/1302"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    color: colors.darkblue[100],
+                    "&:hover": {
+                      textDecoration: "none",
+                      color: "black",
+                    },
+                  }}
+                >
+                  <img
+                    alt="profile-user"
+                    width="100%"
+                    height="100%"
+                    src={ReraQRCode}
+                    style={{
+                      cursor: "pointer",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  />
+                </Link>
+
+                <Link
+                  target="_blank"
+                  href="https://pacms.orera.in/PromoterDetails/pdfviewNew/1302"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    color: colors.darkblue[100],
+                    "&:hover": {
+                      textDecoration: "none",
+                      color: "black",
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.darkGreen[100],
+                      display: "flex",
+                      alignItems: "center",
+                      marginLeft: "30px",
+                      overflowX: "auto",
+                      scrollBehavior: "smooth",
+                    }}
+                  >
+                    ORERA MP/26/23/01025 &nbsp;
+                  </Typography>
+                </Link>
+              </Box>
+              {/* rera website link */}
+              <Box
+                sx={{
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <Box>
+                  <Link
+                    target="_blank"
+                    href="https://pacms.orera.in"
+                    sx={{
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      color: colors.yellow[300],
+                      "&:hover": {
+                        textDecoration: "none",
+                        color: "black",
+                      },
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      fontWeight="700"
+                      sx={{
+                        color: colors.darkblue[100],
+                        display: "flex",
+                        alignItems: "center",
+                        marginLeft: "30px",
+                        overflowX: "auto",
+                        scrollBehavior: "smooth",
+                      }}
+                    >
+                      www.pacms.orera.in
+                    </Typography>
+                  </Link>
+                </Box>
+
+                <Box sx={{ padding: "30px" }}>
+                  <Link
+                    target="_blank"
+                    href="https://pacms.orera.in/PromoterDetails/pdfviewNew/1302"
+                    sx={{
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      color: colors.darkblue[100],
+                      "&:hover": {
+                        textDecoration: "none",
+                        color: "black",
+                      },
+                    }}
+                  >
+                    <img
+                      alt="profile-user"
+                      width="100%"
+                      height="100%"
+                      src={ReraLogo}
+                      style={{
+                        cursor: "pointer",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    />
+                  </Link>
+                </Box>
+              </Box>
             </Box>
           </Box>
         </Box>
