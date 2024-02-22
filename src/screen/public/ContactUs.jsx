@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../../components/global/Layout";
 import {
   Box,
@@ -21,15 +21,25 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
-import { POSTNETWORK } from "../../utils/network";
+import { POSTNETWORK, GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
-import { Link } from 'react-router-dom';
+
+
+import { Link } from "react-router-dom";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const ContactUs = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  {
+    /* API Integration */
+  }
+
+  {
+    /* Contact Us Integration */
+  }
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -43,9 +53,9 @@ const ContactUs = () => {
     event.preventDefault();
 
     if (!name || !phone || !email || !message) {
-      setFormError('All fields are required.');
+      setFormError("All fields are required.");
       setTimeout(() => {
-        setFormError('');
+        setFormError("");
       }, 2000);
       return;
     }
@@ -78,6 +88,34 @@ const ContactUs = () => {
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
   };
+
+  {
+    /* Contact logs Integration */
+  }
+
+  const [contactLogs, setContactLogs] = useState([]);
+
+  useEffect(() => {
+    const contactLogsData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.CONTACT_INFO_URL);
+        if (response.status) {
+          setContactLogs(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    contactLogsData();
+  }, []);
+
+  {
+    /* END API Integration */
+  }
 
   const styleTheme = createTheme({
     breakpoints: {
@@ -122,7 +160,7 @@ const ContactUs = () => {
   return (
     <Layout>
       <ThemeProvider theme={styleTheme}>
-        <Box sx={{marginBottom:'50px'}}>
+        <Box sx={{ marginBottom: "50px" }}>
           {/* Intro bg Details */}
           <Box
             sx={{
@@ -209,22 +247,40 @@ const ContactUs = () => {
                     fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
                   }}
                 >
-                  <Link to='https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8' style={{textDecoration:'none', color:colors.darkGreen[100]}}>
-                  <ExploreIcon
-                    sx={{
-                      fontSize: "50px",
-                      marginRight: "15px",
-                      backgroundColor: colors.darkGreen[100],
-                      color: colors.yellow[100],
-                      padding: "7px",
-                    }}
-                  />
-                    </Link>
-                  
-                  <Link to='https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8' style={{textDecoration:'none', color:colors.darkGreen[100]}}>
-                  4th Floor, Bivab Gulmohar Commercial Nayapalli, Bhubaneswar –
-                  751012, Odisha
-                    </Link>
+                  {contactLogs &&
+                    contactLogs.length > 0 &&
+                    contactLogs[0] &&
+                    contactLogs[0].location && (
+                      <div>
+                        <Link
+                          to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                          style={{
+                            textDecoration: "none",
+                            color: colors.darkGreen[100],
+                          }}
+                        >
+                          <ExploreIcon
+                            sx={{
+                              fontSize: "50px",
+                              marginRight: "15px",
+                              backgroundColor: colors.darkGreen[100],
+                              color: colors.yellow[100],
+                              padding: "7px",
+                            }}
+                          />
+                        </Link>
+
+                        <Link
+                          to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                          style={{
+                            textDecoration: "none",
+                            color: colors.darkGreen[100],
+                          }}
+                        >
+                          {contactLogs[0].location}
+                        </Link>
+                      </div>
+                    )}
                 </Typography>
                 <Typography
                   variant="h6"
@@ -237,35 +293,42 @@ const ContactUs = () => {
                     fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
                   }}
                 >
-                  <Link
-                  style={{
-                    textDecoration: "none",
-                    color: colors.darkGreen[100],
-                  }}
-                  rel="stylesheet"
-                  to="mailto:sales@bivabyashila.com"
-                >
-                  <MarkEmailReadIcon
-                    sx={{
-                      fontSize: "50px",
-                      marginRight: "15px",
-                      backgroundColor: colors.darkGreen[100],
-                      color: colors.yellow[100],
-                      padding: "7px",
-                    }}
-                  /> 
-                </Link>
-                  
-                  <Link
-                  style={{
-                    textDecoration: "none",
-                    color: colors.darkGreen[100],
-                  }}
-                  rel="stylesheet"
-                  to="mailto:sales@bivabyashila.com"
-                >
-                  Email Us : sales@bivabyashila.com
-                </Link>
+                  {contactLogs &&
+                    contactLogs.length > 0 &&
+                    contactLogs[0] &&
+                    contactLogs[0].email && (
+                      <div>
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: colors.darkGreen[100],
+                          }}
+                          rel="stylesheet"
+                          to={`mailto:${contactLogs[0].email}`}
+                        >
+                          <MarkEmailReadIcon
+                            sx={{
+                              fontSize: "50px",
+                              marginRight: "15px",
+                              backgroundColor: colors.darkGreen[100],
+                              color: colors.yellow[100],
+                              padding: "7px",
+                            }}
+                          />
+                        </Link>
+
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: colors.darkGreen[100],
+                          }}
+                          rel="stylesheet"
+                          to={`mailto:${contactLogs[0].email}`}
+                        >
+                          Email Us : {contactLogs[0].email}
+                        </Link>
+                      </div>
+                    )}
                 </Typography>
                 <Typography
                   variant="h6"
@@ -289,17 +352,38 @@ const ContactUs = () => {
                   />
                   Phone : &nbsp;
                   <Typography
-                      variant="p"
-                      style={{ color: colors.darkblue[100] }}
-                    >
-                      <Link to="tel:+917381097302" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                        +91 7381097302
-                      </Link>{" "}
-                      /{" "}
-                      <Link to="tel:+917381262666" style={{textDecoration:'none', color: colors.darkblue[100], fontWeight:700}}>
-                        7381262666
-                      </Link>
-                    </Typography>
+                    variant="p"
+                    style={{ color: colors.darkblue[100] }}
+                  >
+                    {contactLogs &&
+                      contactLogs.length > 0 &&
+                      contactLogs[0] &&
+                      contactLogs[0].primaryNumber && contactLogs[0].secondaryNumber &&(
+                        <div>
+                          <Link
+                            to={`tel:+91${contactLogs[0].primaryNumber}`}
+                            style={{
+                              textDecoration: "none",
+                              color: colors.darkblue[100],
+                              fontWeight: 700,
+                            }}
+                          >
+                            +91 {contactLogs[0].primaryNumber}
+                          </Link>{" "}
+                          /{" "}
+                          <Link
+                           to={`tel:+91${contactLogs[0].secondaryNumber}`}
+                            style={{
+                              textDecoration: "none",
+                              color: colors.darkblue[100],
+                              fontWeight: 700,
+                            }}
+                          >
+                            {contactLogs[0].secondaryNumber}
+                          </Link>
+                        </div>
+                      )}
+                  </Typography>
                 </Typography>
               </Box>
               <Box
@@ -324,54 +408,53 @@ const ContactUs = () => {
                   Follow Us :
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Link to="https://www.facebook.com/BivabDevelopers/">
-                <FacebookIcon
-                    sx={{
-                      backgroundColor: "#4d68a1",
-                      color: colors.white[100],
-                      marginRight: "10px",
-                      fontSize: "32px",
-                      padding: "2px",
-                      marginLeft: "15px",
-                    }}
-                  />
-                </Link>
+                  <Link to="https://www.facebook.com/BivabDevelopers/">
+                    <FacebookIcon
+                      sx={{
+                        backgroundColor: "#4d68a1",
+                        color: colors.white[100],
+                        marginRight: "10px",
+                        fontSize: "32px",
+                        padding: "2px",
+                        marginLeft: "15px",
+                      }}
+                    />
+                  </Link>
 
                   <Link to="https://www.instagram.com/bivab_developers/">
-                  <InstagramIcon
-                    sx={{
-                      backgroundColor: "#262626",
-                      color: colors.white[100],
-                      fontSize: "32px",
-                      padding: "2px",
-                      marginRight: "10px",
-                    }}
-                  />
+                    <InstagramIcon
+                      sx={{
+                        backgroundColor: "#262626",
+                        color: colors.white[100],
+                        fontSize: "32px",
+                        padding: "2px",
+                        marginRight: "10px",
+                      }}
+                    />
                   </Link>
-                  
+
                   <Link to="https://twitter.com/BivabOfficial">
-                  <TwitterIcon
-                    sx={{
-                      backgroundColor: "#1da0f0",
-                      color: colors.white[100],
-                      marginRight: "10px",
-                      fontSize: "32px",
-                      padding: "2px",
-                    }}
-                  />
+                    <TwitterIcon
+                      sx={{
+                        backgroundColor: "#1da0f0",
+                        color: colors.white[100],
+                        marginRight: "10px",
+                        fontSize: "32px",
+                        padding: "2px",
+                      }}
+                    />
                   </Link>
-                  
+
                   <Link to="https://www.youtube.com/@bivabyashila">
-                  <YouTubeIcon
-                    sx={{
-                      backgroundColor: "#cb201f",
-                      color: colors.white[100],
-                      fontSize: "32px",
-                      padding: "2px",
-                    }}
-                  />
+                    <YouTubeIcon
+                      sx={{
+                        backgroundColor: "#cb201f",
+                        color: colors.white[100],
+                        fontSize: "32px",
+                        padding: "2px",
+                      }}
+                    />
                   </Link>
-                  
                 </Box>
               </Box>
             </Box>
@@ -553,7 +636,7 @@ const ContactUs = () => {
                       Submit
                     </Button>
                   </Grid>
-                  
+
                   {/* Display error message */}
                   {formError && (
                     <Grid

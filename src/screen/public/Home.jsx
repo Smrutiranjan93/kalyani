@@ -24,21 +24,29 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
 import FormProps from "../../components/reusable/FormPopup";
 
 import Link from "@mui/material/Link";
 
-import { POSTNETWORK } from "../../utils/network";
-import ApiUrl from "../../utils/url";
 import AmentitiesComponent from "../../components/reusable/AmentitiesComponent";
 import PhotoGalleryComponent from "../../components/reusable/PhotoGalleryComponent";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Rera from "../../components/reusable/Rera";
 
+import { POSTNETWORK, GETNETWORK } from "../../utils/network";
+import ApiUrl from "../../utils/url";
+
 const Home = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  {
+    /* API Integration */
+  }
+
+  {
+    /* Contact Us Integration */
+  }
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -87,6 +95,51 @@ const Home = () => {
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
   };
+
+  {
+    /* Contact logs Integration */
+  }
+
+  const [contactLogs, setContactLogs] = useState([]);
+  const [ourVideo, setOurVideo] = useState([]);
+
+  useEffect(() => {
+    const contactLogsData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.CONTACT_INFO_URL);
+        if (response.status) {
+          setContactLogs(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    contactLogsData();
+
+    const ourVideoData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.OUR_VIDEO_URL);
+        if (response.status) {
+          setOurVideo(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    ourVideoData();
+  }, []);
+
+  {
+    /* END API Integration */
+  }
 
   const [showPopup, setShowPopup] = useState(false);
 
@@ -147,7 +200,7 @@ const Home = () => {
     <Layout>
       <ThemeProvider theme={styleTheme}>
         <FormProps open={showPopup} onClose={handleClosePopup} />
-        <Box>
+        <Box sx={{ marginTop: "-11px" }}>
           {/* ReRa Sticky side Botton */}
           <Box>
             <Rera />
@@ -183,7 +236,7 @@ const Home = () => {
                 WebkitBackgroundClip: "text",
                 color: "transparent",
                 display: "inline-block",
-                width: { xs: "90vw", sm: "90vw", md: "36vw", lg: "36vw" },
+                width: { xs: "90vw", sm: "90vw", md: "47vw", lg: "47vw" },
                 zIndex: "1",
                 display: "flex",
                 flexDirection: "column",
@@ -391,22 +444,33 @@ const Home = () => {
             >
               OUR VIDEO
             </Typography>
-            <Box
-              sx={{
-                height: { xs: "100%", sm: "100%", md: "710px", lg: "710px" },
-                width: { xs: "100%", sm: "100%", md: "95vw", lg: "95vw" },
-              }}
-            >
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/Fi0liGmAbTQ"
-                title="BIVAB YASHILA"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
+            {ourVideo &&
+              ourVideo.length > 0 &&
+              ourVideo[0] &&
+              ourVideo[0].link &&
+              ourVideo[0].title && (
+                <Box
+                  sx={{
+                    height: {
+                      xs: "100%",
+                      sm: "100%",
+                      md: "710px",
+                      lg: "710px",
+                    },
+                    width: { xs: "100%", sm: "100%", md: "95vw", lg: "95vw" },
+                  }}
+                >
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={ourVideo[0].link}
+                    title={ourVideo[0].title}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              )}
           </Box>
 
           {/* Short Intro Section */}
@@ -530,7 +594,7 @@ const Home = () => {
                 md: "row",
                 lg: "row",
               },
-              marginBottom:'50px'
+              marginBottom: "50px",
             }}
           >
             <Box
@@ -597,27 +661,34 @@ const Home = () => {
                       alignItems: "center",
                     }}
                   >
-                    <Link
-                      href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
-                      style={{
-                        textDecoration: "none",
-                        color: colors.yellow[300],
-                      }}
-                    >
-                      <ExploreIcon
-                        sx={{ fontSize: "24px", marginRight: "15px" }}
-                      />
-                    </Link>
+                    {contactLogs &&
+                      contactLogs.length > 0 &&
+                      contactLogs[0] &&
+                      contactLogs[0].location && (
+                        <div>
+                          <Link
+                            href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                            style={{
+                              textDecoration: "none",
+                              color: colors.yellow[300],
+                            }}
+                          >
+                            <ExploreIcon
+                              sx={{ fontSize: "24px", marginRight: "15px" }}
+                            />
+                          </Link>
 
-                    <Link
-                      href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
-                      style={{
-                        textDecoration: "none",
-                        color: colors.white[100],
-                      }}
-                    >
-                      Bivab Yashila, Puri
-                    </Link>
+                          <Link
+                            href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                            style={{
+                              textDecoration: "none",
+                              color: colors.white[100],
+                            }}
+                          >
+                            {contactLogs[0].location}
+                          </Link>
+                        </div>
+                      )}
                   </Typography>
                   <Typography
                     variant="p"
@@ -636,27 +707,35 @@ const Home = () => {
                       variant="p"
                       style={{ color: colors.white[100] }}
                     >
-                      <Link
-                        href="tel:+917381097302"
-                        style={{
-                          textDecoration: "none",
-                          color: colors.white[100],
-                          fontWeight: 700,
-                        }}
-                      >
-                        +91 7381097302
-                      </Link>{" "}
-                      /{" "}
-                      <Link
-                        href="tel:+917381262666"
-                        style={{
-                          textDecoration: "none",
-                          color: colors.white[100],
-                          fontWeight: 700,
-                        }}
-                      >
-                        7381262666
-                      </Link>
+                      {contactLogs &&
+                        contactLogs.length > 0 &&
+                        contactLogs[0] &&
+                        contactLogs[0].primaryNumber &&
+                        contactLogs[0].secondaryNumber && (
+                          <div>
+                            <Link
+                              href={`tel:+91${contactLogs[0].primaryNumber}`}
+                              style={{
+                                textDecoration: "none",
+                                color: colors.white[100],
+                                fontWeight: 700,
+                              }}
+                            >
+                              +91 {contactLogs[0].primaryNumber}
+                            </Link>{" "}
+                            /{" "}
+                            <Link
+                              href={`tel:+91${contactLogs[0].secondaryNumber}`}
+                              style={{
+                                textDecoration: "none",
+                                color: colors.white[100],
+                                fontWeight: 700,
+                              }}
+                            >
+                              {contactLogs[0].secondaryNumber}
+                            </Link>
+                          </div>
+                        )}
                     </Typography>
                   </Typography>
                   <Typography
@@ -688,27 +767,41 @@ const Home = () => {
                       alignItems: "center",
                     }}
                   >
-                    <Link
-                      style={{
-                        textDecoration: "none",
-                        color: colors.yellow[300],
-                      }}
-                      href="mailto:info@bivabdevelopers.com"
-                    >
-                      <MarkEmailReadIcon
-                        sx={{ fontSize: "24px", marginRight: "15px" }}
-                      />
-                    </Link>
+                    {contactLogs &&
+                      contactLogs.length > 0 &&
+                      contactLogs[0] &&
+                      contactLogs[0].email && (
+                        <div
+                          style={{
+                            color: colors.white[100],
+                            marginBottom: "20px",
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Link
+                            style={{
+                              textDecoration: "none",
+                              color: colors.yellow[300],
+                            }}
+                            href={`mailto:${contactLogs[0].email}`}
+                          >
+                            <MarkEmailReadIcon
+                              sx={{ fontSize: "24px", marginRight: "15px" }}
+                            />
+                          </Link>
 
-                    <Link
-                      style={{
-                        textDecoration: "none",
-                        color: colors.white[100],
-                      }}
-                      href="mailto:info@bivabdevelopers.com"
-                    >
-                      sales@bivabyashila.com
-                    </Link>
+                          <Link
+                            style={{
+                              textDecoration: "none",
+                              color: colors.white[100],
+                            }}
+                            href={`mailto:${contactLogs[0].email}`}
+                          >
+                            {contactLogs[0].email}
+                          </Link>
+                        </div>
+                      )}
                   </Typography>
                 </Box>
               </Box>
@@ -908,7 +1001,12 @@ const Home = () => {
                 borderRadius: "20px",
                 padding: "20px",
                 display: "flex",
-                flexDirection: {xs:'column',sm:'row', md:'column', lg:'column' },
+                flexDirection: {
+                  xs: "column",
+                  sm: "row",
+                  md: "column",
+                  lg: "column",
+                },
                 alignItems: "center",
                 justifyContent: "center",
               }}
@@ -920,7 +1018,7 @@ const Home = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   padding: "30px",
-                  width: {xs:'100%',sm:'50%', md:'100%', lg:'100%' }
+                  width: { xs: "100%", sm: "50%", md: "100%", lg: "100%" },
                 }}
               >
                 <Link

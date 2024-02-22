@@ -33,6 +33,7 @@ const AboutUs = () => {
     /* API Integration */
   }
   const [aboutOwner, setAboutOwner] = useState([]);
+  const [successCounter, setSuccessCounter] = useState([]);
 
   useEffect(() => {
     const aboutOwnerData = async () => {
@@ -50,6 +51,22 @@ const AboutUs = () => {
     };
 
     aboutOwnerData();
+
+    const successCounterData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.SUCCESS_COUNTER_URL);
+        if (response.status) {
+          setSuccessCounter(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    successCounterData();
   }, []);
   {
     /* END API Integration */
@@ -469,6 +486,7 @@ const AboutUs = () => {
             }}
           >
             {/* One */}
+
             <Box
               sx={{
                 display: "flex",
@@ -495,7 +513,14 @@ const AboutUs = () => {
                     fontSize: "70px",
                   }}
                 >
-                  <CounterUp prop={23} />
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[0] &&
+                    successCounter[0].number && (
+                      <div>
+                        <CounterUp prop={successCounter[0].number} />
+                      </div>
+                    )}
                 </Typography>
                 <Typography
                   variant="h5"
@@ -504,7 +529,14 @@ const AboutUs = () => {
                     fontWeight: "400",
                   }}
                 >
-                  Experience
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[0] &&
+                    successCounter[0].title && (
+                      <div>
+                        {successCounter[0].title}
+                      </div>
+                    )}
                 </Typography>
               </Box>
             </Box>
@@ -536,7 +568,14 @@ const AboutUs = () => {
                     fontSize: "70px",
                   }}
                 >
-                  <CounterUp prop={100} />
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[1] &&
+                    successCounter[1].number && (
+                      <div>
+                        <CounterUp prop={successCounter[1].number} />
+                      </div>
+                    )}
                 </Typography>
                 <Typography
                   variant="h5"
@@ -545,7 +584,14 @@ const AboutUs = () => {
                     fontWeight: "400",
                   }}
                 >
-                  Project Done
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[1] &&
+                    successCounter[1].title && (
+                      <div>
+                        {successCounter[1].title}
+                      </div>
+                    )}
                 </Typography>
               </Box>
             </Box>
@@ -577,7 +623,14 @@ const AboutUs = () => {
                     fontSize: "70px",
                   }}
                 >
-                  <CounterUp prop={100} />
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[2] &&
+                    successCounter[2].number && (
+                      <div>
+                        <CounterUp prop={successCounter[2].number} />
+                      </div>
+                    )}
                 </Typography>
                 <Typography
                   variant="h5"
@@ -586,7 +639,14 @@ const AboutUs = () => {
                     fontWeight: "400",
                   }}
                 >
-                  Happy Client
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[2] &&
+                    successCounter[2].title && (
+                      <div>
+                        {successCounter[2].title}
+                      </div>
+                    )}
                 </Typography>
               </Box>
             </Box>
@@ -617,7 +677,14 @@ const AboutUs = () => {
                     fontSize: "70px",
                   }}
                 >
-                  <CounterUp prop={18} />
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[3] &&
+                    successCounter[3].number && (
+                      <div>
+                        <CounterUp prop={successCounter[3].number} />
+                      </div>
+                    )}
                 </Typography>
                 <Typography
                   variant="h5"
@@ -626,7 +693,14 @@ const AboutUs = () => {
                     fontWeight: "400",
                   }}
                 >
-                  Expert System
+                  {successCounter &&
+                    successCounter.length > 0 &&
+                    successCounter[3] &&
+                    successCounter[3].title && (
+                      <div>
+                        {successCounter[3].title}
+                      </div>
+                    )}
                 </Typography>
               </Box>
             </Box>
@@ -635,169 +709,67 @@ const AboutUs = () => {
 
           {/* Founder Intro Success */}
 
-          {/* <Box sx={{ width: "85%", margin: "auto", marginTop: "50px" }}>
-          <Grid container spacing={6}>
-            {aboutOwner && aboutOwner.length > 0 && aboutOwner.map((about) => (
-                <Grid item xs={12} sm={6} md={4} lg={4} key={about.id}>
-                  <Box
-                    sx={{
-                      backgroundColor: colors.darkblue[200],
-                      width: { sm: "55%", md: "40%", lg: "40%" },
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "start",
-                      marginLeft: "10px",
-                      padding: "20px",
-                      marginBottom: {
-                        xs: "15px",
-                        sm: "15px",
-                        md: "0px",
-                        lg: "0px",
-                      },
-                    }}
-                  >
-                    <img
-                      alt="profile-user"
-                      width="100%"
-                      height="100%"
-                      src={about.image}
-                      style={{
-                        cursor: "pointer",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
-                    <Typography
-                      variant="h5"
-                      style={{
-                        color: colors.darkGreen[100],
-                        fontWeight: "400",
-                        marginBottom: "10px",
-                        borderLeft: `2px solid ${colors.yellow[100]}`,
-                        paddingLeft: "10px",
+          <Box sx={{ width: "85%", margin: "auto", marginTop: "50px" }}>
+            <Grid container spacing={6}>
+              {aboutOwner &&
+                aboutOwner.length > 0 &&
+                aboutOwner.map((about) => (
+                  <Grid item xs={12} sm={6} md={4} lg={4} key={about.id}>
+                    <Box
+                      sx={{
+                        backgroundColor: colors.darkblue[200],
+                        width: { sm: "55%", md: "40%", lg: "40%" },
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "start",
+                        marginLeft: "10px",
+                        padding: "20px",
+                        marginBottom: {
+                          xs: "15px",
+                          sm: "15px",
+                          md: "0px",
+                          lg: "0px",
+                        },
                       }}
                     >
-                      {about.name}
-                      <Typography
-                        variant="h6"
+                      <img
+                        alt="profile-user"
+                        width="100%"
+                        height="100%"
+                        src={about.image}
                         style={{
-                          color: colors.yellow[100],
-                          fontWeight: "700",
+                          cursor: "pointer",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      />
+                      <Typography
+                        variant="h5"
+                        style={{
+                          color: colors.darkGreen[100],
+                          fontWeight: "400",
+                          marginBottom: "10px",
+                          borderLeft: `2px solid ${colors.yellow[100]}`,
+                          paddingLeft: "10px",
                         }}
                       >
-                        {about.designation}
+                        {about.name}
+                        <Typography
+                          variant="h6"
+                          style={{
+                            color: colors.yellow[100],
+                            fontWeight: "700",
+                          }}
+                        >
+                          {about.designation}
+                        </Typography>
                       </Typography>
-                    </Typography>
-                  </Box>
-                </Grid>
-              ))}
-          </Grid>
-          </Box> */}
-
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: {
-                xs: "column",
-                sm: "column",
-                md: "row",
-                lg: "row",
-              },
-              margin: { xs: "0px 0px", sm: "0px 0px", md: "50px 100px" },
-            }}
-          >
-            <Box
-              sx={{
-                backgroundColor: colors.darkblue[200],
-                width: { sm: "55%", md: "40%", lg: "40%" },
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-                marginLeft: "10px",
-                padding: "20px",
-                marginBottom: { xs: "15px", sm: "15px", md: "0px", lg: "0px" },
-              }}
-            >
-              <img
-                alt="profile-user"
-                width="100%"
-                height="100%"
-                src={profileTwo}
-                style={{
-                  cursor: "pointer",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-              <Typography
-                variant="h5"
-                style={{
-                  color: colors.darkGreen[100],
-                  fontWeight: "400",
-                  marginBottom: "10px",
-                  borderLeft: `2px solid ${colors.yellow[100]}`,
-                  paddingLeft: "10px",
-                }}
-              >
-                Er. Binay Krishna Das
-                <Typography
-                  variant="h6"
-                  style={{
-                    color: colors.yellow[100],
-                    fontWeight: "700",
-                  }}
-                >
-                  FOUNDER BIVAB
-                </Typography>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                backgroundColor: colors.darkblue[200],
-                width: { sm: "55%", md: "40%", lg: "40%" },
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-                marginLeft: "10px",
-                padding: "20px",
-              }}
-            >
-              <img
-                alt="profile-user"
-                width="100%"
-                height="100%"
-                src={profileThree}
-                style={{
-                  cursor: "pointer",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-              <Typography
-                variant="h5"
-                style={{
-                  color: colors.darkGreen[100],
-                  fontWeight: "400",
-                  marginBottom: "10px",
-                  borderLeft: `2px solid ${colors.yellow[100]}`,
-                  paddingLeft: "10px",
-                }}
-              >
-                Mrs. Eva Pattnaik
-                <Typography
-                  variant="h6"
-                  style={{
-                    color: colors.yellow[100],
-                    fontWeight: "700",
-                  }}
-                >
-                  DIRECTOR
-                </Typography>
-              </Typography>
-            </Box>
+                    </Box>
+                  </Grid>
+                ))}
+            </Grid>
           </Box>
+
           {/* End */}
         </Box>
       </ThemeProvider>

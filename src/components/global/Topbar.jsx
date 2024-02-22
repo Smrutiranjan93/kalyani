@@ -26,6 +26,9 @@ import Logo from "../../assets/images/logo.png";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PersonIcon from "@mui/icons-material/Person";
 
+import { POSTNETWORK, GETNETWORK } from "../../utils/network";
+import ApiUrl from "../../utils/url";
+
 function ElevationScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({
@@ -116,7 +119,13 @@ const TopNavbar = () => {
                   href={"/"}
                   sx={{
                     textDecoration: "none",
-                    padding: { xs: "11px", sm: "11px", md: "11px", lg: "11px",xl: "0px" },
+                    padding: {
+                      xs: "11px",
+                      sm: "11px",
+                      md: "11px",
+                      lg: "11px",
+                      xl: "0px",
+                    },
                   }}
                 >
                   <img
@@ -146,7 +155,6 @@ const TopNavbar = () => {
                         fontSize: "2rem",
                         cursor: "pointer",
                         marginRight: "15px",
-                        
                       }}
                       onClick={() => toggleDrawer(true)}
                     />
@@ -187,12 +195,25 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: { xs: "column", sm: "column", md: "column", md2: "row", xl: 'row' },
+        flexDirection: {
+          xs: "column",
+          sm: "column",
+          md: "column",
+          md2: "row",
+          xl: "row",
+        },
         width: { xs: 200, sm: 200, md: "100%" },
         padding: "20px",
         backgroundColor: colors.darkGreen[100],
         height: "100%",
-        alignItems: { xs: "baseline", sm: "baseline", md: "baseline",md2:"center", lg: "center",xl: "center" },
+        alignItems: {
+          xs: "baseline",
+          sm: "baseline",
+          md: "baseline",
+          md2: "center",
+          lg: "center",
+          xl: "center",
+        },
       }}
     >
       {[
@@ -213,7 +234,14 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
             color: select === item.id ? colors.yellow[100] : colors.white[100],
             marginRight: "1rem",
             fontSize: "16px",
-            marginBottom:{ xs: "10px", sm: "10px", md: "10px",md2:"0px", lg: "0px",xl: "0px" },
+            marginBottom: {
+              xs: "10px",
+              sm: "10px",
+              md: "10px",
+              md2: "0px",
+              lg: "0px",
+              xl: "0px",
+            },
           }}
           onClick={() => {
             handleSectionClick(item.id);
@@ -236,8 +264,6 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
         </Typography>
       ))}
 
-      
-
       {/*will add a button*/}
       <Link
         href="/virtualtour"
@@ -246,12 +272,26 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
           display: "flex",
           textDecoration: "none",
           marginRight: "10px",
-          marginBottom:{ xs: "10px", sm: "10px", md: "10px",md2:"0px", lg: "0px",xl: "0px" },
+          marginBottom: {
+            xs: "10px",
+            sm: "10px",
+            md: "10px",
+            md2: "0px",
+            lg: "0px",
+            xl: "0px",
+          },
           "&:hover": {
             alignItems: "center",
             display: "flex",
             textDecoration: "none",
-            marginBottom:{ xs: "10px", sm: "10px", md: "10px",md2:"0px", lg: "0px",xl: "0px" },
+            marginBottom: {
+              xs: "10px",
+              sm: "10px",
+              md: "10px",
+              md2: "0px",
+              lg: "0px",
+              xl: "0px",
+            },
           },
         }}
       >
@@ -314,7 +354,33 @@ const SecondNavbar = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  {
+    /* API Integration */
+  }
+
+  const [contactLogs, setContactLogs] = useState([]);
+
   useEffect(() => {
+    const contactLogsData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.CONTACT_INFO_URL);
+        if (response.status) {
+          setContactLogs(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    contactLogsData();
+
+    {
+      /* Handle scroll logic */
+    }
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -330,6 +396,10 @@ const SecondNavbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  {
+    /* END API Integration */
+  }
 
   const styleTheme = createTheme({
     breakpoints: {
@@ -381,7 +451,7 @@ const SecondNavbar = () => {
             position: "relative",
             zIndex: 1001,
             top: "76px",
-            display:{xs:'none', sm:'none', md:'block', lg:'block'}
+            display: { xs: "none", sm: "none", md: "block", lg: "block" },
           }}
         >
           <Container
@@ -465,103 +535,113 @@ const SecondNavbar = () => {
                   </Link>
                 </Box>
 
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: {
-                      xs: "column",
-                      sm: "column",
-                      md: "row",
-                      lg: "row",
-                    },
-                    marginRight: "15px",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginRight: "22px",
-                    }}
-                  >
-                    <Link
+                {contactLogs &&
+                  contactLogs.length > 0 &&
+                  contactLogs[0] &&
+                  contactLogs[0].email &&
+                  contactLogs[0].primaryNumber &&
+                  contactLogs[0].secondaryNumber && (
+                    <Box
                       sx={{
-                        textDecoration: "none",
-                        color: colors.darkGreen[100],
-                      }}
-                      rel="stylesheet"
-                      href="mailto:sales@bivabyashila.com"
-                    >
-                      <EmailOutlinedIcon
-                        sx={{
-                          color: colors.darkGreen[100],
-                          marginRight: "10px",
-                        }}
-                      />
-                    </Link>
-                    <Typography
-                      variant="h6"
-                      style={{
-                        color: colors.darkGreen[100],
-                        fontWeight: "700",
+                        display: "flex",
+                        flexDirection: {
+                          xs: "column",
+                          sm: "column",
+                          md: "row",
+                          lg: "row",
+                        },
+                        marginRight: "15px",
                       }}
                     >
-                      <Link
+                      <Box
                         sx={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                          "&:hover": {
-                            textDecoration: "none",
-                            color: colors.white[100],
-                          },
-                        }}
-                        rel="stylesheet"
-                        href="mailto:sales@bivabyashila.com"
-                      >
-                        sales@bivabyashila.com
-                      </Link>
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: "flex" }}>
-                    <PhoneOutlinedIcon
-                      sx={{ color: colors.darkGreen[100], marginRight: "10px" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      style={{ color: colors.darkGreen[100] }}
-                    >
-                      <Link
-                        href="tel:+917381097302"
-                        sx={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                          fontWeight: 700,
-                          "&:hover": {
-                            textDecoration: "none",
-                            color: colors.white[100],
-                          },
+                          display: "flex",
+                          alignItems: "center",
+                          marginRight: "22px",
                         }}
                       >
-                        +91 7381097302
-                      </Link>{" "}
-                      /{" "}
-                      <Link
-                        href="tel:+917381262666"
-                        sx={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                          fontWeight: 700,
-                          "&:hover": {
+                        <Link
+                          sx={{
                             textDecoration: "none",
-                            color: colors.white[100],
-                          },
-                        }}
-                      >
-                        7381262666
-                      </Link>
-                    </Typography>
-                  </Box>
-                </Box>
+                            color: colors.darkGreen[100],
+                          }}
+                          rel="stylesheet"
+                          href={`mailto:${contactLogs[0].email}`}
+                        >
+                          <EmailOutlinedIcon
+                            sx={{
+                              color: colors.darkGreen[100],
+                              marginRight: "10px",
+                            }}
+                          />
+                        </Link>
+                        <Typography
+                          variant="h6"
+                          style={{
+                            color: colors.darkGreen[100],
+                            fontWeight: "700",
+                          }}
+                        >
+                          <Link
+                            sx={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                              "&:hover": {
+                                textDecoration: "none",
+                                color: colors.white[100],
+                              },
+                            }}
+                            rel="stylesheet"
+                            href={`mailto:${contactLogs[0].email}`}
+                          >
+                            {contactLogs[0].email}
+                          </Link>
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: "flex" }}>
+                        <PhoneOutlinedIcon
+                          sx={{
+                            color: colors.darkGreen[100],
+                            marginRight: "10px",
+                          }}
+                        />
+                        <Typography
+                          variant="h6"
+                          style={{ color: colors.darkGreen[100] }}
+                        >
+                          <Link
+                            href={`tel:+91${contactLogs[0].primaryNumber}`}
+                            sx={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                              fontWeight: 700,
+                              "&:hover": {
+                                textDecoration: "none",
+                                color: colors.white[100],
+                              },
+                            }}
+                          >
+                            +91 {contactLogs[0].primaryNumber}
+                          </Link>{" "}
+                          /{" "}
+                          <Link
+                            href={`tel:+91${contactLogs[0].secondaryNumber}`}
+                            sx={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                              fontWeight: 700,
+                              "&:hover": {
+                                textDecoration: "none",
+                                color: colors.white[100],
+                              },
+                            }}
+                          >
+                            {contactLogs[0].secondaryNumber}
+                          </Link>
+                        </Typography>
+                      </Box>
+                    </Box>
+                  )}
               </Box>
             </Toolbar>
           </Container>
