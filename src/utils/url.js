@@ -12,6 +12,8 @@ class ApiUrl {
     static SUCCESS_COUNTER_URL = `${ApiUrl.API_BASE_URL}/getAllYashlaSuccessCountUp`;
 
     static CONTACT_INFO_URL = `${ApiUrl.API_BASE_URL}/GetInTouchAll`;
+
+    static GALLERY_URL = `${ApiUrl.API_BASE_URL}/getAllGallery`;
 }
 
 export default ApiUrl;

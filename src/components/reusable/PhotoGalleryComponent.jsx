@@ -15,6 +15,9 @@ import SlideImageNine from "../../assets/carousel/carousel-nine.jpeg";
 import SlideImageTen from "../../assets/carousel/carousel-ten.jpeg";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+import { GETNETWORK } from "../../utils/network";
+import ApiUrl from "../../utils/url";
+
 const PhotoCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [goToSlide, setGoToSlide] = useState(0);
@@ -23,53 +26,34 @@ const PhotoCarousel = () => {
   const [autoSlide] = useState(true);
   const [interval] = useState(3000);
 
-  const [slides] = useState([
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageOne} alt="1" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageTwo} alt="2" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageThree} alt="3" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageFour} alt="4" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageFive} alt="5" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageSix} alt="6" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageSeven} alt="7" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageEight} alt="8" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageNine} alt="9" />,
-    },
-    {
-      key: uuidv4(),
-      content: <img src={SlideImageTen} alt="10" />,
-    },
-  ]);
+  const [slides, setSlides] = useState([]);
 
   useEffect(() => {
+    const galleryData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.GALLERY_URL);
+
+        const imageData = response.data;
+
+        const processedSlides = imageData.map((image) => ({
+          key: uuidv4(),
+          content: <img src={image.url} alt={image.id} />
+        }));
+
+        setSlides(processedSlides);
+        
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    galleryData();
+
     startAutoSlide();
     return () => clearInterval(autoSlideInterval);
   }, []);
+
+
 
   let autoSlideInterval;
   const startAutoSlide = () => {
