@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Box, Pagination } from "@mui/material";
 import Carousel from "react-spring-3d-carousel";
 import { v4 as uuidv4 } from "uuid";
 import { config } from "react-spring";
-import SlideImageOne from "../../assets/carousel/carousel-one.jpg";
-import SlideImageTwo from "../../assets/carousel/carousel-two.jpg";
-import SlideImageThree from "../../assets/carousel/carousel-three.jpg";
-import SlideImageFour from "../../assets/carousel/carousel-four.jpg";
-import SlideImageFive from "../../assets/carousel/carousel-five.jpg";
-import SlideImageSix from "../../assets/carousel/carousel-six.jpeg";
-import SlideImageSeven from "../../assets/carousel/carousel-seven.jpeg";
-import SlideImageEight from "../../assets/carousel/carousel-eight.jpeg";
-import SlideImageNine from "../../assets/carousel/carousel-nine.jpeg";
-import SlideImageTen from "../../assets/carousel/carousel-ten.jpeg";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { GETNETWORK } from "../../utils/network";
@@ -25,44 +15,48 @@ const PhotoCarousel = () => {
   const [showNavigation] = useState(false);
   const [autoSlide] = useState(true);
   const [interval] = useState(3000);
-
   const [slides, setSlides] = useState([]);
+  
+  const autoSlideIntervalRef = useRef(null);
 
   useEffect(() => {
-    const galleryData = async () => {
+    const fetchData = async () => {
       try {
         const response = await GETNETWORK(ApiUrl.GALLERY_URL);
-
         const imageData = response.data;
-
         const processedSlides = imageData.map((image) => ({
           key: uuidv4(),
           content: <img src={image.url} alt={image.id} />
         }));
-
         setSlides(processedSlides);
-        
       } catch (error) {
         console.error("Error during data fetching:", error);
       }
     };
 
-    galleryData();
+    fetchData();
 
-    startAutoSlide();
-    return () => clearInterval(autoSlideInterval);
+    return () => {
+      if (autoSlideIntervalRef.current) {
+        clearInterval(autoSlideIntervalRef.current);
+      }
+    };
   }, []);
 
-
-
-  let autoSlideInterval;
-  const startAutoSlide = () => {
-    if (autoSlide) {
-      autoSlideInterval = setInterval(() => {
+  useEffect(() => {
+    if (autoSlide && slides.length > 0) {
+      autoSlideIntervalRef.current = setInterval(() => {
         setGoToSlide((prevGoToSlide) => (prevGoToSlide + 1) % slides.length);
       }, interval);
+    } else {
+      clearInterval(autoSlideIntervalRef.current);
     }
-  };
+    return () => {
+      if (autoSlideIntervalRef.current) {
+        clearInterval(autoSlideIntervalRef.current);
+      }
+    };
+  }, [slides, autoSlide, interval]);
 
   const handleChange = (event, value) => {
     setActiveIndex(value - 1);
