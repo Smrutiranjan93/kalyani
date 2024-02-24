@@ -2,6 +2,7 @@
 
 class ApiUrl {
     static API_BASE_URL = "http://62.72.31.234:2009/bivabs/yashla";
+    static ImageHostURl = "http://62.72.31.234:2009/upload/";
 
     static CONTACT_URL = `${ApiUrl.API_BASE_URL}/createContacts`;
 
