@@ -26,7 +26,7 @@ const PhotoCarousel = () => {
         const imageData = response.data;
         const processedSlides = imageData.map((image) => ({
           key: uuidv4(),
-          content: <img src={`${ApiUrl.ImageHostURl}${image.url}`} alt={image.id} />
+          content: <img src={`${ApiUrl.ImageHostURl}${image.imageName}`} alt={image.id} />
         }));
         setSlides(processedSlides);
       } catch (error) {

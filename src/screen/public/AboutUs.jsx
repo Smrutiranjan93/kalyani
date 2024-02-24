@@ -714,11 +714,10 @@ const AboutUs = () => {
               {aboutOwner &&
                 aboutOwner.length > 0 &&
                 aboutOwner.map((about) => (
-                  <Grid item xs={12} sm={6} md={4} lg={4} key={about.id}>
+                  <Grid item xs={12} sm={6} md={6} lg={6} key={about.id}>
                     <Box
                       sx={{
                         backgroundColor: colors.darkblue[200],
-                        width: { sm: "55%", md: "40%", lg: "40%" },
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "start",
@@ -736,7 +735,7 @@ const AboutUs = () => {
                         alt="profile-user"
                         width="100%"
                         height="100%"
-                        src={about.image}
+                        src={`${ApiUrl.ImageHostURl}${about.imageName}`}
                         style={{
                           cursor: "pointer",
                           backgroundSize: "cover",
