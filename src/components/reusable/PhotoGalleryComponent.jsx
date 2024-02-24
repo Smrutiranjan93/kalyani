@@ -1,9 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Box, Pagination } from "@mui/material";
-import Carousel from "react-spring-3d-carousel";
+import React, { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { config } from "react-spring";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
@@ -16,7 +12,7 @@ const PhotoCarousel = () => {
   const [autoSlide] = useState(true);
   const [interval] = useState(3000);
   const [slides, setSlides] = useState([]);
-  
+
   const autoSlideIntervalRef = useRef(null);
 
   useEffect(() => {
@@ -26,7 +22,7 @@ const PhotoCarousel = () => {
         const imageData = response.data;
         const processedSlides = imageData.map((image) => ({
           key: uuidv4(),
-          content: <img src={image.url} alt={image.id} />
+          content: <img src={`${ApiUrl.ImageHostURl}${image.url}`} alt={image.id} />
         }));
         setSlides(processedSlides);
       } catch (error) {
@@ -105,7 +101,7 @@ const PhotoCarousel = () => {
         />
         <Box
           sx={{
-            display: {xs:'flex', sm:'flex', md:'none', lg:'none'},
+            display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' },
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
