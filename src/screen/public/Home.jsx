@@ -102,6 +102,7 @@ const Home = () => {
 
   const [contactLogs, setContactLogs] = useState([]);
   const [ourVideo, setOurVideo] = useState([]);
+  const [bivabCommercial, setBivabCommercial] = useState([]);
 
   useEffect(() => {
     const contactLogsData = async () => {
@@ -135,6 +136,22 @@ const Home = () => {
     };
 
     ourVideoData();
+
+    const bivabCommercialData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.BIVAB_COMMERCIAL_URL);
+        if (response.status) {
+          setBivabCommercial(response.data);
+          console.log(response.data);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    bivabCommercialData();
   }, []);
 
   {
@@ -497,41 +514,42 @@ const Home = () => {
               },
             }}
           >
-            <Box
-              sx={{ width: { xs: "100%", sm: "100%", md: "50vw", lg: "50vw" } }}
-            >
-              <Typography
-                variant="h3"
-                fontWeight="900"
-                sx={{
-                  background: (theme) =>
-                    `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                  marginBottom: "20px",
-                  filter: "brightness(100%)",
-                }}
-              >
-                BIVAB YASHILA COMMERCIAL
-              </Typography>
-              <Typography
-                variant="p"
-                fontWeight="700"
-                sx={{
-                  color: colors.white[100],
-                  filter: "brightness(100%)",
-                }}
-              >
-                Bivab Yashila Commercial redefines business in Puri with a prime
-                location designed for success. Our commercial spaces offer a
-                strategic address, merging coastal allure with professional
-                efficacy. Elevate your enterprise in an environment that fosters
-                innovation and growth. BIVAB Yashila Commercial is not just a
-                workspace; it’s a gateway to a thriving business community,
-                where the vibrancy of Puri converges with your entrepreneurial
-                aspirations.
-              </Typography>
-            </Box>
+            {bivabCommercial &&
+              bivabCommercial.length > 0 &&
+              bivabCommercial[0] &&
+              bivabCommercial[0].title &&
+              bivabCommercial[0].description && (
+                <Box
+                  sx={{
+                    width: { xs: "100%", sm: "100%", md: "50vw", lg: "50vw" },
+                  }}
+                >
+                  <Typography
+                    variant="h3"
+                    fontWeight="900"
+                    sx={{
+                      background: (theme) =>
+                        `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
+                      WebkitBackgroundClip: "text",
+                      color: "transparent",
+                      marginBottom: "20px",
+                      filter: "brightness(100%)",
+                    }}
+                  >
+                    {bivabCommercial[0].title}
+                  </Typography>
+                  <Typography
+                    variant="p"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.white[100],
+                      filter: "brightness(100%)",
+                    }}
+                  >
+                    {bivabCommercial[0].description}
+                  </Typography>
+                </Box>
+              )}
           </Box>
 
           {/* AMENITIES Section */}

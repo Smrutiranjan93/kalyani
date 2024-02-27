@@ -15,6 +15,10 @@ class ApiUrl {
     static CONTACT_INFO_URL = `${ApiUrl.API_BASE_URL}/GetInTouchAll`;
 
     static GALLERY_URL = `${ApiUrl.API_BASE_URL}/getAllGallery`;
+
+    static BIVAB_COMMERCIAL_URL = `${ApiUrl.API_BASE_URL}/getAllAboutBivabCommercial`;
+
+    static MISSION_VISION_URL = `${ApiUrl.API_BASE_URL}/getAllMission`;
 }
 
 export default ApiUrl;

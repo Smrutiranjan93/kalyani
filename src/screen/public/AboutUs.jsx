@@ -35,6 +35,11 @@ const AboutUs = () => {
   const [aboutOwner, setAboutOwner] = useState([]);
   const [successCounter, setSuccessCounter] = useState([]);
 
+  const [missionTitle, setMissionTitle] = useState('');
+  const [visionTitle, setVisionTitle] = useState('');
+  const [mission, setMission] = useState('');
+  const [vision, setVision] = useState('');
+
   useEffect(() => {
     const aboutOwnerData = async () => {
       try {
@@ -67,15 +72,32 @@ const AboutUs = () => {
     };
 
     successCounterData();
+
+    const aboutMissionVisionData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.MISSION_VISION_URL);
+        if (response.status) {
+          const missionTitleData = response.data[1]?.title || '';
+          const missionData = response.data[1]?.description || '';
+          const visionTitleData = response.data[0]?.title || '';
+          const visionData = response.data[0]?.description || '';
+          setMissionTitle(missionTitleData)
+          setMission(missionData);
+          setVisionTitle(visionTitleData);
+          setVision(visionData);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    aboutMissionVisionData();
   }, []);
   {
     /* END API Integration */
   }
-
-  const mission =
-    "BIVAB Yashila envisions being the ultimate destination for seaside luxury living in Jagannathdham. With a focus on architectural brilliance, environmental responsibility, and unparalleled amenities, we strive to create a legacy where dreams of a sophisticated coastal lifestyle become a reality.";
-  const vision =
-    "BIVAB Yashila envisions being the ultimate destination for seaside luxury living in Jagannathdham. With a focus on architectural brilliance, environmental responsibility, and unparalleled amenities, we strive to create a legacy where dreams of a sophisticated coastal lifestyle become a reality.";
 
   const displayMissionText = showMoreMission
     ? mission
@@ -408,7 +430,7 @@ const AboutUs = () => {
                   fontSize: "45px",
                 }}
               >
-                MISSION
+                {missionTitle}
               </Typography>
               <Typography
                 variant="h6"
@@ -449,7 +471,7 @@ const AboutUs = () => {
                   fontSize: "45px",
                 }}
               >
-                VISION
+                {visionTitle}
               </Typography>
               <Typography
                 variant="h6"
