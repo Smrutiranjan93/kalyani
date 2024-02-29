@@ -31,6 +31,7 @@ export const propertyData = [
       { id: "7", imageurl: "hdfc.png", name: "HDFC Bank" },
     ],
     brochure: "brochure.png",
+    three60url: "/mogra"
   },
   {
     id: "2",
@@ -64,6 +65,7 @@ export const propertyData = [
       { id: "7", imageurl: "hdfc.png", name: "HDFC Bank" },
     ],
     brochure: "brochure.png",
+    three60url: "/orchid"
   },
   {
     id: "3",
@@ -97,6 +99,7 @@ export const propertyData = [
       { id: "7", imageurl: "hdfc.png", name: "HDFC Bank" },
     ],
     brochure: "brochure.png",
+    three60url: "/neelkamal"
   },
   {
     id: "4",
@@ -130,5 +133,6 @@ export const propertyData = [
       { id: "7", imageurl: "hdfc.png", name: "HDFC Bank" },
     ],
     brochure: "brochure.png",
+    three60url: "/parijat"
   },
 ];

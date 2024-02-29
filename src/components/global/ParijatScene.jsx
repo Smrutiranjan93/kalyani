@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Pannellum } from "pannellum-react";
-import dataScene from "../../helpers/dataScene";
+import parijatDataScene from "../../helpers/parijatDataScene";
 
-export default function Scene() {
+export default function ParijatScene() {
 
-  const [scene, setScene] = useState(dataScene["pointTwo"]);
+  const [scene, setScene] = useState(parijatDataScene["pointTwo"]);
 
   const hotSpots = (Element,i) => {
     if(Element.cssClass === 'hotSpotElement') return (
@@ -25,7 +25,7 @@ export default function Scene() {
             pitch={Element.pitch}
             cssClass={Element.cssClass} 
             text={Element.text}
-            handleClick={ ()=> setScene(dataScene[Element.scene])}
+            handleClick={ ()=> setScene(parijatDataScene[Element.scene])}
         >
           
         </Pannellum.Hotspot>

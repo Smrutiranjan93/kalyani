@@ -266,7 +266,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
 
       {/*will add a button*/}
       <Link
-        href="/virtualtour"
+        href="/orchid"
         sx={{
           alignItems: "center",
           display: "flex",

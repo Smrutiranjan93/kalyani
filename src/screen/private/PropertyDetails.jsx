@@ -597,7 +597,7 @@ export default function PropertyDetails() {
               >
                 {/* 360 Tour button */}
                 <Link
-                  href={`/virtualtour`}
+                  href={`${property.three60url}`}
                   sx={{
                     alignItems: "center",
                     display: "flex",

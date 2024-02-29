@@ -1,13 +1,13 @@
-import viewOne from "../images/view-1.jpg";
-import viewTwo from "../images/view-2.jpg";
-import viewThree from "../images/view-3.jpg";
-import viewFour from "../images/view-4.jpg";
-import viewFive from "../images/view-5.jpg";
-import viewSeven from "../images/view-7.jpg";
-import viewEight from "../images/view-8.jpg";
-import viewNine from "../images/view-9.jpg";
-import viewTen from "../images/view-10.jpg";
-import viewEleven from "../images/view-11.jpg";
+import viewOne from "../images/parijat/view-1.jpg";
+import viewTwo from "../images/parijat/view-2.jpg";
+import viewThree from "../images/parijat/view-3.jpg";
+import viewFour from "../images/parijat/view-4.jpg";
+import viewFive from "../images/parijat/view-5.jpg";
+import viewSeven from "../images/parijat/view-7.jpg";
+import viewEight from "../images/parijat/view-8.jpg";
+import viewNine from "../images/parijat/view-9.jpg";
+import viewTen from "../images/parijat/view-10.jpg";
+import viewEleven from "../images/parijat/view-11.jpg";
 
 const Scene = {
   outsideHome: {
