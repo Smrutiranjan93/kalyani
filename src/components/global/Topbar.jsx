@@ -10,7 +10,15 @@ import {
   Drawer,
   Link,
   Button,
+  Popper,
+  Grid,
+  Fade,
+  Paper,
+  Menu,
+  MenuItem,
 } from "@mui/material";
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
+
 import MenuIcon from "@mui/icons-material/Menu";
 
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -264,56 +272,176 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
         </Typography>
       ))}
 
-      {/*will add a button*/}
-      <Link
-        href="/orchid"
-        sx={{
-          alignItems: "center",
-          display: "flex",
-          textDecoration: "none",
-          marginRight: "10px",
-          marginBottom: {
-            xs: "10px",
-            sm: "10px",
-            md: "10px",
-            md2: "0px",
-            lg: "0px",
-            xl: "0px",
-          },
-          "&:hover": {
-            alignItems: "center",
-            display: "flex",
-            textDecoration: "none",
-            marginBottom: {
-              xs: "10px",
-              sm: "10px",
-              md: "10px",
-              md2: "0px",
-              lg: "0px",
-              xl: "0px",
-            },
-          },
-        }}
-      >
-        <Button
-          variant="contained"
-          sx={{
-            color: colors.white[100],
-            backgroundColor: colors.yellow[300],
-            padding: "5px 10px",
-            border: "1px solid white",
-            "&:hover": {
-              color: colors.darkblue[100],
-              backgroundColor: "white",
-              border: "1px solid black",
-            },
-          }}
-        >
-          {" "}
-          360 Tour
-        </Button>
-      </Link>
-      {/*End*/}
+      {/* Modal */}
+      <PopupState variant="popover" popupId="demo-popup-menu">
+        {(popupState) => (
+          <React.Fragment>
+            <Button
+              variant="contained"
+              {...bindTrigger(popupState)}
+              sx={{
+                color: colors.white[100],
+                backgroundColor: colors.yellow[300],
+                padding: "5px 10px",
+                border: "1px solid white",
+                "&:hover": {
+                  color: colors.darkblue[100],
+                  backgroundColor: "white",
+                  border: "1px solid black",
+                },
+              }}
+            >
+              360 Tour
+            </Button>
+            <Menu {...bindMenu(popupState)}>
+              <MenuItem>
+                <Link
+                  href="/orchid"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "black",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.darkGreen[100],
+                    },
+                  }}
+                >
+                  Orchid
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/mogra"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "black",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.darkGreen[100],
+                    },
+                  }}
+                >
+                  Mogra
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/neelkamal"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "black",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.darkGreen[100],
+                    },
+                  }}
+                >
+                  Neelkamal
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/parijat"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "black",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.darkGreen[100],
+                    },
+                  }}
+                >
+                  Parijat
+                </Link>
+              </MenuItem>
+            </Menu>
+          </React.Fragment>
+        )}
+      </PopupState>
 
       {/*will add a profile icon*/}
       {/* <Link

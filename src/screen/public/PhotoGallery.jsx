@@ -1,6 +1,7 @@
 import Layout from "../../components/global/Layout";
 import PhotoGalleryComponent from "../../components/reusable/PhotoGalleryComponent";
 import { Box } from "@mui/material";
+import HomeCarouselAnimated from "../../components/reusable/HomeCarouselAnimated";
 
 const PhotoGallery = () => {
   return (

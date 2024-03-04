@@ -35,6 +35,9 @@ import Rera from "../../components/reusable/Rera";
 
 import { POSTNETWORK, GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
+import LocalPostOfficeIcon from "@mui/icons-material/LocalPostOffice";
+
+import Carousel from "react-material-ui-carousel";
 
 const Home = () => {
   const theme = useTheme();
@@ -213,24 +216,79 @@ const Home = () => {
     },
   });
 
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+
+  const handleImageClick = (index) => {
+    const updatedGallery = gallery.map((image, i) => ({
+      ...image,
+      padding: i === index ? '5px' : '20px'
+    }));
+    setGallery(updatedGallery);
+    setSelectedImageIndex(index);
+  };
+
+  const [gallery, setGallery] = useState([
+    { id: "1", imageurl: "carousel-one.jpg" },
+    { id: "2", imageurl: "carousel-two.jpg" },
+    { id: "3", imageurl: "carousel-three.jpg" },
+    { id: "4", imageurl: "carousel-four.jpg" },
+  ]);
+
   return (
     <Layout>
       <ThemeProvider theme={styleTheme}>
         <FormProps open={showPopup} onClose={handleClosePopup} />
-        <Box sx={{ marginTop: "-11px" }}>
+        <Box sx={{ marginTop: "-11px", position: "relative" }}>
           {/* ReRa Sticky side Botton */}
           <Box>
             <Rera />
           </Box>
 
-          {/* Hero Section */}
           <Box
+            sx={{
+              position: "fixed",
+              bottom: "9px",
+              left: "20px",
+              zIndex: "100",
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                color: colors.darkGreen[100],
+                background:
+                  "linear-gradient(45deg, rgb(191, 149, 63), rgb(211, 204, 131), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
+                borderRadius: "100px",
+                fontWeight: "900",
+                display: "flex",
+                alignItems: "center",
+                textAlign: "center",
+                border: "none",
+                padding: "19px 18px",
+                "&:hover": {
+                  color: colors.white[100],
+                  backgroundColor: colors.darkGreen[100],
+                  border: "none",
+                  padding: "19px 18px",
+                },
+              }}
+              onClick={handleOpenPopup}
+            >
+              <LocalPostOfficeIcon />
+            </Button>
+          </Box>
+
+          {/* Hero Section Carousel */}
+
+          {/* Hero Section */}
+          {/* <Box
             display="flex"
             flexDirection="column"
             justifyContent="center"
             textAlign="start"
             alignItems="start"
-            sx={{ marginTop: { xs: "12vh", sm: "12vh", md: "12vh", lg: "0" } }}
+            sx={{ marginTop: { xs: "13vh", sm: "12vh", md: "12vh", lg: "0" } }}
           >
             <img
               alt="profile-user"
@@ -258,7 +316,7 @@ const Home = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "start",
-                fontSize: { xs: "24px", sm: "35px", md: "54px", lg: "54px" },
+                fontSize: { xs: "18px", sm: "35px", md: "54px", lg: "54px" },
                 marginLeft: "6vw",
               }}
             >
@@ -275,37 +333,132 @@ const Home = () => {
                 Bivab Yashila where every sunrise is a melody, and every day is
                 an ode to coastal living
               </Typography>
-              <Button
-                variant="contained"
-                sx={{
-                  color: colors.darkGreen[100],
-                  background:
-                    "linear-gradient(45deg, rgb(191, 149, 63), rgb(211, 204, 131), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
-                  borderRadius: "9px",
-                  fontWeight: "900",
-                  marginTop: { xs: "10px", sm: "15px", md: "32px", lg: "32px" },
-                  width: { xs: "40vw", sm: "22vw", md: "15vw", lg: "12vw" },
-                  padding: {
-                    xs: "7px 0px",
-                    sm: "10px 0px",
-                    md: "21px 0px",
-                    lg: "21px 0px",
-                  },
-                  display: "flex",
-                  alignItems: "center",
-                  textAlign: "center",
-                  border: "none",
-                  "&:hover": {
-                    color: colors.white[100],
-                    backgroundColor: colors.darkGreen[100],
-                    border: "none",
-                  },
-                }}
-                onClick={handleOpenPopup}
-              >
-                CALL REQUEST
-              </Button>
             </Typography>
+          </Box> */}
+
+          <Box sx={{ position: "relative", height: "96vh" }}>
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "100%",
+                height: "100%",
+                borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginBottom: "-25px",
+                }}
+              ></Box>
+              <Carousel
+                indicators={false}
+                index={selectedImageIndex}
+                autoPlay={false}
+                height="100vh"
+              >
+                {gallery.map((image) => (
+                  <div>
+                    <img
+                    key={image.id}
+                    src={`/${image.imageurl}`}
+                    alt={`Image ${image.id + 1}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      marginTop: "30px",
+                    }}
+                  />
+                    <Typography
+                  variant="h1"
+                  fontWeight="400"
+                  sx={{
+                    position: "absolute",
+                    background: (theme) =>
+                      `linear-gradient(45deg, #0a3c2c, #1f5a23, #4d5062, #0a3c2c)`,
+                    WebkitBackgroundClip: "text",
+                    color: "white",
+                    display: "inline-block",
+                    width: { xs: "90vw", sm: "90vw", md: "47vw", lg: "47vw" },
+                    zIndex: "1",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "35px",
+                      md: "54px",
+                      lg: "54px",
+                    },
+                    marginLeft: "6vw",
+                    top:'50%',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
+                  }}
+                >
+                  Wake Up To The Sound Of Sea In The Land Of Lord
+                  <Typography
+                    varient="h2"
+                    fontWeight="400"
+                    sx={{
+                      color: colors.white[100],
+                      marginTop: "4vh",
+                      fontSize: {
+                        xs: "12px",
+                        sm: "15px",
+                        md: "20px",
+                        lg: "20px",
+                      },
+                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
+                    }}
+                  >
+                    Bivab Yashila where every sunrise is a melody, and every day
+                    is an ode to coastal living
+                  </Typography>
+                </Typography>
+                  </div>
+                  
+                  
+                ))}
+                
+              </Carousel>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: "17vh",
+                  right: "80px",
+                  zIndex: "100",
+                }}
+              >
+                {gallery.map((image, index) => (
+                  <Box
+                    key={index}
+                    padding={image.padding || '20px'}
+                    onClick={() => handleImageClick(index)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img
+                      src={`/${image.imageurl}`}
+                      alt={`Small Property ${index + 1}`}
+                      style={{
+                        width: "100%",
+                        maxHeight: "100px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+                ))}
+              </Box>
+            </Box>
           </Box>
 
           {/* Rera Website */}
@@ -324,7 +477,12 @@ const Home = () => {
             sx={{
               display: "flex",
               backgroundColor: colors.darkGreen[100],
-              padding: "100px 50px",
+              padding: {
+                xs: "100px 50px",
+                sm: "100px",
+                md: "100px",
+                lg: "100px",
+              },
               flexDirection: "column",
             }}
           >
@@ -544,6 +702,7 @@ const Home = () => {
                     sx={{
                       color: colors.white[100],
                       filter: "brightness(100%)",
+                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                     }}
                   >
                     {bivabCommercial[0].description}
@@ -570,6 +729,7 @@ const Home = () => {
               marginTop: "50px",
               width: "100%",
               height: "100%",
+              padding: "0px 40px",
             }}
           >
             <Typography
@@ -651,7 +811,7 @@ const Home = () => {
                     md: "0px",
                     lg: "0px",
                   },
-                  padding: "20px",
+                  padding: "20px 50px",
                   width: { xs: "95vw", sm: "95vw", md: "50vw", lg: "50vw" },
                   display: "flex",
                   flexDirection: "column",
@@ -832,8 +992,8 @@ const Home = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   textAlign: "center",
-                  marginLeft: { xs: "0px", sm: "0px", md: "50px", lg: "50px" },
-                  padding: "20px",
+                  marginLeft: { xs: "0px", sm: "0px", md: "0px", lg: "0px" },
+                  padding: "20px 50px",
                 }}
               >
                 {/* Contact form */}
