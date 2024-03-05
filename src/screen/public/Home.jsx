@@ -181,7 +181,9 @@ const Home = () => {
       values: {
         xs: 0,
         sm: 600,
+        sm2: 750,
         md: 900,
+        md2: 1024,
         lg: 1280,
         xl: 1920,
       },
@@ -218,11 +220,10 @@ const Home = () => {
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-
   const handleImageClick = (index) => {
     const updatedGallery = gallery.map((image, i) => ({
       ...image,
-      padding: i === index ? '5px' : '20px'
+      padding: i === index ? "5px" : "15px",
     }));
     setGallery(updatedGallery);
     setSelectedImageIndex(index);
@@ -233,6 +234,7 @@ const Home = () => {
     { id: "2", imageurl: "carousel-two.jpg" },
     { id: "3", imageurl: "carousel-three.jpg" },
     { id: "4", imageurl: "carousel-four.jpg" },
+    { id: "5", imageurl: "carousel-five.jpg" },
   ]);
 
   return (
@@ -245,6 +247,7 @@ const Home = () => {
             <Rera />
           </Box>
 
+          {/* Sticky Call for Enquiry */}
           <Box
             sx={{
               position: "fixed",
@@ -280,67 +283,11 @@ const Home = () => {
           </Box>
 
           {/* Hero Section Carousel */}
-
-          {/* Hero Section */}
-          {/* <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            textAlign="start"
-            alignItems="start"
-            sx={{ marginTop: { xs: "13vh", sm: "12vh", md: "12vh", lg: "0" } }}
-          >
-            <img
-              alt="profile-user"
-              width="100%"
-              height="100%"
-              src={heroImage}
-              style={{
-                cursor: "pointer",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            <Typography
-              variant="h1"
-              fontWeight="400"
-              sx={{
-                position: "absolute",
-                background: (theme) =>
-                  `linear-gradient(45deg, #0a3c2c, #1f5a23, #4d5062, #0a3c2c)`,
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                display: "inline-block",
-                width: { xs: "90vw", sm: "90vw", md: "47vw", lg: "47vw" },
-                zIndex: "1",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
-                fontSize: { xs: "18px", sm: "35px", md: "54px", lg: "54px" },
-                marginLeft: "6vw",
-              }}
-            >
-              Wake Up To The Sound Of Sea In The Land Of Lord
-              <Typography
-                varient="h2"
-                fontWeight="400"
-                sx={{
-                  color: colors.darkblue[100],
-                  marginTop: "4vh",
-                  fontSize: { xs: "12px", sm: "15px", md: "20px", lg: "20px" },
-                }}
-              >
-                Bivab Yashila where every sunrise is a melody, and every day is
-                an ode to coastal living
-              </Typography>
-            </Typography>
-          </Box> */}
-
-          <Box sx={{ position: "relative", height: "96vh" }}>
+          <Box sx={{ position: "relative", height: {xs:'45vh',sm:'55vh',sm2:'62', md:'80vh', md2:'97vh', lg:'97vh'} }}>
             <Box
               sx={{
                 position: "absolute",
-                top: "50%",
+                top: {xs:'77%',sm:'50%',sm2:'50%', md:'50%', md2:'50%', lg:'50%'},
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 width: "100%",
@@ -360,101 +307,110 @@ const Home = () => {
               <Carousel
                 indicators={false}
                 index={selectedImageIndex}
-                autoPlay={false}
-                height="100vh"
+                autoPlay={true}
               >
                 {gallery.map((image) => (
                   <div>
                     <img
-                    key={image.id}
-                    src={`/${image.imageurl}`}
-                    alt={`Image ${image.id + 1}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      marginTop: "30px",
-                    }}
-                  />
+                      key={image.id}
+                      src={`/${image.imageurl}`}
+                      alt={`Image ${image.id + 1}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        marginTop: "30px",
+                      }}
+                    />
                     <Typography
-                  variant="h1"
-                  fontWeight="400"
-                  sx={{
-                    position: "absolute",
-                    background: (theme) =>
-                      `linear-gradient(45deg, #0a3c2c, #1f5a23, #4d5062, #0a3c2c)`,
-                    WebkitBackgroundClip: "text",
-                    color: "white",
-                    display: "inline-block",
-                    width: { xs: "90vw", sm: "90vw", md: "47vw", lg: "47vw" },
-                    zIndex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                    fontSize: {
-                      xs: "18px",
-                      sm: "35px",
-                      md: "54px",
-                      lg: "54px",
-                    },
-                    marginLeft: "6vw",
-                    top:'50%',
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
-                  }}
-                >
-                  Wake Up To The Sound Of Sea In The Land Of Lord
-                  <Typography
-                    varient="h2"
-                    fontWeight="400"
-                    sx={{
-                      color: colors.white[100],
-                      marginTop: "4vh",
-                      fontSize: {
-                        xs: "12px",
-                        sm: "15px",
-                        md: "20px",
-                        lg: "20px",
-                      },
-                      textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
-                    }}
-                  >
-                    Bivab Yashila where every sunrise is a melody, and every day
-                    is an ode to coastal living
-                  </Typography>
-                </Typography>
+                      variant="h1"
+                      fontWeight="400"
+                      sx={{
+                        position: "absolute",
+                        background: (theme) =>
+                          `linear-gradient(45deg, #0a3c2c, #1f5a23, #4d5062, #0a3c2c)`,
+                        WebkitBackgroundClip: "text",
+                        color: "white",
+                        display: "inline-block",
+                        width: {
+                          xs: "73vw",
+                          sm: "55vw",
+                          md: "47vw",
+                          lg: "47vw",
+                        },
+                        zIndex: "1",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "start",
+                        fontSize: {
+                          xs: "24px",
+                          sm: "35px",
+                          md: "54px",
+                          lg: "54px",
+                        },
+                        marginLeft: "6vw",
+                        top: {xs:'35%',sm:'35%',sm2:'35%', md:'40%', md2:'40%', lg:'40%'},
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                      }}
+                    >
+                      Wake Up To The Sound Of Sea In The Land Of Lord
+                      <Typography
+                        varient="h2"
+                        fontWeight="400"
+                        sx={{
+                          color: colors.white[100],
+                          marginTop: "4vh",
+                          fontSize: {
+                            xs: "12px",
+                            sm: "15px",
+                            md: "20px",
+                            lg: "20px",
+                          },
+                          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                        }}
+                      >
+                        Bivab Yashila where every sunrise is a melody, and every
+                        day is an ode to coastal living
+                      </Typography>
+                    </Typography>
                   </div>
-                  
-                  
                 ))}
-                
               </Carousel>
               <Box
                 sx={{
-                  display: "flex",
+                  display: {xs: 'none', sm:'none', md:'none', md2:'flex', lg:'flex'},
                   flexDirection: "column",
                   justifyContent: "center",
                   position: "absolute",
-                  top: "17vh",
-                  right: "80px",
-                  zIndex: "100",
+                  top: "0px",
+                  right: "0px",
+                  zIndex: 100,
+                  padding: "10px 34px",
+                  paddingRight: "123px",
+                  paddingTop: "98px",
+                  paddingBottom: "35px",
+                  backgroundColor: "#fefefea1",
+                  height: {xs:'45vh',sm:'55vh',sm2:'62', md:'80vh', md2:'97vh', lg:'97vh'}
                 }}
               >
                 {gallery.map((image, index) => (
                   <Box
                     key={index}
-                    padding={image.padding || '20px'}
+                    padding={image.padding || "15px"}
                     onClick={() => handleImageClick(index)}
                     style={{ cursor: "pointer" }}
                   >
-                    <img
-                      src={`/${image.imageurl}`}
-                      alt={`Small Property ${index + 1}`}
-                      style={{
-                        width: "100%",
-                        maxHeight: "100px",
-                        objectFit: "cover",
-                      }}
-                    />
+                    <Box sx={{boxShadow: '-9px 9px 7px -1px'}}>
+                      <img
+                        src={`/${image.imageurl}`}
+                        alt={`Small Property ${index + 1}`}
+                        style={{
+                          width: "100%",
+                          maxHeight: "85px",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
                   </Box>
                 ))}
               </Box>
@@ -747,7 +703,7 @@ const Home = () => {
                 loading="lazy"
                 width="100%"
                 height="400px"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d938.5006152970777!2d85.806047!3d19.797493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c59cd6659919%3A0x3660000eaa52d5a5!2sPuri%20Project%20Bivab%20yashila!5e0!3m2!1sen!2sus!4v1708447147554!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.7529919752238!2d85.7823886!3d19.7910228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c53fa1abf977%3A0x188402cff8e2ca46!2sBivab%20Yashila%2C%20Nabakalebara%20Rd%2C%20Sipasurabali%2C%20Puri%2C%20Sipasurubili%2C%20Odisha%20752001!5e0!3m2!1sen!2sin!4v1646464512896!5m2!1sen!2sin"
                 title="Bivab Yashila, Puri"
                 aria-label="Bivab Yashila, Puri"
               ></iframe>
