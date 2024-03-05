@@ -1,8 +1,8 @@
 // apiConfig.js
 
 class ApiUrl {
-    static API_BASE_URL = "http://62.72.31.234:2009/bivabs/yashla";
-    static ImageHostURl = "http://62.72.31.234:2009/upload/";
+    static API_BASE_URL = "https://api.bivabyashila.com/bivabs/yashla";
+    static ImageHostURl = "https://api.bivabyashila.com/upload/";
 
     static CONTACT_URL = `${ApiUrl.API_BASE_URL}/createContacts`;
 
