@@ -283,11 +283,30 @@ const Home = () => {
           </Box>
 
           {/* Hero Section Carousel */}
-          <Box sx={{ position: "relative", height: {xs:'45vh',sm:'55vh',sm2:'62', md:'80vh', md2:'97vh', lg:'97vh'} }}>
+          <Box
+            sx={{
+              position: "relative",
+              height: {
+                xs: "45vh",
+                sm: "55vh",
+                sm2: "62",
+                md: "80vh",
+                md2: "97vh",
+                lg: "97vh",
+              },
+            }}
+          >
             <Box
               sx={{
                 position: "absolute",
-                top: {xs:'77%',sm:'50%',sm2:'50%', md:'50%', md2:'50%', lg:'50%'},
+                top: {
+                  xs: "77%",
+                  sm: "50%",
+                  sm2: "50%",
+                  md: "50%",
+                  md2: "50%",
+                  lg: "50%",
+                },
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 width: "100%",
@@ -349,7 +368,14 @@ const Home = () => {
                           lg: "54px",
                         },
                         marginLeft: "6vw",
-                        top: {xs:'35%',sm:'35%',sm2:'35%', md:'40%', md2:'40%', lg:'40%'},
+                        top: {
+                          xs: "35%",
+                          sm: "35%",
+                          sm2: "35%",
+                          md: "40%",
+                          md2: "40%",
+                          lg: "40%",
+                        },
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                       }}
                     >
@@ -378,7 +404,13 @@ const Home = () => {
               </Carousel>
               <Box
                 sx={{
-                  display: {xs: 'none', sm:'none', md:'none', md2:'flex', lg:'flex'},
+                  display: {
+                    xs: "none",
+                    sm: "none",
+                    md: "none",
+                    md2: "flex",
+                    lg: "flex",
+                  },
                   flexDirection: "column",
                   justifyContent: "center",
                   position: "absolute",
@@ -390,7 +422,14 @@ const Home = () => {
                   paddingTop: "98px",
                   paddingBottom: "35px",
                   backgroundColor: "#fefefea1",
-                  height: {xs:'45vh',sm:'55vh',sm2:'62', md:'80vh', md2:'97vh', lg:'97vh'}
+                  height: {
+                    xs: "45vh",
+                    sm: "55vh",
+                    sm2: "62",
+                    md: "80vh",
+                    md2: "97vh",
+                    lg: "97vh",
+                  },
                 }}
               >
                 {gallery.map((image, index) => (
@@ -400,7 +439,7 @@ const Home = () => {
                     onClick={() => handleImageClick(index)}
                     style={{ cursor: "pointer" }}
                   >
-                    <Box sx={{boxShadow: '-9px 9px 7px -1px'}}>
+                    <Box sx={{ boxShadow: "-9px 9px 7px -1px" }}>
                       <img
                         src={`/${image.imageurl}`}
                         alt={`Small Property ${index + 1}`}
@@ -469,20 +508,6 @@ const Home = () => {
                   }}
                 >
                   Why Our Company Is The Perfect Partner For You?
-                </Typography>
-                <Typography
-                  variant="h4"
-                  fontWeight="900"
-                  sx={{
-                    background: (theme) =>
-                      `linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))`,
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                    display: "inline-block",
-                    marginBottom: "15px",
-                  }}
-                >
-                  TALK TO AN EXPERT
                 </Typography>
                 <Typography
                   variant="p"
@@ -785,93 +810,91 @@ const Home = () => {
                   Feel Free To Ask Any Questions To Us
                 </Typography>
                 <Box>
-                  <Typography
-                    variant="p"
-                    fontWeight="700"
-                    sx={{
-                      color: colors.white[100],
-                      marginBottom: "20px",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    {contactLogs &&
-                      contactLogs.length > 0 &&
-                      contactLogs[0] &&
-                      contactLogs[0].location && (
-                        <div>
-                          <Link
-                            href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
-                            style={{
-                              textDecoration: "none",
-                              color: colors.yellow[300],
-                            }}
-                          >
-                            <ExploreIcon
-                              sx={{ fontSize: "24px", marginRight: "15px" }}
-                            />
-                          </Link>
+                  {contactLogs &&
+                    contactLogs.length > 0 &&
+                    contactLogs[0] &&
+                    contactLogs[0].location && (
+                      <Typography
+                        variant="p"
+                        fontWeight="700"
+                        sx={{
+                          color: colors.white[100],
+                          marginBottom: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Link
+                          href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                          style={{
+                            textDecoration: "none",
+                            color: colors.yellow[300],
+                          }}
+                        >
+                          <ExploreIcon
+                            sx={{ fontSize: "24px", marginRight: "15px" }}
+                          />
+                        </Link>
 
+                        <Link
+                          href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                          style={{
+                            textDecoration: "none",
+                            color: colors.white[100],
+                          }}
+                        >
+                          {contactLogs[0].location}
+                        </Link>
+                      </Typography>
+                    )}
+
+                  {contactLogs &&
+                    contactLogs.length > 0 &&
+                    contactLogs[0] &&
+                    contactLogs[0].primaryNumber &&
+                    contactLogs[0].secondaryNumber && (
+                      <Typography
+                        variant="p"
+                        fontWeight="700"
+                        sx={{
+                          color: colors.yellow[300],
+                          marginBottom: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <ContactsIcon
+                          sx={{ fontSize: "24px", marginRight: "15px" }}
+                        />
+                        <Typography
+                          variant="p"
+                          style={{ color: colors.white[100] }}
+                        >
                           <Link
-                            href="https://maps.app.goo.gl/5pccSjmyZpB91k3s5"
+                            href={`tel:+91${contactLogs[0].primaryNumber}`}
                             style={{
                               textDecoration: "none",
                               color: colors.white[100],
+                              fontWeight: 700,
                             }}
                           >
-                            {contactLogs[0].location}
+                            +91 {contactLogs[0].primaryNumber}
+                          </Link>{" "}
+                          /{" "}
+                          <Link
+                            href={`tel:+91${contactLogs[0].secondaryNumber}`}
+                            style={{
+                              textDecoration: "none",
+                              color: colors.white[100],
+                              fontWeight: 700,
+                            }}
+                          >
+                            {contactLogs[0].secondaryNumber}
                           </Link>
-                        </div>
-                      )}
-                  </Typography>
-                  <Typography
-                    variant="p"
-                    fontWeight="700"
-                    sx={{
-                      color: colors.yellow[300],
-                      marginBottom: "20px",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    <ContactsIcon
-                      sx={{ fontSize: "24px", marginRight: "15px" }}
-                    />
-                    <Typography
-                      variant="p"
-                      style={{ color: colors.white[100] }}
-                    >
-                      {contactLogs &&
-                        contactLogs.length > 0 &&
-                        contactLogs[0] &&
-                        contactLogs[0].primaryNumber &&
-                        contactLogs[0].secondaryNumber && (
-                          <div>
-                            <Link
-                              href={`tel:+91${contactLogs[0].primaryNumber}`}
-                              style={{
-                                textDecoration: "none",
-                                color: colors.white[100],
-                                fontWeight: 700,
-                              }}
-                            >
-                              +91 {contactLogs[0].primaryNumber}
-                            </Link>{" "}
-                            /{" "}
-                            <Link
-                              href={`tel:+91${contactLogs[0].secondaryNumber}`}
-                              style={{
-                                textDecoration: "none",
-                                color: colors.white[100],
-                                fontWeight: 700,
-                              }}
-                            >
-                              {contactLogs[0].secondaryNumber}
-                            </Link>
-                          </div>
-                        )}
-                    </Typography>
-                  </Typography>
+                        </Typography>
+                      </Typography>
+                    )}
+
                   <Typography
                     variant="p"
                     fontWeight="700"
@@ -891,52 +914,44 @@ const Home = () => {
                     />
                     Mon - Sat: 9:00am - 6:00pm
                   </Typography>
-                  <Typography
-                    variant="p"
-                    fontWeight="700"
-                    sx={{
-                      color: colors.white[100],
-                      marginBottom: "20px",
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
-                    {contactLogs &&
-                      contactLogs.length > 0 &&
-                      contactLogs[0] &&
-                      contactLogs[0].email && (
-                        <div
-                          style={{
-                            color: colors.white[100],
-                            marginBottom: "20px",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Link
-                            style={{
-                              textDecoration: "none",
-                              color: colors.yellow[300],
-                            }}
-                            href={`mailto:${contactLogs[0].email}`}
-                          >
-                            <MarkEmailReadIcon
-                              sx={{ fontSize: "24px", marginRight: "15px" }}
-                            />
-                          </Link>
 
-                          <Link
-                            style={{
-                              textDecoration: "none",
-                              color: colors.white[100],
-                            }}
-                            href={`mailto:${contactLogs[0].email}`}
-                          >
-                            {contactLogs[0].email}
-                          </Link>
-                        </div>
-                      )}
-                  </Typography>
+                  {contactLogs &&
+                    contactLogs.length > 0 &&
+                    contactLogs[0] &&
+                    contactLogs[0].email && (
+                      <Typography
+                        variant="p"
+                        fontWeight="700"
+                        sx={{
+                          color: colors.white[100],
+                          marginBottom: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: colors.yellow[300],
+                          }}
+                          href={`mailto:${contactLogs[0].email}`}
+                        >
+                          <MarkEmailReadIcon
+                            sx={{ fontSize: "24px", marginRight: "15px" }}
+                          />
+                        </Link>
+
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: colors.white[100],
+                          }}
+                          href={`mailto:${contactLogs[0].email}`}
+                        >
+                          {contactLogs[0].email}
+                        </Link>
+                      </Typography>
+                    )}
                 </Box>
               </Box>
 

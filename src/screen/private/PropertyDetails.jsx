@@ -18,7 +18,7 @@ import Carousel from "react-material-ui-carousel";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import SquareFootIcon from "@mui/icons-material/SquareFoot";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import EngineeringIcon from "@mui/icons-material/Engineering";
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import CloseIcon from "@mui/icons-material/Close";
 
 import jsPDF from "jspdf";
@@ -279,6 +279,8 @@ export default function PropertyDetails() {
                   sx={{
                     color: colors.darkblue[100],
                     fontSize: "16px",
+                    display:'flex',
+                    alignItems:'center'
                   }}
                 >
                   <PinDropIcon
@@ -298,6 +300,8 @@ export default function PropertyDetails() {
                   sx={{
                     color: colors.darkblue[100],
                     fontSize: "16px",
+                    display:'flex',
+                    alignItems:'center'
                   }}
                 >
                   <SquareFootIcon
@@ -317,6 +321,8 @@ export default function PropertyDetails() {
                   sx={{
                     color: colors.darkblue[100],
                     fontSize: "16px",
+                    display:'flex',
+                    alignItems:'center'
                   }}
                 >
                   <ApartmentIcon
@@ -329,7 +335,52 @@ export default function PropertyDetails() {
                   {property.rooms}
                 </Typography>
 
+                {/* Facing */}
+                <Typography
+                  varient="h4"
+                  fontWeight="600"
+                  sx={{
+                    color: colors.darkblue[100],
+                    fontSize: "16px",
+                    display:'flex',
+                    alignItems:'center'
+                  }}
+                >
+                  <FullscreenIcon
+                    sx={{
+                      fontWeight: "700",
+                      fontSize: "20px",
+                      marginRight: "5px",
+                    }}
+                  />{" "}
+                  {property.facing}
+                </Typography>
+
                 {/* Description */}
+                <Typography
+                  variant="h2"
+                  color={colors.black[100]}
+                  fontWeight="700"
+                  sx={{
+                    marginBottom: "25px",
+                    marginTop: "50px",
+                    fontSize: {
+                      xs: "32px",
+                      sm: "32px",
+                      md: "45px",
+                      lg: "45px",
+                    },
+                    marginLeft: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      lg: "0px",
+                    },
+                  }}
+                >
+                  Overview
+                </Typography>
+
                 <Typography
                   varient="h6"
                   fontWeight="500"
@@ -338,6 +389,7 @@ export default function PropertyDetails() {
                     fontSize: "16px",
                     textAlign: "left",
                     marginTop: "20px",
+                    paddingRight:'20px'
                   }}
                 >
                   {description}
@@ -504,7 +556,7 @@ export default function PropertyDetails() {
                       top: "50%",
                       left: "50%",
                       transform: "translate(-50%, -50%)",
-                      width: {xs:320, sm:350, md:450, lg: 450},
+                      width: { xs: 320, sm: 350, md: 450, lg: 450 },
                       bgcolor: "background.paper",
                       boxShadow: 24,
                       p: 4,
@@ -538,7 +590,7 @@ export default function PropertyDetails() {
                           style={{
                             cursor: "pointer",
                             marginRight: "40px",
-                            objectFit:'contain'
+                            objectFit: "contain",
                           }}
                         />
                         <Typography
@@ -581,7 +633,7 @@ export default function PropertyDetails() {
                         width: "100%",
                         height: "100%",
                         borderRadius: "10px",
-                        objectFit:'contain'
+                        objectFit: "contain",
                       }}
                     />
                   </Box>
@@ -635,7 +687,7 @@ export default function PropertyDetails() {
                 </Link>
 
                 {/* 2D button */}
-                <Button
+                {/* <Button
                   variant="outlined"
                   sx={{
                     color: colors.white[100],
@@ -657,7 +709,7 @@ export default function PropertyDetails() {
                   onClick={handleOpen2D}
                 >
                   2D Plan
-                </Button>
+                </Button> */}
 
                 <Modal
                   open={open2D}
@@ -671,7 +723,7 @@ export default function PropertyDetails() {
                       top: "50%",
                       left: "50%",
                       transform: "translate(-50%, -50%)",
-                      width: {xs:375, sm:650, md:900, lg: 1100},
+                      width: { xs: 375, sm: 650, md: 900, lg: 1100 },
                       bgcolor: "background.paper",
                       boxShadow: 24,
                       p: 4,
@@ -689,7 +741,7 @@ export default function PropertyDetails() {
                     <Box
                       sx={{
                         width: "100%",
-                        height:'500px',
+                        height: "500px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -702,7 +754,7 @@ export default function PropertyDetails() {
                         src={`/${property.brochure}`}
                         style={{
                           cursor: "pointer",
-                          objectFit:'contain'
+                          objectFit: "contain",
                         }}
                       />
                     </Box>

@@ -24,7 +24,6 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { POSTNETWORK, GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
 
-
 import { Link } from "react-router-dom";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -235,101 +234,112 @@ const ContactUs = () => {
                 GET IN TOUCH
               </Typography>
               <Box>
-                <Typography
-                  variant="h6"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    width: { xs: "100%", sm: "100%", md: "20vw", lg: "20vw" },
-                    fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
-                  }}
-                >
-                  {contactLogs &&
-                    contactLogs.length > 0 &&
-                    contactLogs[0] &&
-                    contactLogs[0].location && (
-                      <div>
-                        <Link
-                          to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
-                          style={{
-                            textDecoration: "none",
-                            color: colors.darkGreen[100],
+                {contactLogs &&
+                  contactLogs.length > 0 &&
+                  contactLogs[0] &&
+                  contactLogs[0].location && (
+                    <Typography
+                      variant="h6"
+                      fontWeight="700"
+                      sx={{
+                        color: colors.darkGreen[100],
+                        marginBottom: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        width: {
+                          xs: "100%",
+                          sm: "100%",
+                          md: "20vw",
+                          lg: "20vw",
+                        },
+                        fontSize: {
+                          xs: "0.65rem",
+                          sm: "0.75rem",
+                          md: "0.90rem",
+                        },
+                      }}
+                    >
+                      <Link
+                        to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                        style={{
+                          textDecoration: "none",
+                          color: colors.darkGreen[100],
+                        }}
+                      >
+                        <ExploreIcon
+                          sx={{
+                            fontSize: "50px",
+                            marginRight: "15px",
+                            backgroundColor: colors.darkGreen[100],
+                            color: colors.yellow[100],
+                            padding: "7px",
                           }}
-                        >
-                          <ExploreIcon
-                            sx={{
-                              fontSize: "50px",
-                              marginRight: "15px",
-                              backgroundColor: colors.darkGreen[100],
-                              color: colors.yellow[100],
-                              padding: "7px",
-                            }}
-                          />
-                        </Link>
+                        />
+                      </Link>
 
-                        <Link
-                          to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
-                          style={{
-                            textDecoration: "none",
-                            color: colors.darkGreen[100],
-                          }}
-                        >
-                          {contactLogs[0].location}
-                        </Link>
-                      </div>
-                    )}
-                </Typography>
-                <Typography
-                  variant="h6"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
-                  }}
-                >
-                  {contactLogs &&
-                    contactLogs.length > 0 &&
-                    contactLogs[0] &&
-                    contactLogs[0].email && (
-                      <div>
-                        <Link
-                          style={{
-                            textDecoration: "none",
-                            color: colors.darkGreen[100],
-                          }}
-                          rel="stylesheet"
-                          to={`mailto:${contactLogs[0].email}`}
-                        >
-                          <MarkEmailReadIcon
-                            sx={{
-                              fontSize: "50px",
-                              marginRight: "15px",
-                              backgroundColor: colors.darkGreen[100],
-                              color: colors.yellow[100],
-                              padding: "7px",
-                            }}
-                          />
-                        </Link>
+                      <Link
+                        to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                        style={{
+                          textDecoration: "none",
+                          color: colors.darkGreen[100],
+                        }}
+                      >
+                        {contactLogs[0].location}
+                      </Link>
+                    </Typography>
+                  )}
 
-                        <Link
-                          style={{
-                            textDecoration: "none",
-                            color: colors.darkGreen[100],
+                {contactLogs &&
+                  contactLogs.length > 0 &&
+                  contactLogs[0] &&
+                  contactLogs[0].email && (
+                    <Typography
+                      variant="h6"
+                      fontWeight="700"
+                      sx={{
+                        color: colors.darkGreen[100],
+                        marginBottom: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: {
+                          xs: "0.65rem",
+                          sm: "0.75rem",
+                          md: "0.90rem",
+                        },
+                      }}
+                    >
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: colors.darkGreen[100],
+                        }}
+                        rel="stylesheet"
+                        to={`mailto:${contactLogs[0].email}`}
+                      >
+                        <MarkEmailReadIcon
+                          sx={{
+                            fontSize: "50px",
+                            marginRight: "15px",
+                            backgroundColor: colors.darkGreen[100],
+                            color: colors.yellow[100],
+                            padding: "7px",
                           }}
-                          rel="stylesheet"
-                          to={`mailto:${contactLogs[0].email}`}
-                        >
-                          Email Us : {contactLogs[0].email}
-                        </Link>
-                      </div>
-                    )}
-                </Typography>
+                        />
+                      </Link>
+
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: colors.darkGreen[100],
+                        }}
+                        rel="stylesheet"
+                        to={`mailto:${contactLogs[0].email}`}
+                      >
+                        Email Us : {contactLogs[0].email}
+                      </Link>
+                    </Typography>
+                  )}
+
                 <Typography
                   variant="h6"
                   fontWeight="700"
@@ -358,7 +368,8 @@ const ContactUs = () => {
                     {contactLogs &&
                       contactLogs.length > 0 &&
                       contactLogs[0] &&
-                      contactLogs[0].primaryNumber && contactLogs[0].secondaryNumber &&(
+                      contactLogs[0].primaryNumber &&
+                      contactLogs[0].secondaryNumber && (
                         <div>
                           <Link
                             to={`tel:+91${contactLogs[0].primaryNumber}`}
@@ -372,7 +383,7 @@ const ContactUs = () => {
                           </Link>{" "}
                           /{" "}
                           <Link
-                           to={`tel:+91${contactLogs[0].secondaryNumber}`}
+                            to={`tel:+91${contactLogs[0].secondaryNumber}`}
                             style={{
                               textDecoration: "none",
                               color: colors.darkblue[100],

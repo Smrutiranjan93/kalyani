@@ -136,7 +136,7 @@ const OurProperties = () => {
                     md: "row",
                     lg: "row",
                   },
-                  backgroundColor:colors.darkblue[100],
+                  backgroundColor: colors.darkblue[100],
                 }}
               >
                 {/* Carousel Section */}
@@ -145,7 +145,7 @@ const OurProperties = () => {
                     width: { xs: "100%", sm: "100%", md: "70%", lg: "70%" },
                   }}
                 >
-                  <Carousel indicators={true} height="257px">
+                  <Carousel indicators={false} autoPlay={true} height="257px">
                     {item.gallery.map((imageurl) => (
                       <Box
                         key={imageurl.id}
@@ -165,7 +165,9 @@ const OurProperties = () => {
                             height: "100%",
                             borderTopLeftRadius: "10px",
                             borderBottomLeftRadius: "10px",
-                            borderTopRightRadius: "10px"
+                            borderTopRightRadius: "10px",
+                            borderBottomRightRadius:'10px',
+                            objectFit: "cover",
                           }}
                         />
                       </Box>
@@ -185,21 +187,21 @@ const OurProperties = () => {
                     <img
                       src={`/${item.gallery[0].imageurl}`}
                       alt="Image"
-                      style={{ width: "100%", height: "13vh" }}
+                      style={{ width: "100%", height: "11.5vh", borderTopRightRadius:'10px' }}
                     />
                   </Box>
                   <Box marginBottom="2px">
                     <img
                       src={`/${item.gallery[1].imageurl}`}
                       alt="Image"
-                      style={{ width: "100%", height: "13vh" }}
+                      style={{ width: "100%", height: "11.5vh" }}
                     />
                   </Box>
                   <Box sx={{ position: "relative" }}>
                     <img
                       src={`/${item.gallery[2].imageurl}`}
                       alt="Image"
-                      style={{ width: "100%", height: "13.3vh" }}
+                      style={{ width: "100%", height: "11.5vh", borderBottomRightRadius:'10px' }}
                     />
                     <Box
                       sx={{
@@ -330,7 +332,17 @@ const OurProperties = () => {
                   </Box>
 
                   {/* Description Section */}
-                  <Typography variant="h6" sx={{ marginBottom: "10px" }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      marginBottom: "10px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                    }}
+                  >
                     {item.description}
                   </Typography>
                 </Box>
@@ -355,6 +367,7 @@ const OurProperties = () => {
                       md: "0px 15px",
                       lg: "0px 15px",
                     },
+                    borderBottomLeftRadius:{xs:'10px', sm:'10px', md:'0px', lg:'0px'}
                   }}
                 >
                   {/* View Detail button Link */}
