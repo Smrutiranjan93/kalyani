@@ -80,14 +80,14 @@ const AmentitiesComponent = () => {
 
   return (
     <ThemeProvider theme={styleTheme}>
-      <Box sx={{ textAlign: "center", marginTop: "50px" }}>
+      <Box sx={{ textAlign: "center", marginTop: "0px" }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "130px",
+              marginTop: "0px",
               marginBottom:'50px',
               padding:'0px 50px',
               backgroundColor:colors.darkGreen[100]

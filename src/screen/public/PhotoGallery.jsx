@@ -6,7 +6,7 @@ import HomeCarouselAnimated from "../../components/reusable/HomeCarouselAnimated
 const PhotoGallery = () => {
   return (
     <Layout>
-      <Box sx={{marginTop:'130px', marginBottom:'100px'}}>
+      <Box sx={{marginTop:'150px', marginBottom:'100px'}}>
         <PhotoGalleryComponent/>
       </Box>
     </Layout>

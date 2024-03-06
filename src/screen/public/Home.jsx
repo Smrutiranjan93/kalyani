@@ -218,17 +218,6 @@ const Home = () => {
     },
   });
 
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-
-  const handleImageClick = (index) => {
-    const updatedGallery = gallery.map((image, i) => ({
-      ...image,
-      padding: i === index ? "5px" : "15px",
-    }));
-    setGallery(updatedGallery);
-    setSelectedImageIndex(index);
-  };
-
   const [gallery, setGallery] = useState([
     { id: "1", imageurl: "carousel-one.jpg" },
     { id: "2", imageurl: "carousel-two.jpg" },
@@ -236,6 +225,22 @@ const Home = () => {
     { id: "4", imageurl: "carousel-four.jpg" },
     { id: "5", imageurl: "carousel-five.jpg" },
   ]);
+
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedImageIndex((prevIndex) =>
+        prevIndex === gallery.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2000); // Change interval as needed
+
+    return () => clearInterval(interval);
+  }, [gallery]);
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+  };
 
   return (
     <Layout>
@@ -326,7 +331,7 @@ const Home = () => {
               <Carousel
                 indicators={false}
                 index={selectedImageIndex}
-                autoPlay={true}
+                autoPlay={false}
               >
                 {gallery.map((image) => (
                   <div>
@@ -372,9 +377,9 @@ const Home = () => {
                           xs: "35%",
                           sm: "35%",
                           sm2: "35%",
-                          md: "40%",
-                          md2: "40%",
-                          lg: "40%",
+                          md: "37%",
+                          md2: "37%",
+                          lg: "38%",
                         },
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                       }}
@@ -435,9 +440,9 @@ const Home = () => {
                 {gallery.map((image, index) => (
                   <Box
                     key={index}
-                    padding={image.padding || "15px"}
+                    padding={index === selectedImageIndex ? "0" : "15px"} // Adjust padding based on whether the image is selected
                     onClick={() => handleImageClick(index)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", transition: "padding 0.3s" }}
                   >
                     <Box sx={{ boxShadow: "-9px 9px 7px -1px" }}>
                       <img
