@@ -28,7 +28,9 @@ import { Link } from "react-router-dom";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const ContactUs = () => {
+import Loading from "../../components/reusable/Loading";
+
+const ContactUs = ({ data }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -116,6 +118,19 @@ const ContactUs = () => {
     /* END API Integration */
   }
 
+  {
+    /* Loading logic */
+  }
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  {
+    /* End */
+  }
+
   const styleTheme = createTheme({
     breakpoints: {
       values: {
@@ -157,515 +172,542 @@ const ContactUs = () => {
   });
 
   return (
-    <Layout>
-      <ThemeProvider theme={styleTheme}>
-        <Box sx={{ marginBottom: "50px" }}>
-          {/* Intro bg Details */}
-          <Box
-            sx={{
-              backgroundColor: "#333",
-              backgroundImage: `url(${contactBg})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: "50vh",
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              marginTop: "0px",
-            }}
-          >
-            <Box
-              sx={{
-                marginLeft: "16px",
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "center",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="h1"
-                style={{
-                  color: colors.white[100],
-                  fontWeight: "900",
-                  marginBottom: "5px",
-                  fontSize: "42px",
-                  textAlign: "center",
-                }}
-              >
-                CONTACT US
-              </Typography>
-            </Box>
-          </Box>
-          {/* End */}
-
-          {/* Contact Info Section */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-around",
-              marginTop: "50px",
-              padding: {
-                xs: "0px 10px",
-                sm: "0px 10px",
-                md: "0px 100px",
-                lg: "0px 100px",
-              },
-              flexDirection: {
-                xs: "column",
-                sm: "column",
-                md: "row",
-                lg: "row",
-              },
-            }}
-          >
-            <Box
-              sx={{ width: { xs: "100%", sm: "100%", md: "60vw", lg: "60vw" } }}
-            >
-              <Typography
-                variant="h1"
-                fontWeight="700"
+    <div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Layout>
+          <ThemeProvider theme={styleTheme}>
+            <Box sx={{ marginBottom: "50px" }}>
+              {/* Intro bg Details */}
+              <Box
                 sx={{
-                  color: colors.darkGreen[100],
-                  marginBottom: "50px",
-                  fontSize: { xs: "20px", sm: "26px", md: "36px" },
+                  backgroundColor: "#333",
+                  backgroundImage: `url(${contactBg})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: "50vh",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  marginTop: "0px",
                 }}
               >
-                GET IN TOUCH
-              </Typography>
-              <Box>
-                {contactLogs &&
-                  contactLogs.length > 0 &&
-                  contactLogs[0] &&
-                  contactLogs[0].location && (
-                    <Typography
-                      variant="h6"
-                      fontWeight="700"
-                      sx={{
-                        color: colors.darkGreen[100],
-                        marginBottom: "20px",
-                        display: "flex",
-                        alignItems: "center",
-                        width: {
-                          xs: "100%",
-                          sm: "100%",
-                          md: "20vw",
-                          lg: "20vw",
-                        },
-                        fontSize: {
-                          xs: "0.65rem",
-                          sm: "0.75rem",
-                          md: "0.90rem",
-                        },
-                      }}
-                    >
-                      <Link
-                        to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
-                        style={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                        }}
-                      >
-                        <ExploreIcon
-                          sx={{
-                            fontSize: "50px",
-                            marginRight: "15px",
-                            backgroundColor: colors.darkGreen[100],
-                            color: colors.yellow[100],
-                            padding: "7px",
-                          }}
-                        />
-                      </Link>
-
-                      <Link
-                        to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
-                        style={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                        }}
-                      >
-                        {contactLogs[0].location}
-                      </Link>
-                    </Typography>
-                  )}
-
-                {contactLogs &&
-                  contactLogs.length > 0 &&
-                  contactLogs[0] &&
-                  contactLogs[0].email && (
-                    <Typography
-                      variant="h6"
-                      fontWeight="700"
-                      sx={{
-                        color: colors.darkGreen[100],
-                        marginBottom: "20px",
-                        display: "flex",
-                        alignItems: "center",
-                        fontSize: {
-                          xs: "0.65rem",
-                          sm: "0.75rem",
-                          md: "0.90rem",
-                        },
-                      }}
-                    >
-                      <Link
-                        style={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                        }}
-                        rel="stylesheet"
-                        to={`mailto:${contactLogs[0].email}`}
-                      >
-                        <MarkEmailReadIcon
-                          sx={{
-                            fontSize: "50px",
-                            marginRight: "15px",
-                            backgroundColor: colors.darkGreen[100],
-                            color: colors.yellow[100],
-                            padding: "7px",
-                          }}
-                        />
-                      </Link>
-
-                      <Link
-                        style={{
-                          textDecoration: "none",
-                          color: colors.darkGreen[100],
-                        }}
-                        rel="stylesheet"
-                        to={`mailto:${contactLogs[0].email}`}
-                      >
-                        Email Us : {contactLogs[0].email}
-                      </Link>
-                    </Typography>
-                  )}
-
-                <Typography
-                  variant="h6"
-                  fontWeight="700"
+                <Box
                   sx={{
-                    color: colors.darkGreen[100],
-                    marginBottom: "20px",
+                    marginLeft: "16px",
                     display: "flex",
+                    flexDirection: "column",
+                    textAlign: "center",
                     alignItems: "center",
-                    fontSize: { xs: "0.65rem", sm: "0.75rem", md: "0.90rem" },
                   }}
                 >
-                  <ContactsIcon
-                    sx={{
-                      fontSize: "50px",
-                      marginRight: "15px",
-                      backgroundColor: colors.darkGreen[100],
-                      color: colors.yellow[100],
-                      padding: "7px",
-                    }}
-                  />
-                  Phone : &nbsp;
                   <Typography
-                    variant="p"
-                    style={{ color: colors.darkblue[100] }}
+                    variant="h1"
+                    style={{
+                      color: colors.white[100],
+                      fontWeight: "900",
+                      marginBottom: "5px",
+                      fontSize: "42px",
+                      textAlign: "center",
+                    }}
                   >
-                    {contactLogs &&
-                      contactLogs.length > 0 &&
-                      contactLogs[0] &&
-                      contactLogs[0].primaryNumber &&
-                      contactLogs[0].secondaryNumber && (
-                        <div>
-                          <Link
-                            to={`tel:+91${contactLogs[0].primaryNumber}`}
-                            style={{
-                              textDecoration: "none",
-                              color: colors.darkblue[100],
-                              fontWeight: 700,
-                            }}
-                          >
-                            +91 {contactLogs[0].primaryNumber}
-                          </Link>{" "}
-                          /{" "}
-                          <Link
-                            to={`tel:+91${contactLogs[0].secondaryNumber}`}
-                            style={{
-                              textDecoration: "none",
-                              color: colors.darkblue[100],
-                              fontWeight: 700,
-                            }}
-                          >
-                            {contactLogs[0].secondaryNumber}
-                          </Link>
-                        </div>
-                      )}
+                    CONTACT US
                   </Typography>
-                </Typography>
+                </Box>
               </Box>
+              {/* End */}
+
+              {/* Contact Info Section */}
               <Box
                 sx={{
                   display: "flex",
-                  alignItems: "center",
-                  textAlign: "center",
-                  marginTop: "20px",
-                  borderTop: "1px solid",
-                  width: { xs: "100%", sm: "100%", md: "20vw", lg: "20vw" },
-                  paddingTop: "10px",
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  fontWeight="700"
-                  sx={{
-                    color: colors.darkblue[100],
-                    fontSize: { xs: "0.60rem", sm: "0.90rem", md: "1.2rem" },
-                  }}
-                >
-                  Follow Us :
-                </Typography>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Link to="https://www.facebook.com/BivabDevelopers/">
-                    <FacebookIcon
-                      sx={{
-                        backgroundColor: "#4d68a1",
-                        color: colors.white[100],
-                        marginRight: "10px",
-                        fontSize: "32px",
-                        padding: "2px",
-                        marginLeft: "15px",
-                      }}
-                    />
-                  </Link>
-
-                  <Link to="https://www.instagram.com/bivab_developers/">
-                    <InstagramIcon
-                      sx={{
-                        backgroundColor: "#262626",
-                        color: colors.white[100],
-                        fontSize: "32px",
-                        padding: "2px",
-                        marginRight: "10px",
-                      }}
-                    />
-                  </Link>
-
-                  <Link to="https://twitter.com/BivabOfficial">
-                    <TwitterIcon
-                      sx={{
-                        backgroundColor: "#1da0f0",
-                        color: colors.white[100],
-                        marginRight: "10px",
-                        fontSize: "32px",
-                        padding: "2px",
-                      }}
-                    />
-                  </Link>
-
-                  <Link to="https://www.youtube.com/@bivabyashila">
-                    <YouTubeIcon
-                      sx={{
-                        backgroundColor: "#cb201f",
-                        color: colors.white[100],
-                        fontSize: "32px",
-                        padding: "2px",
-                      }}
-                    />
-                  </Link>
-                </Box>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                marginLeft: { xs: "0px", sm: "0px", md: "50px", lg: "50px" },
-                backgroundColor: colors.darkGreen[100],
-                padding: "82px 56px",
-                marginTop: { xs: "15px", sm: "15px", md: "0px", lg: "0px" },
-              }}
-            >
-              <Typography
-                variant="h1"
-                fontWeight="700"
-                sx={{
-                  color: colors.yellow[100],
-                  marginBottom: "40px",
-                  fontSize: { xs: "20px", sm: "26px", md: "36px" },
-                }}
-              >
-                Send Us A Message.
-              </Typography>
-
-              {/* Contact form */}
-              <Snackbar
-                open={openSnackbar}
-                autoHideDuration={2000}
-                onClose={handleCloseSnackbar}
-                message="Form submitted successfully!"
-                sx={{
-                  color: "#FFFFFF",
-                  position: "relative",
-
-                  "& .MuiSnackbarContent-message": {
-                    flex: "auto",
+                  justifyContent: "space-around",
+                  marginTop: "50px",
+                  padding: {
+                    xs: "0px 10px",
+                    sm: "0px 10px",
+                    md: "0px 100px",
+                    lg: "0px 100px",
+                  },
+                  flexDirection: {
+                    xs: "column",
+                    sm: "column",
+                    md: "row",
+                    lg: "row",
                   },
                 }}
-              />
-              <form onSubmit={handelContact}>
-                <Grid container spacing={2}>
-                  {/* First Row */}
-                  <Grid item xs={6}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                  </Grid>
+              >
+                <Box
+                  sx={{
+                    width: { xs: "100%", sm: "100%", md: "60vw", lg: "60vw" },
+                  }}
+                >
+                  <Typography
+                    variant="h1"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.darkGreen[100],
+                      marginBottom: "50px",
+                      fontSize: { xs: "20px", sm: "26px", md: "36px" },
+                    }}
+                  >
+                    GET IN TOUCH
+                  </Typography>
+                  <Box>
+                    {contactLogs &&
+                      contactLogs.length > 0 &&
+                      contactLogs[0] &&
+                      contactLogs[0].location && (
+                        <Typography
+                          variant="h6"
+                          fontWeight="700"
+                          sx={{
+                            color: colors.darkGreen[100],
+                            marginBottom: "20px",
+                            display: "flex",
+                            alignItems: "center",
+                            width: {
+                              xs: "100%",
+                              sm: "100%",
+                              md: "20vw",
+                              lg: "20vw",
+                            },
+                            fontSize: {
+                              xs: "0.65rem",
+                              sm: "0.75rem",
+                              md: "0.90rem",
+                            },
+                          }}
+                        >
+                          <Link
+                            to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                            style={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                            }}
+                          >
+                            <ExploreIcon
+                              sx={{
+                                fontSize: "50px",
+                                marginRight: "15px",
+                                backgroundColor: colors.darkGreen[100],
+                                color: colors.yellow[100],
+                                padding: "7px",
+                              }}
+                            />
+                          </Link>
 
-                  {/* Second Row */}
-                  <Grid item xs={12}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </Grid>
+                          <Link
+                            to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                            style={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                            }}
+                          >
+                            {contactLogs[0].location}
+                          </Link>
+                        </Typography>
+                      )}
 
-                  {/* Third Row */}
-                  <Grid item xs={12}>
-                    <TextField
-                      InputLabelProps={{
-                        sx: {
-                          color: colors.darkGreen[100],
-                          borderRadius: "10px",
-                        },
-                      }}
-                      variant="outlined"
-                      fullWidth
-                      sx={{
-                        backgroundColor: colors.darkblue[200],
-                        borderRadius: "10px",
-                        "& .MuiOutlinedInput-root": {
-                          "&:hover fieldset": {
-                            borderColor: colors.darkGreen[100], // Border color on hover
-                          },
-                          "&.Mui-focused fieldset": {
-                            borderColor: colors.darkblue[100], // Border color when focused
-                          },
-                        },
-                      }}
-                      placeholder="Message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                    />
-                  </Grid>
+                    {contactLogs &&
+                      contactLogs.length > 0 &&
+                      contactLogs[0] &&
+                      contactLogs[0].email && (
+                        <Typography
+                          variant="h6"
+                          fontWeight="700"
+                          sx={{
+                            color: colors.darkGreen[100],
+                            marginBottom: "20px",
+                            display: "flex",
+                            alignItems: "center",
+                            fontSize: {
+                              xs: "0.65rem",
+                              sm: "0.75rem",
+                              md: "0.90rem",
+                            },
+                          }}
+                        >
+                          <Link
+                            style={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                            }}
+                            rel="stylesheet"
+                            to={`mailto:${contactLogs[0].email}`}
+                          >
+                            <MarkEmailReadIcon
+                              sx={{
+                                fontSize: "50px",
+                                marginRight: "15px",
+                                backgroundColor: colors.darkGreen[100],
+                                color: colors.yellow[100],
+                                padding: "7px",
+                              }}
+                            />
+                          </Link>
 
-                  {/* Fourth Row */}
-                  <Grid
-                    item
-                    xs={12}
+                          <Link
+                            style={{
+                              textDecoration: "none",
+                              color: colors.darkGreen[100],
+                            }}
+                            rel="stylesheet"
+                            to={`mailto:${contactLogs[0].email}`}
+                          >
+                            Email Us : {contactLogs[0].email}
+                          </Link>
+                        </Typography>
+                      )}
+
+                    <Typography
+                      variant="h6"
+                      fontWeight="700"
+                      sx={{
+                        color: colors.darkGreen[100],
+                        marginBottom: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        fontSize: {
+                          xs: "0.65rem",
+                          sm: "0.75rem",
+                          md: "0.90rem",
+                        },
+                      }}
+                    >
+                      <ContactsIcon
+                        sx={{
+                          fontSize: "50px",
+                          marginRight: "15px",
+                          backgroundColor: colors.darkGreen[100],
+                          color: colors.yellow[100],
+                          padding: "7px",
+                        }}
+                      />
+                      Phone : &nbsp;
+                      <Typography
+                        variant="p"
+                        style={{ color: colors.darkblue[100] }}
+                      >
+                        {contactLogs &&
+                          contactLogs.length > 0 &&
+                          contactLogs[0] &&
+                          contactLogs[0].primaryNumber &&
+                          contactLogs[0].secondaryNumber && (
+                            <div>
+                              <Link
+                                to={`tel:+91${contactLogs[0].primaryNumber}`}
+                                style={{
+                                  textDecoration: "none",
+                                  color: colors.darkblue[100],
+                                  fontWeight: 700,
+                                }}
+                              >
+                                +91 {contactLogs[0].primaryNumber}
+                              </Link>{" "}
+                              /{" "}
+                              <Link
+                                to={`tel:+91${contactLogs[0].secondaryNumber}`}
+                                style={{
+                                  textDecoration: "none",
+                                  color: colors.darkblue[100],
+                                  fontWeight: 700,
+                                }}
+                              >
+                                {contactLogs[0].secondaryNumber}
+                              </Link>
+                            </div>
+                          )}
+                      </Typography>
+                    </Typography>
+                  </Box>
+                  <Box
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center",
+                      textAlign: "center",
+                      marginTop: "20px",
+                      borderTop: "1px solid",
+                      width: { xs: "100%", sm: "100%", md: "20vw", lg: "20vw" },
+                      paddingTop: "10px",
                     }}
                   >
-                    <Button
-                      variant="contained"
+                    <Typography
+                      variant="h4"
+                      fontWeight="700"
                       sx={{
-                        width: "10vw",
-                        color: colors.darkGreen[100],
-                        backgroundColor: colors.white[100],
-                        fontWeight: "bold",
-                        "&:hover": {
-                          color: colors.darkGreen[100],
-                          backgroundColor: colors.yellow[100],
+                        color: colors.darkblue[100],
+                        fontSize: {
+                          xs: "0.60rem",
+                          sm: "0.90rem",
+                          md: "1.2rem",
                         },
                       }}
-                      type="submit"
                     >
-                      Submit
-                    </Button>
-                  </Grid>
+                      Follow Us :
+                    </Typography>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <Link to="https://www.facebook.com/BivabDevelopers/">
+                        <FacebookIcon
+                          sx={{
+                            backgroundColor: "#4d68a1",
+                            color: colors.white[100],
+                            marginRight: "10px",
+                            fontSize: "32px",
+                            padding: "2px",
+                            marginLeft: "15px",
+                          }}
+                        />
+                      </Link>
 
-                  {/* Display error message */}
-                  {formError && (
-                    <Grid
-                      item
-                      xs={12}
-                      sx={{ color: "red", textAlign: "center" }}
-                    >
-                      {formError}
+                      <Link to="https://www.instagram.com/bivab_developers/">
+                        <InstagramIcon
+                          sx={{
+                            backgroundColor: "#262626",
+                            color: colors.white[100],
+                            fontSize: "32px",
+                            padding: "2px",
+                            marginRight: "10px",
+                          }}
+                        />
+                      </Link>
+
+                      <Link to="https://twitter.com/BivabOfficial">
+                        <TwitterIcon
+                          sx={{
+                            backgroundColor: "#1da0f0",
+                            color: colors.white[100],
+                            marginRight: "10px",
+                            fontSize: "32px",
+                            padding: "2px",
+                          }}
+                        />
+                      </Link>
+
+                      <Link to="https://www.youtube.com/@bivabyashila">
+                        <YouTubeIcon
+                          sx={{
+                            backgroundColor: "#cb201f",
+                            color: colors.white[100],
+                            fontSize: "32px",
+                            padding: "2px",
+                          }}
+                        />
+                      </Link>
+                    </Box>
+                  </Box>
+                </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: {
+                      xs: "0px",
+                      sm: "0px",
+                      md: "50px",
+                      lg: "50px",
+                    },
+                    backgroundColor: colors.darkGreen[100],
+                    padding: "82px 56px",
+                    marginTop: { xs: "15px", sm: "15px", md: "0px", lg: "0px" },
+                  }}
+                >
+                  <Typography
+                    variant="h1"
+                    fontWeight="700"
+                    sx={{
+                      color: colors.yellow[100],
+                      marginBottom: "40px",
+                      fontSize: { xs: "20px", sm: "26px", md: "36px" },
+                    }}
+                  >
+                    Send Us A Message.
+                  </Typography>
+
+                  {/* Contact form */}
+                  <Snackbar
+                    open={openSnackbar}
+                    autoHideDuration={2000}
+                    onClose={handleCloseSnackbar}
+                    message="Form submitted successfully!"
+                    sx={{
+                      color: "#FFFFFF",
+                      position: "relative",
+
+                      "& .MuiSnackbarContent-message": {
+                        flex: "auto",
+                      },
+                    }}
+                  />
+                  <form onSubmit={handelContact}>
+                    <Grid container spacing={2}>
+                      {/* First Row */}
+                      <Grid item xs={6}>
+                        <TextField
+                          InputLabelProps={{
+                            sx: {
+                              color: colors.darkGreen[100],
+                            },
+                          }}
+                          variant="outlined"
+                          fullWidth
+                          sx={{
+                            backgroundColor: colors.darkblue[200],
+                            borderRadius: "10px",
+                            "& .MuiOutlinedInput-root": {
+                              "&:hover fieldset": {
+                                borderColor: colors.darkGreen[100], // Border color on hover
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: colors.darkblue[100], // Border color when focused
+                              },
+                            },
+                          }}
+                          placeholder="Name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField
+                          InputLabelProps={{
+                            sx: {
+                              color: colors.darkGreen[100],
+                            },
+                          }}
+                          variant="outlined"
+                          fullWidth
+                          sx={{
+                            backgroundColor: colors.darkblue[200],
+                            borderRadius: "10px",
+                            "& .MuiOutlinedInput-root": {
+                              "&:hover fieldset": {
+                                borderColor: colors.darkGreen[100], // Border color on hover
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: colors.darkblue[100], // Border color when focused
+                              },
+                            },
+                          }}
+                          placeholder="Phone"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
+                      </Grid>
+
+                      {/* Second Row */}
+                      <Grid item xs={12}>
+                        <TextField
+                          InputLabelProps={{
+                            sx: {
+                              color: colors.darkGreen[100],
+                            },
+                          }}
+                          variant="outlined"
+                          fullWidth
+                          sx={{
+                            backgroundColor: colors.darkblue[200],
+                            borderRadius: "10px",
+                            "& .MuiOutlinedInput-root": {
+                              "&:hover fieldset": {
+                                borderColor: colors.darkGreen[100], // Border color on hover
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: colors.darkblue[100], // Border color when focused
+                              },
+                            },
+                          }}
+                          placeholder="Email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </Grid>
+
+                      {/* Third Row */}
+                      <Grid item xs={12}>
+                        <TextField
+                          InputLabelProps={{
+                            sx: {
+                              color: colors.darkGreen[100],
+                              borderRadius: "10px",
+                            },
+                          }}
+                          variant="outlined"
+                          fullWidth
+                          sx={{
+                            backgroundColor: colors.darkblue[200],
+                            borderRadius: "10px",
+                            "& .MuiOutlinedInput-root": {
+                              "&:hover fieldset": {
+                                borderColor: colors.darkGreen[100], // Border color on hover
+                              },
+                              "&.Mui-focused fieldset": {
+                                borderColor: colors.darkblue[100], // Border color when focused
+                              },
+                            },
+                          }}
+                          placeholder="Message"
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                        />
+                      </Grid>
+
+                      {/* Fourth Row */}
+                      <Grid
+                        item
+                        xs={12}
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Button
+                          variant="contained"
+                          sx={{
+                            width: "10vw",
+                            color: colors.darkGreen[100],
+                            backgroundColor: colors.white[100],
+                            fontWeight: "bold",
+                            "&:hover": {
+                              color: colors.darkGreen[100],
+                              backgroundColor: colors.yellow[100],
+                            },
+                          }}
+                          type="submit"
+                        >
+                          Submit
+                        </Button>
+                      </Grid>
+
+                      {/* Display error message */}
+                      {formError && (
+                        <Grid
+                          item
+                          xs={12}
+                          sx={{ color: "red", textAlign: "center" }}
+                        >
+                          {formError}
+                        </Grid>
+                      )}
                     </Grid>
-                  )}
-                </Grid>
-              </form>
+                  </form>
+                </Box>
+              </Box>
             </Box>
-          </Box>
-        </Box>
-      </ThemeProvider>
-    </Layout>
+          </ThemeProvider>
+        </Layout>
+      )}
+    </div>
   );
+};
+
+ContactUs.getInitialProps = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const data = "Loading";
+  return { data };
 };
 
 export default ContactUs;
