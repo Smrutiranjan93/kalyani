@@ -34,6 +34,8 @@ import Logo from "../../assets/images/logo.png";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PersonIcon from "@mui/icons-material/Person";
 
+import { Tb360View } from "react-icons/tb";
+
 import { POSTNETWORK, GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
 
@@ -293,8 +295,18 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
             >
               360 Tour
             </Button>
-            <Menu {...bindMenu(popupState)}>
-              <MenuItem>
+            <Menu
+              {...bindMenu(popupState)}
+              sx={{
+                ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
+                  background:
+                    "linear-gradient(45deg, rgb(191, 149, 63), rgb(187 160 93), rgba(170, 119, 28, 0.82), rgb(172 139 77))",
+                },
+              }}
+            >
+              <MenuItem sx={{"&:hover": {
+                backgroundColor: colors.darkGreen[100],
+              }}}> 
                 <Link
                   href="/orchid"
                   sx={{
@@ -310,7 +322,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                       lg: "0px",
                       xl: "0px",
                     },
-                    color: "black",
+                    color: "#f9ff77",
                     "&:hover": {
                       alignItems: "center",
                       display: "flex",
@@ -323,14 +335,85 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                         lg: "0px",
                         xl: "0px",
                       },
-                      color: colors.darkGreen[100],
+                      color: colors.white[100],
                     },
                   }}
                 >
-                  Orchid
+                  <Tb360View />
+                </Link>
+                <Link
+                  href="/orchid"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "white",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.white[100],
+                    },
+                  }}
+                >
+                  Orchid [2 BHK]
                 </Link>
               </MenuItem>
-              <MenuItem>
+
+              <MenuItem sx={{"&:hover": {
+                backgroundColor: colors.darkGreen[100],
+              }}}>
+                <Link
+                  href="/orchid"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "#f9ff77",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.white[100],
+                    },
+                  }}
+                >
+                  <Tb360View />
+                </Link>
                 <Link
                   href="/mogra"
                   sx={{
@@ -346,7 +429,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                       lg: "0px",
                       xl: "0px",
                     },
-                    color: "black",
+                    color: "white",
                     "&:hover": {
                       alignItems: "center",
                       display: "flex",
@@ -359,14 +442,51 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                         lg: "0px",
                         xl: "0px",
                       },
-                      color: colors.darkGreen[100],
+                      color: colors.white[100],
                     },
                   }}
                 >
-                  Mogra
+                  Mogra [2 BHK]
                 </Link>
               </MenuItem>
-              <MenuItem>
+
+              <MenuItem sx={{"&:hover": {
+                backgroundColor: colors.darkGreen[100],
+              }}}>
+                <Link
+                  href="/orchid"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "#f9ff77",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.white[100],
+                    },
+                  }}
+                >
+                  <Tb360View />
+                </Link>
                 <Link
                   href="/neelkamal"
                   sx={{
@@ -382,7 +502,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                       lg: "0px",
                       xl: "0px",
                     },
-                    color: "black",
+                    color: "white",
                     "&:hover": {
                       alignItems: "center",
                       display: "flex",
@@ -395,14 +515,51 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                         lg: "0px",
                         xl: "0px",
                       },
-                      color: colors.darkGreen[100],
+                      color: colors.white[100],
                     },
                   }}
                 >
-                  Neelkamal
+                  Neelkamal [1 BHK]
                 </Link>
               </MenuItem>
-              <MenuItem>
+
+              <MenuItem sx={{"&:hover": {
+                backgroundColor: colors.darkGreen[100],
+              }}}>
+                <Link
+                  href="/orchid"
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: {
+                      xs: "10px",
+                      sm: "10px",
+                      md: "10px",
+                      md2: "0px",
+                      lg: "0px",
+                      xl: "0px",
+                    },
+                    color: "#f9ff77",
+                    "&:hover": {
+                      alignItems: "center",
+                      display: "flex",
+                      textDecoration: "none",
+                      marginBottom: {
+                        xs: "10px",
+                        sm: "10px",
+                        md: "10px",
+                        md2: "0px",
+                        lg: "0px",
+                        xl: "0px",
+                      },
+                      color: colors.white[100],
+                    },
+                  }}
+                >
+                  <Tb360View />
+                </Link>
                 <Link
                   href="/parijat"
                   sx={{
@@ -418,7 +575,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                       lg: "0px",
                       xl: "0px",
                     },
-                    color: "black",
+                    color: "white",
                     "&:hover": {
                       alignItems: "center",
                       display: "flex",
@@ -431,11 +588,11 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                         lg: "0px",
                         xl: "0px",
                       },
-                      color: colors.darkGreen[100],
+                      color: colors.white[100],
                     },
                   }}
                 >
-                  Parijat
+                  Parijat [1 BHK]
                 </Link>
               </MenuItem>
             </Menu>

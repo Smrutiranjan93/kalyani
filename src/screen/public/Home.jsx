@@ -8,6 +8,7 @@ import {
   TextField,
   Snackbar,
 } from "@mui/material";
+import "../../styles/homeAnimation.css";
 import { tokens } from "../../constants/theme";
 
 import heroImage from "../../assets/images/hero-image-for-bivab.jpg";
@@ -354,17 +355,20 @@ const Home = ({ data }) => {
                   >
                     {gallery.map((image) => (
                       <div>
-                        <img
-                          key={image.id}
-                          src={`/${image.imageurl}`}
-                          alt={`Image ${image.id + 1}`}
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            marginTop: "30px",
-                          }}
-                        />
+                        <div >
+                          <img
+                            key={image.id}
+                            src={`/${image.imageurl}`}
+                            alt={`Image ${image.id + 1}`}
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              marginTop: "30px",
+                            }}
+                          />
+                        </div>
+
                         <Typography
                           variant="h1"
                           fontWeight="400"
@@ -796,7 +800,7 @@ const Home = ({ data }) => {
                   sx={{
                     color: colors.darkblue[100],
                     marginBottom: "30px",
-                    textAlign:'center',
+                    textAlign: "center",
                     fontSize: {
                       xs: "18px",
                       sm: "22px",
