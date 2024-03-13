@@ -1,43 +1,39 @@
-import React, { useState, useEffect } from "react";
 import {
   AppBar,
-  Container,
-  Toolbar,
-  Typography,
-  useScrollTrigger,
-  Slide,
   Box,
-  Drawer,
-  Link,
   Button,
-  Popper,
-  Grid,
-  Fade,
-  Paper,
+  Container,
+  Drawer,
   Menu,
   MenuItem,
+  Slide,
+  Toolbar,
+  Typography,
+  useScrollTrigger
 } from "@mui/material";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
+import React, { useEffect, useState } from "react";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
-import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
-import { useTheme, useMediaQuery } from "@mui/material";
-import { tokens } from "../../constants/theme";
+import { useMediaQuery, useTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Logo from "../../assets/images/logo.png";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import PersonIcon from "@mui/icons-material/Person";
+import { tokens } from "../../constants/theme";
 
 import { Tb360View } from "react-icons/tb";
 
-import { POSTNETWORK, GETNETWORK } from "../../utils/network";
+import { Link } from "react-router-dom";
+import { GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
+
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -126,7 +122,7 @@ const TopNavbar = () => {
                 }}
               >
                 <Link
-                  href={"/"}
+                  to={"/"}
                   sx={{
                     textDecoration: "none",
                     padding: {
@@ -258,7 +254,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
           }}
         >
           <Link
-            href={item.to}
+            to={item.to}
             sx={{
               textDecoration: "none",
               color: "white",
@@ -304,11 +300,13 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 },
               }}
             >
-              <MenuItem sx={{"&:hover": {
-                backgroundColor: colors.darkGreen[100],
-              }}}> 
+              <MenuItem sx={{
+                "&:hover": {
+                  backgroundColor: colors.darkGreen[100],
+                }
+              }}>
                 <Link
-                  href="/orchid"
+                  to="/orchid"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -342,7 +340,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                   <Tb360View />
                 </Link>
                 <Link
-                  href="/orchid"
+                  to="/orchid"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -377,11 +375,13 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
               </MenuItem>
 
-              <MenuItem sx={{"&:hover": {
-                backgroundColor: colors.darkGreen[100],
-              }}}>
+              <MenuItem sx={{
+                "&:hover": {
+                  backgroundColor: colors.darkGreen[100],
+                }
+              }}>
                 <Link
-                  href="/orchid"
+                  to="/orchid"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -415,7 +415,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                   <Tb360View />
                 </Link>
                 <Link
-                  href="/mogra"
+                  to="/mogra"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -450,11 +450,13 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
               </MenuItem>
 
-              <MenuItem sx={{"&:hover": {
-                backgroundColor: colors.darkGreen[100],
-              }}}>
+              <MenuItem sx={{
+                "&:hover": {
+                  backgroundColor: colors.darkGreen[100],
+                }
+              }}>
                 <Link
-                  href="/orchid"
+                  to="/orchid"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -488,7 +490,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                   <Tb360View />
                 </Link>
                 <Link
-                  href="/neelkamal"
+                  to="/neelkamal"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -523,11 +525,13 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
               </MenuItem>
 
-              <MenuItem sx={{"&:hover": {
-                backgroundColor: colors.darkGreen[100],
-              }}}>
+              <MenuItem sx={{
+                "&:hover": {
+                  backgroundColor: colors.darkGreen[100],
+                }
+              }}>
                 <Link
-                  href="/orchid"
+                  to="/orchid"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -561,7 +565,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                   <Tb360View />
                 </Link>
                 <Link
-                  href="/parijat"
+                  to="/parijat"
                   sx={{
                     alignItems: "center",
                     display: "flex",
@@ -602,7 +606,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
 
       {/*will add a profile icon*/}
       {/* <Link
-        href="/profile"
+        to="/profile"
         sx={{
           alignItems: "center",
           display: "flex",
@@ -851,7 +855,7 @@ const SecondNavbar = () => {
                             color: colors.darkGreen[100],
                           }}
                           rel="stylesheet"
-                          href={`mailto:${contactLogs[0].email}`}
+                          to={`mailto:${contactLogs[0].email}`}
                         >
                           <EmailOutlinedIcon
                             sx={{
@@ -877,7 +881,7 @@ const SecondNavbar = () => {
                               },
                             }}
                             rel="stylesheet"
-                            href={`mailto:${contactLogs[0].email}`}
+                            to={`mailto:${contactLogs[0].email}`}
                           >
                             {contactLogs[0].email}
                           </Link>
@@ -895,7 +899,7 @@ const SecondNavbar = () => {
                           style={{ color: colors.darkGreen[100] }}
                         >
                           <Link
-                            href={`tel:+91${contactLogs[0].primaryNumber}`}
+                            to={`tel:+91${contactLogs[0].primaryNumber}`}
                             sx={{
                               textDecoration: "none",
                               color: colors.darkGreen[100],
@@ -910,7 +914,7 @@ const SecondNavbar = () => {
                           </Link>{" "}
                           /{" "}
                           <Link
-                            href={`tel:+91${contactLogs[0].secondaryNumber}`}
+                            to={`tel:+91${contactLogs[0].secondaryNumber}`}
                             sx={{
                               textDecoration: "none",
                               color: colors.darkGreen[100],
@@ -936,4 +940,5 @@ const SecondNavbar = () => {
   );
 };
 
-export { TopNavbar, SecondNavbar };
+export { SecondNavbar, TopNavbar };
+

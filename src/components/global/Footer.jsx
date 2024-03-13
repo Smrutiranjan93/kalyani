@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Box, Container, Grid, Typography, Link } from "@mui/material";
-import PinDropIcon from "@mui/icons-material/PinDrop";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import PinDropIcon from "@mui/icons-material/PinDrop";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
-import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
 import { useTheme } from "@mui/material";
-import { tokens } from "../../constants/theme";
-import LogoUp from "../../assets/images/logo-up.png";
-import LogoDown from "../../assets/images/logo-down.png";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import LogoDown from "../../assets/images/logo-down.png";
+import LogoUp from "../../assets/images/logo-up.png";
+import { tokens } from "../../constants/theme";
 
-import { POSTNETWORK, GETNETWORK } from "../../utils/network";
+import { Link } from "react-router-dom";
+import { GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
 
 const FirstFooter = () => {
@@ -152,7 +153,7 @@ const FirstFooter = () => {
                   }}
                 >
                   <Link
-                    href={"/"}
+                    to={"/"}
                     sx={{
                       textDecoration: "none",
                       color: "white",
@@ -181,7 +182,7 @@ const FirstFooter = () => {
                   }}
                 >
                   <Link
-                    href={"/amentities"}
+                    to={"/amentities"}
                     sx={{
                       textDecoration: "none",
                       color: "white",
@@ -210,7 +211,7 @@ const FirstFooter = () => {
                   }}
                 >
                   <Link
-                    href={"/photo-gallery"}
+                    to={"/photo-gallery"}
                     sx={{
                       textDecoration: "none",
                       color: "white",
@@ -239,7 +240,7 @@ const FirstFooter = () => {
                   }}
                 >
                   <Link
-                    href={"/about-us"}
+                    to={"/about-us"}
                     sx={{
                       textDecoration: "none",
                       color: "white",
@@ -268,7 +269,7 @@ const FirstFooter = () => {
                   }}
                 >
                   <Link
-                    href={"/contact-us"}
+                    to={"/contact-us"}
                     sx={{
                       textDecoration: "none",
                       color: "white",
@@ -334,28 +335,28 @@ const FirstFooter = () => {
                 </Typography>
                 <Box sx={{ display: "flex", marginTop: "18px" }}>
                   {/* Twitter */}
-                  <Link href="https://twitter.com/BivabOfficial">
+                  <Link to="https://twitter.com/BivabOfficial">
                     <TwitterIcon
                       sx={{ color: colors.yellow[300], marginRight: "22px" }}
                     />
                   </Link>
 
                   {/* Facebook */}
-                  <Link href="https://www.facebook.com/BivabDevelopers/">
+                  <Link to="https://www.facebook.com/BivabDevelopers/">
                     <FacebookIcon
                       sx={{ color: colors.yellow[300], marginRight: "22px" }}
                     />
                   </Link>
 
                   {/* Instagram */}
-                  <Link href="https://www.instagram.com/bivab_developers/">
+                  <Link to="https://www.instagram.com/bivab_developers/">
                     <InstagramIcon
                       sx={{ color: colors.yellow[300], marginRight: "22px" }}
                     />
                   </Link>
 
                   {/* Youtube */}
-                  <Link href="https://www.youtube.com/@bivabyashila">
+                  <Link to="https://www.youtube.com/@bivabyashila">
                     <YouTubeIcon sx={{ color: colors.yellow[300] }} />
                   </Link>
                 </Box>
@@ -427,7 +428,7 @@ const FirstFooter = () => {
                         }}
                       >
                         <Link
-                          href="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                          to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
                           style={{
                             textDecoration: "none",
                             color: colors.white[300],
@@ -458,7 +459,7 @@ const FirstFooter = () => {
                           }}
                         >
                           <Link
-                            href="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
+                            to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
                             sx={{
                               textDecoration: "none",
                               color: "white",
@@ -499,7 +500,7 @@ const FirstFooter = () => {
                           }}
                         >
                           <Link
-                            href={`tel:+91${contactLogs[0].primaryNumber}`}
+                            to={`tel:+91${contactLogs[0].primaryNumber}`}
                             color="inherit"
                             sx={{
                               textDecoration: "none",
@@ -514,7 +515,7 @@ const FirstFooter = () => {
                           </Link>{" "}
                           /{" "}
                           <Link
-                            href={`tel:+91${contactLogs[0].secondaryNumber}`}
+                            to={`tel:+91${contactLogs[0].secondaryNumber}`}
                             color="inherit"
                             sx={{
                               textDecoration: "none",
@@ -543,7 +544,7 @@ const FirstFooter = () => {
                             display: "flex",
                           }}
                           rel="stylesheet"
-                          href={`mailto:${contactLogs[0].email}`}
+                          to={`mailto:${contactLogs[0].email}`}
                         >
                           <EmailOutlinedIcon
                             sx={{
@@ -574,7 +575,7 @@ const FirstFooter = () => {
                               },
                             }}
                             rel="stylesheet"
-                            href={`mailto:${contactLogs[0].email}`}
+                            to={`mailto:${contactLogs[0].email}`}
                           >
                             {contactLogs[0].email}
                           </Link>
