@@ -120,6 +120,12 @@ const FirstFooter = () => {
                   WebkitBackgroundClip: "text",
                   color: "transparent",
                   display: "inline-block",
+                  fontSize: {
+                    xs: "18px",
+                    sm: "22px",
+                    md: "26px",
+                    lg: "34px",
+                  },
                 }}
               >
                 QUICK LINKS
@@ -134,7 +140,16 @@ const FirstFooter = () => {
               >
                 <Typography
                   variant="h6"
-                  sx={{ color: colors.white[100], marginBottom: "5px" }}
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "5px",
+                    fontSize: {
+                      xs: "12px",
+                      sm: "14px",
+                      md: "16px",
+                      lg: "18px",
+                    },
+                  }}
                 >
                   <Link
                     href={"/"}
@@ -151,9 +166,19 @@ const FirstFooter = () => {
                     Home{" "}
                   </Link>
                 </Typography>
+
                 <Typography
                   variant="h6"
-                  sx={{ color: colors.white[100], marginBottom: "5px" }}
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "5px",
+                    fontSize: {
+                      xs: "12px",
+                      sm: "14px",
+                      md: "16px",
+                      lg: "18px",
+                    },
+                  }}
                 >
                   <Link
                     href={"/amentities"}
@@ -170,9 +195,19 @@ const FirstFooter = () => {
                     Amentities{" "}
                   </Link>
                 </Typography>
+
                 <Typography
                   variant="h6"
-                  sx={{ color: colors.white[100], marginBottom: "5px" }}
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "5px",
+                    fontSize: {
+                      xs: "12px",
+                      sm: "14px",
+                      md: "16px",
+                      lg: "18px",
+                    },
+                  }}
                 >
                   <Link
                     href={"/photo-gallery"}
@@ -189,9 +224,19 @@ const FirstFooter = () => {
                     Photo Gallery{" "}
                   </Link>
                 </Typography>
+
                 <Typography
                   variant="h6"
-                  sx={{ color: colors.white[100], marginBottom: "5px" }}
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "5px",
+                    fontSize: {
+                      xs: "12px",
+                      sm: "14px",
+                      md: "16px",
+                      lg: "18px",
+                    },
+                  }}
                 >
                   <Link
                     href={"/about-us"}
@@ -208,9 +253,19 @@ const FirstFooter = () => {
                     About Us{" "}
                   </Link>
                 </Typography>
+
                 <Typography
                   variant="h6"
-                  sx={{ color: colors.white[100], marginBottom: "5px" }}
+                  sx={{
+                    color: colors.white[100],
+                    marginBottom: "5px",
+                    fontSize: {
+                      xs: "12px",
+                      sm: "14px",
+                      md: "16px",
+                      lg: "18px",
+                    },
+                  }}
                 >
                   <Link
                     href={"/contact-us"}
@@ -261,7 +316,18 @@ const FirstFooter = () => {
                   />
                 </Box>
 
-                <Typography variant="h5" style={{ color: colors.white[100] }}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: colors.white[100],
+                    fontSize: {
+                      xs: "12px",
+                      sm: "14px",
+                      md: "16px",
+                      lg: "18px",
+                    },
+                  }}
+                >
                   Coastal elegance meets modern living in Puri, Odisha.
                   Experience serenity by the sea and elevate your lifestyle with
                   timeless sophistication.
@@ -312,6 +378,12 @@ const FirstFooter = () => {
                     WebkitBackgroundClip: "text",
                     color: "transparent",
                     marginBottom: "12px",
+                    fontSize: {
+                      xs: "18px",
+                      sm: "22px",
+                      md: "26px",
+                      lg: "34px",
+                    },
                   }}
                 >
                   CONTACT INFO
@@ -347,7 +419,13 @@ const FirstFooter = () => {
                         },
                       }}
                     >
-                      <Box sx={{ display: "flex", marginBottom: "12px" }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          marginBottom: "12px",
+                          alignItems: "center",
+                        }}
+                      >
                         <Link
                           href="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
                           style={{
@@ -369,7 +447,15 @@ const FirstFooter = () => {
                         </Link>
                         <Typography
                           variant="h6"
-                          style={{ color: colors.white[100] }}
+                          sx={{
+                            color: colors.white[100],
+                            fontSize: {
+                              xs: "12px",
+                              sm: "14px",
+                              md: "16px",
+                              lg: "18px",
+                            },
+                          }}
                         >
                           <Link
                             href="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
@@ -387,7 +473,13 @@ const FirstFooter = () => {
                         </Typography>
                       </Box>
 
-                      <Box sx={{ display: "flex", marginBottom: "12px" }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          marginBottom: "12px",
+                          alignItems: "center",
+                        }}
+                      >
                         <PhoneOutlinedIcon
                           sx={{
                             color: colors.yellow[300],
@@ -396,7 +488,15 @@ const FirstFooter = () => {
                         />
                         <Typography
                           variant="h6"
-                          style={{ color: colors.white[100] }}
+                          sx={{
+                            color: colors.white[100],
+                            fontSize: {
+                              xs: "12px",
+                              sm: "14px",
+                              md: "16px",
+                              lg: "18px",
+                            },
+                          }}
                         >
                           <Link
                             href={`tel:+91${contactLogs[0].primaryNumber}`}
@@ -429,11 +529,18 @@ const FirstFooter = () => {
                           </Link>
                         </Typography>
                       </Box>
-                      <Box sx={{ display: "flex", marginBottom: "12px" }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          marginBottom: "12px",
+                          alignItems: "center",
+                        }}
+                      >
                         <Link
                           style={{
                             textDecoration: "none",
                             color: colors.white[100],
+                            display: "flex",
                           }}
                           rel="stylesheet"
                           href={`mailto:${contactLogs[0].email}`}
@@ -447,7 +554,15 @@ const FirstFooter = () => {
                         </Link>
                         <Typography
                           variant="h6"
-                          sx={{ color: colors.white[100] }}
+                          sx={{
+                            color: colors.white[100],
+                            fontSize: {
+                              xs: "12px",
+                              sm: "14px",
+                              md: "16px",
+                              lg: "18px",
+                            },
+                          }}
                         >
                           <Link
                             sx={{
@@ -536,7 +651,18 @@ const SecondFooter = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h6" fontWeight="700">
+          <Typography
+            variant="h6"
+            fontWeight="700"
+            sx={{
+              fontSize: {
+                xs: "12px",
+                sm: "14px",
+                md: "16px",
+                lg: "18px",
+              },
+            }}
+          >
             Copyright ©2021 Bivab Developers (P) Limited. All Rights Reserved. |
             Privacy Policy | Sitemap | Created by brandflik
           </Typography>

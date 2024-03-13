@@ -11,7 +11,8 @@ import UserProfile from '../screen/private/UserProfile';
 import OurProperties from '../screen/private/OurProperties';
 import PropertyDetails from '../screen/private/PropertyDetails';
 import ParijatScene from '../components/global/ParijatScene';
-import OrchidScene from '../components/global/OrchidScene'
+import OrchidScene from '../components/global/OrchidScene';
+import NeelkamalScene from '../components/global/NeelkamalScene';
 
 function Routing() {
   return (
@@ -25,6 +26,7 @@ function Routing() {
         
         <Route path='/parijat' element={<ParijatScene />} />
         <Route path='/orchid' element={<OrchidScene />} />
+        <Route path='/neelkamal' element={<NeelkamalScene />} />
 
         <Route path='/profile' element={<UserProfile />} />
         <Route path='/properties' element={<OurProperties />} />

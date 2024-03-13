@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Pannellum } from "pannellum-react";
-import orchidDataScene from "../../helpers/orchidDataScene";
+import neelkamalDataScene from "../../helpers/neelkamalDataScene";
 
-export default function ParijatScene() {
-  const [scene, setScene] = useState(orchidDataScene["pointOneView"]);
+export default function NeelkamalScene() {
+  const [scene, setScene] = useState(neelkamalDataScene["pointOneView"]);
 
   const hotSpots = (Element, i) => {
     if (Element.cssClass === "hotSpotElement")
@@ -26,7 +26,7 @@ export default function ParijatScene() {
           pitch={Element.pitch}
           cssClass={Element.cssClass}
           text={Element.text}
-          handleClick={() => setScene(orchidDataScene[Element.scene])}
+          handleClick={() => setScene(neelkamalDataScene[Element.scene])}
         ></Pannellum.Hotspot>
       );
   };
