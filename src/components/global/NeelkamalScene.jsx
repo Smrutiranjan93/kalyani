@@ -45,7 +45,7 @@ export default function NeelkamalScene() {
         autoLoad={true}
         showZoomCtrl={false}
         showFullscreenCtrl={false}
-        hotspotDebug={true}
+        hotspotDebug={false}
       >
         {Object.values(scene.hotSpots).map((Element, i) =>
           hotSpots(Element, i)

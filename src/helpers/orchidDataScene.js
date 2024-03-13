@@ -24,7 +24,7 @@ import viewTwentyThree from "../images/orchid/view21.jpg";
 
 const Scene = {
   pointOneView: {
-    title: "Orchid",
+    title: "Main Hall [Orchid]",
     image: viewOne,
     pitch: -11.803234287655917,
     yaw: 140.81343419130073,
@@ -72,7 +72,7 @@ const Scene = {
     },
   },
   pointTwoView: {
-    title: "Living  / Dining",
+    title: "Main Hall [Orchid]",
     image: viewTwo,
     pitch: -6.451563092850391,
     yaw: 163.8487731480429,
@@ -122,7 +122,7 @@ const Scene = {
     },
   },
   pointThreeView: {
-    title: "Living  / Dining",
+    title: "Kitchen [Orchid]",
     image: viewThree,
     pitch: -4.717825434350785,
     yaw: 67.81772320854652,
@@ -170,7 +170,7 @@ const Scene = {
     },
   },
   pointFourView: {
-    title: "Living  / Dining",
+    title: "Kitchen [Orchid]",
     image: viewFour,
     pitch: -13.508800816841287,
     yaw: 116.13287881034132,
@@ -192,7 +192,7 @@ const Scene = {
     },
   },
   pointFiveView: {
-    title: "Living  / Dining",
+    title: "Dining [Orchid]",
     image: viewFive,
     pitch: -8.056140186366013,
     yaw: 52.98960961787118,
@@ -243,7 +243,7 @@ const Scene = {
     },
   },
   pointSixView: {
-    title: "Living  / Dining",
+    title: "Main Hall [Orchid]",
     image: viewSix,
     pitch: -17.77144600774397,
     yaw: -175.3064601120045,
@@ -287,7 +287,7 @@ const Scene = {
     },
   },
   pointSevenView: {
-    title: "Living  / Dining",
+    title: "Balcony [Orchid]",
     image: viewSeven,
     pitch: -26.087015898757443,
     yaw: 110.68618604859039,
@@ -302,7 +302,7 @@ const Scene = {
     },
   },
   pointEightView: {
-    title: "Living  / Dining",
+    title: "Dining [Orchid]",
     image: viewEight,
     pitch: -11.783797178010756,
     yaw: 124.93367334269487,
@@ -338,7 +338,7 @@ const Scene = {
     },
   },
   pointNineView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Orchid]",
     image: viewNine,
     pitch: 0.8754130724800545,
     yaw: 119.20599596805798,
@@ -374,7 +374,7 @@ const Scene = {
     },
   },
   pointTenView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Orchid]",
     image: viewTen,
     pitch: -24.22267553729003,
     yaw: 121.62092434983016,
@@ -403,7 +403,7 @@ const Scene = {
     },
   },
   pointElevenView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Orchid]",
     image: viewEleven,
     pitch: -4.812565572201448,
     yaw: 137.90715016468823,
@@ -425,7 +425,7 @@ const Scene = {
     },
   },
   pointTwelveView: {
-    title: "Living  / Dining",
+    title: "Living Room [Orchid]",
     image: viewTwelve,
     pitch: -10.33375832555302,
     yaw: 68.15422253871657,
@@ -482,7 +482,7 @@ const Scene = {
     },
   },
   pointThirteenView: {
-    title: "Living  / Dining",
+    title: "Living Room [Orchid]",
     image: viewThirteen,
     pitch: -18.045704246324078,
     yaw: 129.98242531116387,
@@ -511,7 +511,7 @@ const Scene = {
     },
   },
   pointFourteenView: {
-    title: "Living  / Dining",
+    title: "Living Room [Orchid]",
     image: viewFourteen,
     pitch: -14.86395768578739,
     yaw: 92.81990602227545,
@@ -554,7 +554,7 @@ const Scene = {
     },
   },
   pointFifteenView: {
-    title: "Living  / Dining",
+    title: "Balcony [Orchid]",
     image: viewFifteen,
     pitch: -9.467519857646197,
     yaw: 93.57203796856706,
@@ -576,7 +576,7 @@ const Scene = {
     },
   },
   pointSixteenView: {
-    title: "Living  / Dining",
+    title: "Balcony [Orchid]",
     image: viewSixteen,
     pitch: -30.400121450439386,
     yaw: 94.55732958536795,
@@ -591,7 +591,7 @@ const Scene = {
     },
   },
   pointSeventeenView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Orchid]",
     image: viewSeventeen,
     pitch: -15.846832497714505,
     yaw: 108.20179387174298,
@@ -613,7 +613,7 @@ const Scene = {
     },
   },
   pointEighteenView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Orchid]",
     image: viewEighteen,
     pitch: -19.264348452432834,
     yaw: 15.979879420540247,
@@ -642,7 +642,7 @@ const Scene = {
     },
   },
   pointNinteenView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Orchid]",
     image: viewNinteen,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -671,7 +671,7 @@ const Scene = {
     },
   },
   pointTwentyView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Orchid]",
     image: viewTwenty,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -693,7 +693,7 @@ const Scene = {
     },
   },
   pointTwentyOneView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Orchid]",
     image: viewTwentyOne,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -708,7 +708,7 @@ const Scene = {
     },
   },
   pointTwentyTwoView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Orchid]",
     image: viewTwentyTwo,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -730,7 +730,7 @@ const Scene = {
     },
   },
   pointTwentyThreeView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Orchid]",
     image: viewTwentyThree,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,

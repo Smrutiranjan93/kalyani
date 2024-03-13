@@ -15,10 +15,10 @@ import viewFourteen from "../images/neelkamal/view12.jpg";
 
 const Scene = {
   pointOneView: {
-    title: "Orchid",
+    title: "Living Room [Neelkamal]",
     image: viewOne,
-    pitch: -11.803234287655917,
-    yaw: 140.81343419130073,
+    pitch: -13.487634747565298,
+    yaw: 106.77530418165708,
     hotSpots: {
       pointTwo: {
         type: "custom",
@@ -39,10 +39,10 @@ const Scene = {
     },
   },
   pointTwoView: {
-    title: "Living  / Dining",
+    title: "Living Room [Neelkamal]",
     image: viewTwo,
-    pitch: -6.451563092850391,
-    yaw: 163.8487731480429,
+    pitch: -12.776940969048091,
+    yaw: -74.2983307653139,
     hotSpots: {
       pointThree: {
         type: "custom",
@@ -75,10 +75,10 @@ const Scene = {
     },
   },
   pointThreeView: {
-    title: "Living  / Dining",
+    title: "Living Room [Neelkamal]",
     image: viewThree,
-    pitch: -4.717825434350785,
-    yaw: 67.81772320854652,
+    pitch: -12.463113738565578,
+    yaw: -87.24421462894156,
     hotSpots: {
         pointFour: {
             type: "custom",
@@ -131,10 +131,10 @@ const Scene = {
     },
   },
   pointFourView: {
-    title: "Living  / Dining",
+    title: "Living Room [Neelkamal]",
     image: viewFour,
-    pitch: -13.508800816841287,
-    yaw: 116.13287881034132,
+    pitch: -5.200388496782759,
+    yaw: 90.95951097080615,
     hotSpots: {
         pointFive: {
             type: "custom",
@@ -174,7 +174,7 @@ const Scene = {
     },
   },
   pointFiveView: {
-    title: "Living  / Dining",
+    title: "Dining Room [Neelkamal]",
     image: viewFive,
     pitch: -8.056140186366013,
     yaw: 52.98960961787118,
@@ -203,37 +203,51 @@ const Scene = {
     },
   },
   pointSixView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Neelkamal]",
     image: viewSix,
-    pitch: -17.77144600774397,
-    yaw: -175.3064601120045,
+    pitch: -9.462434361779216,
+    yaw: 63.1132455437159,
     hotSpots: {
-        pointTwo: {
+        pointThirteen: {
             type: "custom",
-            pitch: -34.26625447879167,
-            yaw: 157.79832759741637,
+            pitch: -4.914137049370575,
+            yaw: -18.209845818949386,
             cssClass: "moveScene",
-            scene: "pointTwoView",
+            scene: "pointThirteenView",
+          },
+          pointSeven: {
+            type: "custom",
+            pitch: -27.55059193208727,
+            yaw: 99.6504253938746,
+            cssClass: "moveScene",
+            scene: "pointSevenView",
           },
     },
   },
   pointSevenView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Neelkamal]",
     image: viewSeven,
-    pitch: -26.087015898757443,
-    yaw: 110.68618604859039,
+    pitch: -12.421487198111137,
+    yaw: 56.750343699814216,
     hotSpots: {
-        pointSix: {
+        pointThirteen: {
             type: "custom",
-            pitch: -21.537232363060976,
-            yaw: 45.44129283463002,
+            pitch: -8.331240552445282,
+            yaw: 17.59108517443118,
             cssClass: "moveScene",
-            scene: "pointSixView",
+            scene: "pointThirteenView",
+          },
+          pointFour: {
+            type: "custom",
+            pitch: -7.181992075034943,
+            yaw: -12.928954764900878,
+            cssClass: "moveScene",
+            scene: "pointFourView",
           },
     },
   },
   pointEightView: {
-    title: "Living  / Dining",
+    title: "Bedroom [Neelkamal]",
     image: viewEight,
     pitch: -11.783797178010756,
     yaw: 124.93367334269487,
@@ -248,37 +262,51 @@ const Scene = {
     },
   },
   pointNineView: {
-    title: "Living  / Dining",
+    title: "Balcony [Neelkamal]",
     image: viewNine,
-    pitch: 0.8754130724800545,
-    yaw: 119.20599596805798,
+    pitch: -22.627081380908514,
+    yaw: 88.75279580774146,
     hotSpots: {
-        pointTen: {
+        pointFive: {
             type: "custom",
-            pitch: -23.246084641593537,
-            yaw: 55.12287197274011,
+            pitch: -6.367947261792103,
+            yaw: 121.51924637287422,
+            cssClass: "moveScene",
+            scene: "pointFiveView",
+          },
+          pointTen: {
+            type: "custom",
+            pitch: -25.07830692926727,
+            yaw: 82.11028539314546,
             cssClass: "moveScene",
             scene: "pointTenView",
           },
     },
   },
   pointTenView: {
-    title: "Living  / Dining",
+    title: "Balcony [Neelkamal]",
     image: viewTen,
-    pitch: -24.22267553729003,
-    yaw: 121.62092434983016,
+    pitch: -12.095608153649199,
+    yaw: 151.34039512791455,
     hotSpots: {
-        pointEight: {
+        pointNine: {
             type: "custom",
-            pitch: -5.415057463904915,
-            yaw: 114.68539056120045,
+            pitch: -23.554373216341197,
+            yaw: 178.6582879909215,
             cssClass: "moveScene",
-            scene: "pointEightView",
+            scene: "pointNineView",
+          },
+          pointFive: {
+            type: "custom",
+            pitch: 0.40121897799051714,
+            yaw: 124.92490763849459,
+            cssClass: "moveScene",
+            scene: "pointFiveView",
           },
     },
   },
   pointElevenView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Neelkamal]",
     image: viewEleven,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -300,7 +328,7 @@ const Scene = {
     },
   },
   pointTwelveView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Neelkamal]",
     image: viewTwelve,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -315,7 +343,7 @@ const Scene = {
     },
   },
   pointThirteenView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Neelkamal]",
     image: viewThirteen,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
@@ -337,7 +365,7 @@ const Scene = {
     },
   },
   pointFourteenView: {
-    title: "Living  / Dining",
+    title: "Bathroom / Toilet [Neelkamal]",
     image: viewFourteen,
     pitch: -16.79559680834313,
     yaw: 96.57696341537665,
