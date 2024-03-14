@@ -112,7 +112,7 @@ const TopNavbar = () => {
         <AppBar
           sx={{ backgroundColor: colors.darkGreen[100], position: "fixed" }}
         >
-          <Container sx={{ padding: "0px 0px" }}>
+          <Container sx={{ padding: "8px" }}>
             <Toolbar sx={{ display: "contents" }}>
               <Box
                 sx={{
@@ -136,8 +136,8 @@ const TopNavbar = () => {
                 >
                   <img
                     alt="profile-user"
-                    width="200px"
-                    height="55px"
+                    width="150px"
+                    height="40px"
                     src={Logo}
                     style={{
                       cursor: "pointer",
@@ -255,7 +255,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
         >
           <Link
             to={item.to}
-            sx={{
+            style={{
               textDecoration: "none",
               color: "white",
               "&:hover": {
@@ -307,7 +307,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
               }}>
                 <Link
                   to="/orchid"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -341,7 +341,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
                 <Link
                   to="/orchid"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -382,7 +382,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
               }}>
                 <Link
                   to="/orchid"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -416,7 +416,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
                 <Link
                   to="/mogra"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -457,7 +457,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
               }}>
                 <Link
                   to="/orchid"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -491,7 +491,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
                 <Link
                   to="/neelkamal"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -532,7 +532,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
               }}>
                 <Link
                   to="/orchid"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -566,7 +566,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
                 </Link>
                 <Link
                   to="/parijat"
-                  sx={{
+                  style={{
                     alignItems: "center",
                     display: "flex",
                     textDecoration: "none",
@@ -696,6 +696,7 @@ const SecondNavbar = () => {
         xs: 0,
         sm: 600,
         md: 900,
+        md2: 1200,
         lg: 1280,
         xl: 1920,
       },
@@ -739,7 +740,7 @@ const SecondNavbar = () => {
               "linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
             position: "relative",
             zIndex: 1001,
-            top: "76px",
+            top: {xs:'55px', sm:'55px', md:'55px',md2:'92px', lg:'92px'},
             display: { xs: "none", sm: "none", md: "block", lg: "block" },
           }}
         >
@@ -774,6 +775,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
+                        display:'flex'
                       }}
                     />
                   </Link>
@@ -789,6 +791,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
+                        display:'flex'
                       }}
                     />
                   </Link>
@@ -804,6 +807,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
+                        display:'flex'
                       }}
                     />
                   </Link>
@@ -819,6 +823,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
+                        display:'flex'
                       }}
                     />
                   </Link>
@@ -839,7 +844,7 @@ const SecondNavbar = () => {
                           md: "row",
                           lg: "row",
                         },
-                        marginRight: "15px",
+                        alignItems:'center'
                       }}
                     >
                       <Box
@@ -850,7 +855,7 @@ const SecondNavbar = () => {
                         }}
                       >
                         <Link
-                          sx={{
+                          style={{
                             textDecoration: "none",
                             color: colors.darkGreen[100],
                           }}
@@ -861,6 +866,7 @@ const SecondNavbar = () => {
                             sx={{
                               color: colors.darkGreen[100],
                               marginRight: "10px",
+                              display:'flex'
                             }}
                           />
                         </Link>
@@ -872,7 +878,7 @@ const SecondNavbar = () => {
                           }}
                         >
                           <Link
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: colors.darkGreen[100],
                               "&:hover": {
@@ -900,7 +906,7 @@ const SecondNavbar = () => {
                         >
                           <Link
                             to={`tel:+91${contactLogs[0].primaryNumber}`}
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: colors.darkGreen[100],
                               fontWeight: 700,
@@ -915,7 +921,7 @@ const SecondNavbar = () => {
                           /{" "}
                           <Link
                             to={`tel:+91${contactLogs[0].secondaryNumber}`}
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: colors.darkGreen[100],
                               fontWeight: 700,
