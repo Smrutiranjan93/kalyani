@@ -767,7 +767,7 @@ const SecondNavbar = () => {
                   {/* Twitter */}
                   <Link to="https://twitter.com/BivabOfficial">
                     <TwitterIcon
-                      sx={{
+                      style={{
                         color: colors.darkGreen[100],
                         marginRight: {
                           xs: "5px",
@@ -783,7 +783,7 @@ const SecondNavbar = () => {
                   {/* Facebook */}
                   <Link to="https://www.facebook.com/BivabDevelopers/">
                     <FacebookIcon
-                      sx={{
+                      style={{
                         color: colors.darkGreen[100],
                         marginRight: {
                           xs: "5px",
@@ -799,7 +799,7 @@ const SecondNavbar = () => {
                   {/* Instagram */}
                   <Link to="https://www.instagram.com/bivab_developers/">
                     <InstagramIcon
-                      sx={{
+                      style={{
                         color: colors.darkGreen[100],
                         marginRight: {
                           xs: "5px",
@@ -815,7 +815,7 @@ const SecondNavbar = () => {
                   {/* Youtube */}
                   <Link to="https://www.youtube.com/@bivabyashila">
                     <YouTubeIcon
-                      sx={{
+                      style={{
                         color: colors.darkGreen[100],
                         marginRight: {
                           xs: "5px",

@@ -10,8 +10,8 @@ import viewNine from "../images/neelkamal/view9.jpg";
 import viewTen from "../images/neelkamal/view10.jpg";
 import viewEleven from "../images/neelkamal/view11.jpg";
 import viewTwelve from "../images/neelkamal/view12.jpg";
-import viewThirteen from "../images/neelkamal/view11.jpg";
-import viewFourteen from "../images/neelkamal/view12.jpg";
+import viewThirteen from "../images/neelkamal/view13.jpg";
+import viewFourteen from "../images/neelkamal/view14.jpg";
 
 const Scene = {
   pointOneView: {
@@ -34,6 +34,14 @@ const Scene = {
         yaw: 76.26484610361301,
         cssClass: "moveScene",
         scene: "pointFourView",
+        label: "Go to Inside"
+      },
+      pointEleven: {
+        type: "custom",
+        pitch: -5.940872528324783,
+        yaw: 49.72177220723851,
+        cssClass: "moveScene",
+        scene: "pointElevenView",
         label: "Go to Inside"
       }
     },
@@ -313,15 +321,15 @@ const Scene = {
     hotSpots: {
         pointTwelve: {
             type: "custom",
-            pitch: -9.317557787732108,
-            yaw: 41.71080462277542,
+            pitch: -6.025970075947536,
+            yaw: 155.66877064828137,
             cssClass: "moveScene",
             scene: "pointTwelveView",
           },
           pointTwo: {
             type: "custom",
-            pitch: -31.768388324841958,
-            yaw: -96.10819033057396,
+            pitch: -16.556370738697144,
+            yaw: 45.7569066920308,
             cssClass: "moveScene",
             scene: "pointTwoView",
           }
@@ -335,30 +343,37 @@ const Scene = {
     hotSpots: {
         pointEleven: {
             type: "custom",
-            pitch: -24.724412459896755,
-            yaw: 12.083464734311441,
+            pitch: -14.424506291362194,
+            yaw: 80.96163480038912,
             cssClass: "moveScene",
             scene: "pointElevenView",
+          },
+          pointTwo: {
+            type: "custom",
+            pitch: -9.967487693793721,
+            yaw: 53.236668375433894,
+            cssClass: "moveScene",
+            scene: "pointTwoView",
           },
     },
   },
   pointThirteenView: {
     title: "Bathroom / Toilet [Neelkamal]",
     image: viewThirteen,
-    pitch: -16.79559680834313,
-    yaw: 96.57696341537665,
+    pitch: -9.745580024430883,
+    yaw: 60.398723666370536,
     hotSpots: {
         pointFourteen: {
             type: "custom",
-            pitch: -9.317557787732108,
-            yaw: 41.71080462277542,
+            pitch: -23.328826607945473,
+            yaw: 115.85958791103523,
             cssClass: "moveScene",
             scene: "pointFourteenView",
           },
           pointSeven: {
             type: "custom",
-            pitch: -31.768388324841958,
-            yaw: -96.10819033057396,
+            pitch: -26.656931307107463,
+            yaw: -15.917793264773811,
             cssClass: "moveScene",
             scene: "pointSevenView",
           }
@@ -372,11 +387,18 @@ const Scene = {
     hotSpots: {
         pointThirteen: {
             type: "custom",
-            pitch: -24.724412459896755,
-            yaw: 12.083464734311441,
+            pitch: -16.362459872170202,
+            yaw: 86.22520016250708,
             cssClass: "moveScene",
             scene: "pointThirteenView",
           },
+          pointSeven: {
+            type: "custom",
+            pitch: -12.482858799792542,
+            yaw: 34.27770622754296,
+            cssClass: "moveScene",
+            scene: "pointSevenView",
+          }
     },
   },
 };
