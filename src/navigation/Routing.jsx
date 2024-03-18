@@ -13,6 +13,7 @@ import PropertyDetails from '../screen/private/PropertyDetails';
 import ParijatScene from '../components/global/ParijatScene';
 import OrchidScene from '../components/global/OrchidScene';
 import NeelkamalScene from '../components/global/NeelkamalScene';
+import MograScene from '../components/global/MograScene';
 
 function Routing() {
   return (
@@ -27,6 +28,7 @@ function Routing() {
         <Route path='/parijat' element={<ParijatScene />} />
         <Route path='/orchid' element={<OrchidScene />} />
         <Route path='/neelkamal' element={<NeelkamalScene />} />
+        <Route path='/mogra' element={<MograScene />} />
 
         <Route path='/profile' element={<UserProfile />} />
         <Route path='/properties' element={<OurProperties />} />
