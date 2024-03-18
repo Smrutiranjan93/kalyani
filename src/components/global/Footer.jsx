@@ -154,7 +154,7 @@ const FirstFooter = () => {
                 >
                   <Link
                     to={"/"}
-                    sx={{
+                    style={{
                       textDecoration: "none",
                       color: "white",
                       "&:hover": {
@@ -183,7 +183,7 @@ const FirstFooter = () => {
                 >
                   <Link
                     to={"/amentities"}
-                    sx={{
+                    style={{
                       textDecoration: "none",
                       color: "white",
                       "&:hover": {
@@ -212,7 +212,7 @@ const FirstFooter = () => {
                 >
                   <Link
                     to={"/photo-gallery"}
-                    sx={{
+                    style={{
                       textDecoration: "none",
                       color: "white",
                       "&:hover": {
@@ -241,7 +241,7 @@ const FirstFooter = () => {
                 >
                   <Link
                     to={"/about-us"}
-                    sx={{
+                    style={{
                       textDecoration: "none",
                       color: "white",
                       "&:hover": {
@@ -270,7 +270,7 @@ const FirstFooter = () => {
                 >
                   <Link
                     to={"/contact-us"}
-                    sx={{
+                    style={{
                       textDecoration: "none",
                       color: "white",
                       "&:hover": {
@@ -460,7 +460,7 @@ const FirstFooter = () => {
                         >
                           <Link
                             to="https://maps.app.goo.gl/e5jjvdM16zi5P6Ee8"
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: "white",
                               "&:hover": {
@@ -502,7 +502,7 @@ const FirstFooter = () => {
                           <Link
                             to={`tel:+91${contactLogs[0].primaryNumber}`}
                             color="inherit"
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: "white",
                               "&:hover": {
@@ -517,7 +517,7 @@ const FirstFooter = () => {
                           <Link
                             to={`tel:+91${contactLogs[0].secondaryNumber}`}
                             color="inherit"
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: "white",
                               "&:hover": {
@@ -566,7 +566,7 @@ const FirstFooter = () => {
                           }}
                         >
                           <Link
-                            sx={{
+                            style={{
                               textDecoration: "none",
                               color: "white",
                               "&:hover": {

@@ -673,20 +673,20 @@ const Scene = {
   pointTwentyView: {
     title: "Bathroom / Toilet [Orchid]",
     image: viewTwenty,
-    pitch: -16.79559680834313,
-    yaw: 96.57696341537665,
+    pitch: -4.518269051260987,
+    yaw: 54.32079087454679,
     hotSpots: {
         pointTwentyOne: {
             type: "custom",
-            pitch: -9.317557787732108,
-            yaw: 41.71080462277542,
+            pitch: -14.756259876965926,
+            yaw: 20.5990370748412,
             cssClass: "moveScene",
             scene: "pointTwentyOneView",
           },
           pointNinteen: {
             type: "custom",
-            pitch: -31.768388324841958,
-            yaw: -96.10819033057396,
+            pitch: -69.34333729248975,
+            yaw: -60.838967749884375,
             cssClass: "moveScene",
             scene: "pointNinteenView",
           }
@@ -695,35 +695,42 @@ const Scene = {
   pointTwentyOneView: {
     title: "Bathroom / Toilet [Orchid]",
     image: viewTwentyOne,
-    pitch: -16.79559680834313,
-    yaw: 96.57696341537665,
+    pitch: -22.057947868042465,
+    yaw: 68.52011373930563,
     hotSpots: {
         pointTwenty: {
             type: "custom",
-            pitch: -24.724412459896755,
-            yaw: 12.083464734311441,
+            pitch: -19.23680782435917,
+            yaw: 35.539586651943075,
             cssClass: "moveScene",
             scene: "pointTwentyView",
+          },
+          pointNinteen: {
+            type: "custom",
+            pitch: -15.769095203668076,
+            yaw: -16.605813190421227,
+            cssClass: "moveScene",
+            scene: "pointNinteenView",
           },
     },
   },
   pointTwentyTwoView: {
     title: "Bathroom / Toilet [Orchid]",
     image: viewTwentyTwo,
-    pitch: -16.79559680834313,
-    yaw: 96.57696341537665,
+    pitch: -4.518269051260987,
+    yaw: 54.32079087454679,
     hotSpots: {
         pointTwentyThree: {
             type: "custom",
-            pitch: -9.317557787732108,
-            yaw: 41.71080462277542,
+            pitch: -14.756259876965926,
+            yaw: 20.5990370748412,
             cssClass: "moveScene",
             scene: "pointTwentyThreeView",
           },
           pointEleven: {
             type: "custom",
-            pitch: -31.768388324841958,
-            yaw: -96.10819033057396,
+            pitch: -69.34333729248975,
+            yaw: -60.838967749884375,
             cssClass: "moveScene",
             scene: "pointElevenView",
           }
@@ -732,16 +739,23 @@ const Scene = {
   pointTwentyThreeView: {
     title: "Bathroom / Toilet [Orchid]",
     image: viewTwentyThree,
-    pitch: -16.79559680834313,
-    yaw: 96.57696341537665,
+    pitch: -22.057947868042465,
+    yaw: 68.52011373930563,
     hotSpots: {
         pointTwentyTwo: {
             type: "custom",
-            pitch: -24.724412459896755,
-            yaw: 12.083464734311441,
+            pitch: -19.23680782435917,
+            yaw: 35.539586651943075,
             cssClass: "moveScene",
             scene: "pointTwentyTwoView",
           },
+          pointEleven: {
+            type: "custom",
+            pitch: -15.769095203668076,
+            yaw: -16.605813190421227,
+            cssClass: "moveScene",
+            scene: "pointElevenView",
+          }
     },
   },
 };

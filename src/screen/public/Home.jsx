@@ -325,7 +325,7 @@ const Home = ({ data }) => {
                   sx={{
                     position: "absolute",
                     top: {
-                      xs: "77%",
+                      xs: "71%",
                       sm: "50%",
                       sm2: "50%",
                       md: "50%",
