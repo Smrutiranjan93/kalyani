@@ -112,7 +112,6 @@ const OurProperties = ({ data }) => {
                 variant="h3"
                 style={{
                   marginTop: "20px",
-                  marginLeft: "50px",
                   fontWeight: "bold",
                   fontSize: "32px",
                   color: "darkGreen",
