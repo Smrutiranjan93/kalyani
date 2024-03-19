@@ -9,10 +9,11 @@ import {
   Slide,
   Toolbar,
   Typography,
-  useScrollTrigger
+  useScrollTrigger,
 } from "@mui/material";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 import React, { useEffect, useState } from "react";
+import ThreeSixtyMenu from "./ThreeSixtyMenu";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -33,7 +34,6 @@ import { Tb360View } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { GETNETWORK } from "../../utils/network";
 import ApiUrl from "../../utils/url";
-
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -271,161 +271,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
       ))}
 
       {/* Modal */}
-      <PopupState variant="popover" popupId="demo-popup-menu">
-        {(popupState) => (
-          <React.Fragment>
-            <Button
-              variant="contained"
-              {...bindTrigger(popupState)}
-              sx={{
-                color: colors.white[100],
-                backgroundColor: colors.yellow[300],
-                padding: "5px 10px",
-                border: "1px solid white",
-                "&:hover": {
-                  color: colors.darkblue[100],
-                  backgroundColor: "white",
-                  border: "1px solid black",
-                },
-              }}
-            >
-              360 Tour
-            </Button>
-            <Menu
-              {...bindMenu(popupState)}
-              sx={{
-                ".css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper": {
-                  backgroundColor:colors.darkGreen[100],
-                },
-              }}
-            >
-              <MenuItem sx={{
-                '&:hover':{
-                  backgroundColor: colors.yellow[300],
-                } 
-              }}>
-                <Link
-                  to="/orchid"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "#f9ff77",
-                  }}
-                >
-                  <Tb360View />
-                </Link>
-                <Link
-                  to="/orchid"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "white",
-                  }}
-                >
-                  Orchid [2 BHK]
-                </Link>
-              </MenuItem>
-
-              <MenuItem sx={{
-                  '&:hover':{
-                    backgroundColor: colors.yellow[300],
-                  } 
-              }}>
-                <Link
-                  to="/orchid"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "#f9ff77",
-                  }}
-                >
-                  <Tb360View />
-                </Link>
-                <Link
-                  to="/mogra"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "white",
-                  }}
-                >
-                  Mogra [2 BHK]
-                </Link>
-              </MenuItem>
-
-              <MenuItem sx={{
-                  '&:hover':{
-                    backgroundColor: colors.yellow[300],
-                  } 
-              }}>
-                <Link
-                  to="/orchid"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "#f9ff77",
-                  }}
-                >
-                  <Tb360View />
-                </Link>
-                <Link
-                  to="/neelkamal"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "white",
-                  }}
-                >
-                  Neelkamal [1 BHK]
-                </Link>
-              </MenuItem>
-
-              <MenuItem sx={{
-                  '&:hover':{
-                    backgroundColor: colors.yellow[300],
-                  } 
-              }}>
-                <Link
-                  to="/orchid"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "#f9ff77",
-                  }}
-                >
-                  <Tb360View />
-                </Link>
-                <Link
-                  to="/parijat"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    color: "white",
-                  }}
-                >
-                  Parijat [1 BHK]
-                </Link>
-              </MenuItem>
-            </Menu>
-          </React.Fragment>
-        )}
-      </PopupState>
+      <ThreeSixtyMenu />
 
       {/*will add a profile icon*/}
       {/* <Link
@@ -563,7 +409,13 @@ const SecondNavbar = () => {
               "linear-gradient(45deg, rgb(191, 149, 63), rgb(252, 246, 186), rgba(170, 119, 28, 0.82), rgb(252, 246, 186))",
             position: "relative",
             zIndex: 1001,
-            top: {xs:'55px', sm:'55px', md:'55px',md2:'92px', lg:'92px'},
+            top: {
+              xs: "55px",
+              sm: "55px",
+              md: "55px",
+              md2: "92px",
+              lg: "92px",
+            },
             display: { xs: "none", sm: "none", md: "block", lg: "block" },
           }}
         >
@@ -598,7 +450,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
-                        display:'flex'
+                        display: "flex",
                       }}
                     />
                   </Link>
@@ -614,7 +466,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
-                        display:'flex'
+                        display: "flex",
                       }}
                     />
                   </Link>
@@ -630,7 +482,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
-                        display:'flex'
+                        display: "flex",
                       }}
                     />
                   </Link>
@@ -646,7 +498,7 @@ const SecondNavbar = () => {
                           md: "22px",
                           lg: "22px",
                         },
-                        display:'flex'
+                        display: "flex",
                       }}
                     />
                   </Link>
@@ -667,7 +519,7 @@ const SecondNavbar = () => {
                           md: "row",
                           lg: "row",
                         },
-                        alignItems:'center'
+                        alignItems: "center",
                       }}
                     >
                       <Box
@@ -689,7 +541,7 @@ const SecondNavbar = () => {
                             sx={{
                               color: colors.darkGreen[100],
                               marginRight: "10px",
-                              display:'flex'
+                              display: "flex",
                             }}
                           />
                         </Link>
@@ -770,4 +622,3 @@ const SecondNavbar = () => {
 };
 
 export { SecondNavbar, TopNavbar };
-
