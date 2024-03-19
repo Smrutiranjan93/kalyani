@@ -155,7 +155,7 @@ export default function PropertyDetails() {
       ) : (
         <Layout>
           <ThemeProvider theme={styleTheme}>
-            <Box sx={{ marginTop: "76px" }}>
+            <Box sx={{ marginTop: "55px" }}>
               {/* Heading */}
               <Box
                 sx={{
