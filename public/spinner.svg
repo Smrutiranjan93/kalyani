@@ -3,7 +3,7 @@
             <style>
                     #loader path {
             stroke-dasharray: 100px;
-            stroke: black;
+            stroke: #bf953f;
             stroke-dasharray: 75614px;
             stroke-dashoffset: 75614px;
             stroke-width: 1px;

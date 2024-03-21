@@ -91,32 +91,7 @@ const ThreeSixtyMenu = () => {
                 360 Tour
               </Button>
               <Menu {...bindMenu(popupState)}>
-                <MenuItem
-                  sx={{
-                    color: colors.darkGreen[100],
-                    "&:hover": {
-                      color: "white",
-                      backgroundColor: colors.darkGreen[100],
-                    },
-                  }}
-                >
-                  <Box
-                    onClick={handleOrchid}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Typography>
-                      <Tb360View
-                        style={{ display: "flex", marginRight: "8px" }}
-                      />
-                    </Typography>
-                    <Typography>Orchid [2 BHK]</Typography>
-                  </Box>
-                </MenuItem>
-
+                {/* Mogra */}
                 <MenuItem
                   sx={{
                     color: colors.darkGreen[100],
@@ -143,6 +118,34 @@ const ThreeSixtyMenu = () => {
                   </Box>
                 </MenuItem>
 
+                {/* Orchid */}
+                <MenuItem
+                  sx={{
+                    color: colors.darkGreen[100],
+                    "&:hover": {
+                      color: "white",
+                      backgroundColor: colors.darkGreen[100],
+                    },
+                  }}
+                >
+                  <Box
+                    onClick={handleOrchid}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Typography>
+                      <Tb360View
+                        style={{ display: "flex", marginRight: "8px" }}
+                      />
+                    </Typography>
+                    <Typography>Orchid [2 BHK]</Typography>
+                  </Box>
+                </MenuItem>
+
+                {/* Neelkamal */}
                 <MenuItem
                   sx={{
                     color: colors.darkGreen[100],
@@ -169,6 +172,7 @@ const ThreeSixtyMenu = () => {
                   </Box>
                 </MenuItem>
 
+                {/* Parijat */}
                 <MenuItem
                   sx={{
                     color: colors.darkGreen[100],

@@ -20,6 +20,11 @@ import ApiUrl from "../../utils/url";
 import Loading from "../../components/reusable/Loading";
 
 const AboutUs = ({ data }) => {
+
+  const aboutOwner = [
+    {id : "1", image: 'profile2.jpeg', name: "Er. Binay Krishna Das" , designation: "FOUNDER BIVAB"},
+    {id : "2", image: 'profile3.jpeg', name: "Mrs. Eva Pattnaik" , designation: "DIRECTOR"},
+  ]
   const [showMoreMission, setShowMoreMission] = useState(false);
   const [showMoreVision, setShowMoreVision] = useState(false);
 
@@ -34,7 +39,6 @@ const AboutUs = ({ data }) => {
   {
     /* API Integration */
   }
-  const [aboutOwner, setAboutOwner] = useState([]);
   const [successCounter, setSuccessCounter] = useState([]);
 
   const [missionTitle, setMissionTitle] = useState("");
@@ -43,21 +47,6 @@ const AboutUs = ({ data }) => {
   const [vision, setVision] = useState("");
 
   useEffect(() => {
-    const aboutOwnerData = async () => {
-      try {
-        const response = await GETNETWORK(ApiUrl.ABOUT_OWNER_URL);
-        if (response.status) {
-          setAboutOwner(response.data);
-          console.log(response.data);
-        } else {
-          console.error("Error fetching data:", response.message);
-        }
-      } catch (error) {
-        console.error("Error during data fetching:", error);
-      }
-    };
-
-    aboutOwnerData();
 
     const successCounterData = async () => {
       try {
@@ -760,9 +749,7 @@ const AboutUs = ({ data }) => {
 
               <Box sx={{ width: "85%", margin: "auto", marginTop: "50px" }}>
                 <Grid container spacing={6}>
-                  {aboutOwner &&
-                    aboutOwner.length > 0 &&
-                    aboutOwner.map((about) => (
+                  {aboutOwner.map((about) => (
                       <Grid item xs={12} sm={6} md={6} lg={6} key={about.id}>
                         <Box
                           sx={{
@@ -784,7 +771,7 @@ const AboutUs = ({ data }) => {
                             alt="profile-user"
                             width="100%"
                             height="100%"
-                            src={`${ApiUrl.ImageHostURl}${about.imageName}`}
+                            src={`/${about.image}`}
                             style={{
                               cursor: "pointer",
                               backgroundSize: "cover",
@@ -797,7 +784,7 @@ const AboutUs = ({ data }) => {
                               color: colors.darkGreen[100],
                               fontWeight: "400",
                               marginBottom: "10px",
-                              borderLeft: `2px solid ${colors.yellow[100]}`,
+                              borderLeft: `2px solid ${colors.yellow[300]}`,
                               paddingLeft: "10px",
                             }}
                           >
@@ -805,7 +792,7 @@ const AboutUs = ({ data }) => {
                             <Typography
                               variant="h6"
                               style={{
-                                color: colors.yellow[100],
+                                color: colors.yellow[300],
                                 fontWeight: "700",
                               }}
                             >

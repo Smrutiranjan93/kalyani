@@ -544,7 +544,7 @@ const Home = ({ data }) => {
                         },
                       }}
                     >
-                      Why Our Company Is The Perfect Partner For You?
+                      Welcome to Bivab Yashila
                     </Typography>
                     <Typography
                       variant="p"

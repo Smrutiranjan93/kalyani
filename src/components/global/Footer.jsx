@@ -133,7 +133,6 @@ const FirstFooter = () => {
               </Typography>
               <Box
                 sx={{
-                  paddingLeft: "10px",
                   marginTop: "10px",
                   display: "flex",
                   flexDirection: "column",
@@ -367,7 +366,9 @@ const FirstFooter = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
+                  alignItems: {xs:'center', sm:'center', md:'start', lg:'start'},
+                  justifyContent:'center', 
+                  marginLeft:{xs:'opx', sm:'0px', md:'50px', lg:'50px'}
                 }}
               >
                 <Typography
@@ -398,12 +399,6 @@ const FirstFooter = () => {
                   contactLogs[0].location && (
                     <Box
                       sx={{
-                        marginLeft: {
-                          xs: "0px",
-                          sm: "27%",
-                          md: "27%",
-                          lg: "27%",
-                        },
                         textAlign: {
                           xs: "center",
                           sm: "left",
@@ -658,9 +653,9 @@ const SecondFooter = () => {
             sx={{
               fontSize: {
                 xs: "12px",
-                sm: "14px",
-                md: "16px",
-                lg: "18px",
+                sm: "12px",
+                md: "14px",
+                lg: "16px",
               },
             }}
           >
