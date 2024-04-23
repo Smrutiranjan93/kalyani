@@ -19,7 +19,19 @@ import ApiUrl from "../../utils/url";
 
 import Loading from "../../components/reusable/Loading";
 
+import { ImHome } from "react-icons/im";
+import { FaPeopleRoof } from "react-icons/fa6";
+import { SiOpensourcehardware } from "react-icons/si";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const AboutUs = ({ data }) => {
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
 
   const aboutOwner = [
     {id : "1", image: 'profile2.jpeg', name: "Er. Binay Krishna Das" , designation: "FOUNDER BIVAB"},
@@ -229,12 +241,13 @@ const AboutUs = ({ data }) => {
                       fontWeight: "700",
                       marginBottom: "15px",
                       fontSize: {
-                        xs: "0.6rem",
-                        sm: "0.9rem",
-                        md: "1rem",
-                        lg: "2rem",
+                        xs: "18px",
+                        sm: "22px",
+                        md: "26px",
+                        lg: "34px",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     ABOUT BIVAB
                   </Typography>
@@ -251,6 +264,7 @@ const AboutUs = ({ data }) => {
                         lg: "1rem",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     BIVAB® Developers is an eminent company redefining real
                     estate in Bhubaneswar
@@ -268,6 +282,7 @@ const AboutUs = ({ data }) => {
                         lg: "1rem",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     Welcome to BIVAB® Yashila, a distinctive residential enclave
                     in the heart of Puri, Odisha. Boasting over 300 meticulously
@@ -287,6 +302,7 @@ const AboutUs = ({ data }) => {
                         lg: "1rem",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     Nestled in the tranquil ambiance of Puri, our latest project
                     reflects the essence of luxury, comfort, and innovation.
@@ -307,6 +323,7 @@ const AboutUs = ({ data }) => {
                         lg: "1rem",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     Discover a harmonious living experience with thoughtfully
                     designed spaces, modern amenities, and a scenic backdrop
@@ -327,6 +344,7 @@ const AboutUs = ({ data }) => {
                         lg: "1rem",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     Immerse yourself in the coastal charm of Puri and elevate
                     your living standards with BIVAB Yashila. Your dream home
@@ -347,6 +365,7 @@ const AboutUs = ({ data }) => {
                         lg: "1rem",
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     Explore the allure of Puri living at BIVAB Yashila—where
                     home is not just a place; it’s an experience. Welcome to a
@@ -367,6 +386,7 @@ const AboutUs = ({ data }) => {
                         backgroundColor: colors.darkGreen[100],
                       },
                     }}
+                    data-aos="fade-up"
                   >
                     INVEST TODAY
                   </Button>
@@ -404,6 +424,7 @@ const AboutUs = ({ data }) => {
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
+                    data-aos="zoom-in"
                   />
                 </Box>
               </Box>
@@ -414,12 +435,12 @@ const AboutUs = ({ data }) => {
                 sx={{
                   display: "flex",
                   justifyContent: "space-around",
-                  margin: "50px 100px",
+                  margin: {xs:"50px 20px", sm:"50px 20px", md:"50px 50px", lg:"50px 100px"},
                   alignItems: "center",
                   flexDirection: { xs: "column", md: "row", lg: "row" },
                   textAlign: {
-                    xs: "center",
-                    sm: "center",
+                    xs: "start",
+                    sm: "start",
                     md: "start",
                     lg: "start",
                   },
@@ -434,7 +455,7 @@ const AboutUs = ({ data }) => {
                       md: "20px",
                       lg: "20px",
                     },
-                    padding: "10px 61px",
+                    padding: "10px 0px",
                     "&:hover": {
                       background: "linear-gradient(to top, #0d5a4194, white)",
                     },
@@ -442,11 +463,16 @@ const AboutUs = ({ data }) => {
                 >
                   <Typography
                     variant="h2"
-                    style={{
+                    sx={{
                       color: colors.darkGreen[100],
                       fontWeight: "700",
                       marginBottom: "15px",
-                      fontSize: "45px",
+                      fontSize: {
+                        xs: "18px",
+                        sm: "22px",
+                        md: "26px",
+                        lg: "34px",
+                      },
                     }}
                   >
                     {missionTitle}
@@ -457,7 +483,7 @@ const AboutUs = ({ data }) => {
                       color: colors.darkblue[100],
                       fontWeight: "400",
                       marginBottom: "15px",
-                      textAlign: { xs: "center" },
+                      textAlign: { xs: "start" },
                     }}
                   >
                     {displayMissionText}
@@ -480,7 +506,7 @@ const AboutUs = ({ data }) => {
                       md: "20px",
                       lg: "20px",
                     },
-                    padding: "10px 61px",
+                    padding: "10px 0px",
                     "&:hover": {
                       background: "linear-gradient(to top, #0d5a4194, white)",
                     },
@@ -488,11 +514,16 @@ const AboutUs = ({ data }) => {
                 >
                   <Typography
                     variant="h2"
-                    style={{
+                    sx={{
                       color: colors.darkGreen[100],
                       fontWeight: "700",
                       marginBottom: "15px",
-                      fontSize: "45px",
+                      fontSize: {
+                        xs: "18px",
+                        sm: "22px",
+                        md: "26px",
+                        lg: "34px",
+                      },
                     }}
                   >
                     {visionTitle}
@@ -503,7 +534,7 @@ const AboutUs = ({ data }) => {
                       color: colors.darkblue[100],
                       fontWeight: "400",
                       marginBottom: "15px",
-                      textAlign: { xs: "center" },
+                      textAlign: { xs: "start" },
                     }}
                   >
                     {displayVisionText}
@@ -526,9 +557,12 @@ const AboutUs = ({ data }) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  margin: "100px 0px",
+                  
                   backgroundColor: colors.darkblue[200],
-                  flexDirection: { xs: "column", lg: "row" },
+                  flexDirection: { xs: "column",sm:'column', md:'column' ,lg: "row" },
+                  width:'100%',
+                  margin:'auto',
+                  margin: "100px 0px",
                 }}
               >
                 {/* One */}
@@ -537,26 +571,34 @@ const AboutUs = ({ data }) => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    width: "52vh",
                     marginRight: "7px",
-                    justifyContent: "space-around",
+                    justifyContent: "center",
+                    width:{xs:'100%', sm:'100%', md:'100%', lg:'30%'},
+                    flexDirection:{xs:'column', sm:'column', md:'column', lg:'row'},
+                    marginBottom: {xs:'15px', sm:'15px', md:'15px', lg:'0px'},
                   }}
                 >
-                  <PlaylistAddCircleIcon sx={{ fontSize: "65px" }} />
+                  <ImHome style={{ fontSize: "65px", marginRight:{xs:'0px', sm:'0px', md:'0px', lg:'40px'} }} />
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      textAlign: "start",
+                      textAlign: "center",
                     }}
                   >
                     <Typography
                       variant="h2"
-                      style={{
+                      sx={{
                         color: colors.darkblue[100],
                         fontWeight: "400",
                         marginBottom: "5px",
-                        fontSize: "70px",
+                        fontSize: {
+                          xs: "30px",
+                          sm: "30px",
+                          md: "50px",
+                          lg: "70px",
+                        },
+                        textAlign:'center'
                       }}
                     >
                       {successCounter &&
@@ -570,9 +612,10 @@ const AboutUs = ({ data }) => {
                     </Typography>
                     <Typography
                       variant="h5"
-                      style={{
+                      sx={{
                         color: colors.darkGreen[100],
                         fontWeight: "400",
+                        textAlign:'center'
                       }}
                     >
                       {successCounter &&
@@ -590,26 +633,34 @@ const AboutUs = ({ data }) => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    width: "52vh",
-                    justifyContent: "space-around",
+                    justifyContent: "center",
                     marginRight: "7px",
+                    width:{xs:'100%', sm:'100%', md:'100%', lg:'30%'},
+                    flexDirection:{xs:'column', sm:'column', md:'column', lg:'row'},
+                    marginBottom: {xs:'15px', sm:'15px', md:'15px', lg:'0px'},
                   }}
                 >
-                  <PlaylistAddCheckCircleIcon sx={{ fontSize: "65px" }} />
+                  <FaPeopleRoof style={{ fontSize: "65px",marginRight:{xs:'0px', sm:'0px', md:'0px', lg:'40px'}  }} />
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      textAlign: "start",
+                      textAlign: "center",
                     }}
                   >
                     <Typography
                       variant="h2"
-                      style={{
+                      sx={{
                         color: colors.darkblue[100],
                         fontWeight: "400",
                         marginBottom: "10px",
-                        fontSize: "70px",
+                        fontSize: {
+                          xs: "30px",
+                          sm: "30px",
+                          md: "50px",
+                          lg: "70px",
+                        },
+                        textAlign:'center'
                       }}
                     >
                       {successCounter &&
@@ -623,9 +674,10 @@ const AboutUs = ({ data }) => {
                     </Typography>
                     <Typography
                       variant="h5"
-                      style={{
+                      sx={{
                         color: colors.darkGreen[100],
                         fontWeight: "400",
+                        textAlign:'center'
                       }}
                     >
                       {successCounter &&
@@ -643,26 +695,33 @@ const AboutUs = ({ data }) => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    width: "52vh",
-                    justifyContent: "space-around",
+                    justifyContent: "center",
                     marginRight: "7px",
+                    width:{xs:'100%', sm:'100%', md:'100%', lg:'30%'},
+                    flexDirection:{xs:'column', sm:'column', md:'column', lg:'row'},
+                    marginBottom: {xs:'15px', sm:'15px', md:'15px', lg:'0px'},
                   }}
                 >
-                  <EmojiEmotionsIcon sx={{ fontSize: "65px" }} />
+                  <SiOpensourcehardware style={{ fontSize: "65px",marginRight:{xs:'0px', sm:'0px', md:'0px', lg:'40px'}  }} />
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      textAlign: "start",
+                      textAlign: "center",
                     }}
                   >
                     <Typography
                       variant="h2"
-                      style={{
+                      sx={{
                         color: colors.darkblue[100],
                         fontWeight: "400",
                         marginBottom: "10px",
-                        fontSize: "70px",
+                        fontSize: {
+                          xs: "30px",
+                          sm: "30px",
+                          md: "50px",
+                          lg: "70px",
+                        },
                       }}
                     >
                       {successCounter &&
@@ -676,9 +735,10 @@ const AboutUs = ({ data }) => {
                     </Typography>
                     <Typography
                       variant="h5"
-                      style={{
+                      sx={{
                         color: colors.darkGreen[100],
                         fontWeight: "400",
+                        textAlign:'center'
                       }}
                     >
                       {successCounter &&
@@ -686,58 +746,6 @@ const AboutUs = ({ data }) => {
                         successCounter[2] &&
                         successCounter[2].title && (
                           <div>{successCounter[2].title}</div>
-                        )}
-                    </Typography>
-                  </Box>
-                </Box>
-
-                {/* Four */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "52vh",
-                    justifyContent: "space-around",
-                  }}
-                >
-                  <PersonSearchIcon sx={{ fontSize: "65px" }} />
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      textAlign: "start",
-                    }}
-                  >
-                    <Typography
-                      variant="h2"
-                      style={{
-                        color: colors.darkblue[100],
-                        fontWeight: "400",
-                        marginBottom: "10px",
-                        fontSize: "70px",
-                      }}
-                    >
-                      {successCounter &&
-                        successCounter.length > 0 &&
-                        successCounter[3] &&
-                        successCounter[3].number && (
-                          <div>
-                            <CounterUp prop={successCounter[3].number} />
-                          </div>
-                        )}
-                    </Typography>
-                    <Typography
-                      variant="h5"
-                      style={{
-                        color: colors.darkGreen[100],
-                        fontWeight: "400",
-                      }}
-                    >
-                      {successCounter &&
-                        successCounter.length > 0 &&
-                        successCounter[3] &&
-                        successCounter[3].title && (
-                          <div>{successCounter[3].title}</div>
                         )}
                     </Typography>
                   </Box>
@@ -787,6 +795,7 @@ const AboutUs = ({ data }) => {
                               borderLeft: `2px solid ${colors.yellow[300]}`,
                               paddingLeft: "10px",
                             }}
+                            data-aos="fade-down"
                           >
                             {about.name}
                             <Typography
@@ -795,6 +804,7 @@ const AboutUs = ({ data }) => {
                                 color: colors.yellow[300],
                                 fontWeight: "700",
                               }}
+                              data-aos="fade-down"
                             >
                               {about.designation}
                             </Typography>

@@ -824,7 +824,7 @@ export default function PropertyDetails() {
                     }}
                   >
                     {/* One*/}
-                    <Box sx={{ display: "flex", marginBottom: "40px" }}>
+                    {/* <Box sx={{ display: "flex", marginBottom: "40px" }}>
                       <img
                         alt="profile-user"
                         width="35px"
@@ -862,7 +862,7 @@ export default function PropertyDetails() {
                           {property.unit}
                         </Typography>
                       </Box>
-                    </Box>
+                    </Box> */}
 
                     {/* Two*/}
                     <Box sx={{ display: "flex", marginBottom: "40px" }}>
@@ -1002,7 +1002,7 @@ export default function PropertyDetails() {
                     }}
                   >
                     {/* Five*/}
-                    <Box sx={{ display: "flex", marginBottom: "40px" }}>
+                    {/* <Box sx={{ display: "flex", marginBottom: "40px" }}>
                       <img
                         alt="profile-user"
                         width="35px"
@@ -1040,7 +1040,7 @@ export default function PropertyDetails() {
                           {property.floors}
                         </Typography>
                       </Box>
-                    </Box>
+                    </Box> */}
 
                     {/* Six*/}
                     <Box sx={{ display: "flex", marginBottom: "40px" }}>

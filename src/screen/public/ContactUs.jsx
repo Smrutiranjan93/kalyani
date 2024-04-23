@@ -30,7 +30,16 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Loading from "../../components/reusable/Loading";
 
+import { GrLocation } from "react-icons/gr";
+import { AiOutlineMail } from "react-icons/ai";
+import { GiSmartphone } from "react-icons/gi";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const ContactUs = ({ data }) => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -287,8 +296,8 @@ const ContactUs = ({ data }) => {
                               color: colors.darkGreen[100],
                             }}
                           >
-                            <ExploreIcon
-                              sx={{
+                            <GrLocation
+                              style={{
                                 fontSize: "50px",
                                 marginRight: "15px",
                                 backgroundColor: colors.darkGreen[100],
@@ -337,8 +346,8 @@ const ContactUs = ({ data }) => {
                             rel="stylesheet"
                             to={`mailto:${contactLogs[0].email}`}
                           >
-                            <MarkEmailReadIcon
-                              sx={{
+                            <AiOutlineMail
+                              style={{
                                 fontSize: "50px",
                                 marginRight: "15px",
                                 backgroundColor: colors.darkGreen[100],
@@ -376,8 +385,8 @@ const ContactUs = ({ data }) => {
                         },
                       }}
                     >
-                      <ContactsIcon
-                        sx={{
+                      <GiSmartphone
+                        style={{
                           fontSize: "50px",
                           marginRight: "15px",
                           backgroundColor: colors.darkGreen[100],
@@ -546,6 +555,7 @@ const ContactUs = ({ data }) => {
                       {/* First Row */}
                       <Grid item xs={6}>
                         <TextField
+                        data-aos="fade-up"
                           InputLabelProps={{
                             sx: {
                               color: colors.darkGreen[100],
@@ -572,6 +582,7 @@ const ContactUs = ({ data }) => {
                       </Grid>
                       <Grid item xs={6}>
                         <TextField
+                        data-aos="fade-up"
                           InputLabelProps={{
                             sx: {
                               color: colors.darkGreen[100],
@@ -600,6 +611,7 @@ const ContactUs = ({ data }) => {
                       {/* Second Row */}
                       <Grid item xs={12}>
                         <TextField
+                        data-aos="fade-up"
                           InputLabelProps={{
                             sx: {
                               color: colors.darkGreen[100],
@@ -628,6 +640,7 @@ const ContactUs = ({ data }) => {
                       {/* Third Row */}
                       <Grid item xs={12}>
                         <TextField
+                        data-aos="fade-up"
                           InputLabelProps={{
                             sx: {
                               color: colors.darkGreen[100],
@@ -665,6 +678,7 @@ const ContactUs = ({ data }) => {
                         }}
                       >
                         <Button
+                        data-aos="fade-up"
                           variant="contained"
                           sx={{
                             width: "10vw",

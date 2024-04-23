@@ -7,7 +7,7 @@ import {
   CardContent,
 } from "@mui/material";
 import { tokens } from "../../constants/theme";
-import React from "react";
+import React, { useEffect } from "react";
 
 import PoolIcon from "@mui/icons-material/Pool";
 import HotTubIcon from "@mui/icons-material/HotTub";
@@ -19,48 +19,61 @@ import DomainIcon from "@mui/icons-material/Domain";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import PhotoCameraFrontIcon from "@mui/icons-material/PhotoCameraFront";
 
+import { PiSwimmingPoolLight } from "react-icons/pi";
+import { PiFlowerLotusLight } from "react-icons/pi";
+import { CgGym } from "react-icons/cg";
+import { IoPeopleOutline } from "react-icons/io5";
+import { FaHandsHoldingChild } from "react-icons/fa6";
+import { IoRestaurantOutline } from "react-icons/io5";
+import { LiaHotelSolid } from "react-icons/lia";
+import { GiGloves } from "react-icons/gi";
+import { GiCctvCamera } from "react-icons/gi";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const cardsData = [
   {
     id: 1,
-    icon: <PoolIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/swimming.gif",
     text: "Swimming Pools",
   },
-  { id: 2, icon: <HotTubIcon sx={{ fontSize: "4.285714rem" }} />, text: "Spa" },
+  { id: 2, image: "/yashila-gif/spa-flower.gif", text: "Spa" },
   {
     id: 3,
-    icon: <FitnessCenterIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/gym-fitness.gif",
     text: "GYM",
   },
   {
     id: 4,
-    icon: <GroupsIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/meeting-room.gif",
     text: "Conference Hall",
   },
   {
     id: 5,
-    icon: <BabyChangingStationIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/baby-care.gif",
     text: "Creche",
   },
   {
     id: 6,
-    icon: <RestaurantIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/food-plate.gif",
     text: "Restaurant",
   },
   {
     id: 7,
-    icon: <DomainIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/dubai-city.gif",
     text: "Hotel Units",
   },
   {
     id: 8,
-    icon: <MeetingRoomIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/residence-mansion.gif",
     text: "Banquet Hall",
   },
   {
     id: 9,
-    icon: <PhotoCameraFrontIcon sx={{ fontSize: "4.285714rem" }} />,
+    image: "/yashila-gif/city-camera.gif",
     text: "CCTV",
   },
 ];
@@ -68,6 +81,10 @@ const cardsData = [
 const AmentitiesComponent = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
 
   const styleTheme = createTheme({
     breakpoints: {
@@ -142,6 +159,7 @@ const AmentitiesComponent = () => {
                 lg: "34px",
               },
             }}
+            data-aos="fade-up"
           >
             WORLD CLASS AMENITIES
           </Typography>
@@ -153,7 +171,7 @@ const AmentitiesComponent = () => {
                 item
                 xs={12}
                 sm={6}
-                md={3}
+                md={4}
                 lg={4}
                 sx={{ marginBottom: "25px" }}
               >
@@ -172,15 +190,11 @@ const AmentitiesComponent = () => {
                   }}
                 >
                   <CardContent sx={{ flex: 1, textAlign: "center" }}>
-                    <Box
-                      sx={{
-                        fontSize: 24,
-                        marginBottom: "2px",
-                        color: colors.yellow[100],
-                      }}
-                    >
-                      {card.icon}
-                    </Box>
+                    <img
+                      src={card.image}
+                      alt="gif"
+                      style={{ height: "100px", width: "100px" }}
+                    />
                     <Typography
                       variant="h5"
                       sx={{

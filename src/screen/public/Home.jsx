@@ -42,7 +42,15 @@ import Carousel from "react-material-ui-carousel";
 
 import Loading from "../../components/reusable/Loading";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Home = ({ data }) => {
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -543,6 +551,7 @@ const Home = ({ data }) => {
                           lg: "34px",
                         },
                       }}
+                      data-aos="fade-up"
                     >
                       Welcome to Bivab Yashila
                     </Typography>
@@ -559,6 +568,7 @@ const Home = ({ data }) => {
                           lg: "18px",
                         },
                       }}
+                      data-aos="fade-up"
                     >
                       Welcome to BIVAB® Yashila, a distinctive residential
                       enclave in the heart of Puri, Odisha. Boasting over 300
@@ -578,6 +588,7 @@ const Home = ({ data }) => {
                           lg: "18px",
                         },
                       }}
+                      data-aos="fade-up"
                     >
                       Nestled in the tranquil ambiance of Puri, our latest
                       project reflects the essence of luxury, comfort, and
@@ -600,6 +611,7 @@ const Home = ({ data }) => {
                           lg: "18px",
                         },
                       }}
+                      data-aos="fade-up"
                     >
                       Discover a harmonious living experience with thoughtfully
                       designed spaces, modern amenities, and a scenic backdrop
@@ -620,6 +632,7 @@ const Home = ({ data }) => {
                           lg: "18px",
                         },
                       }}
+                      data-aos="fade-up"
                     >
                       Immerse yourself in the coastal charm of Puri and elevate
                       your living standards with BIVAB Yashila. Your dream home
@@ -640,6 +653,7 @@ const Home = ({ data }) => {
                           lg: "18px",
                         },
                       }}
+                      data-aos="fade-up"
                     >
                       Explore the allure of Puri living at BIVAB Yashila—where
                       home is not just a place; it’s an experience. Welcome to a
@@ -672,6 +686,7 @@ const Home = ({ data }) => {
                       lg: "34px",
                     },
                   }}
+                  data-aos="fade-up"
                 >
                   OUR VIDEO
                 </Typography>
@@ -765,6 +780,7 @@ const Home = ({ data }) => {
                             lg: "34px",
                           },
                         }}
+                        data-aos="fade-up"
                       >
                         {bivabCommercial[0].title}
                       </Typography>
@@ -782,6 +798,7 @@ const Home = ({ data }) => {
                             lg: "18px",
                           },
                         }}
+                        data-aos="fade-up"
                       >
                         {bivabCommercial[0].description}
                       </Typography>
@@ -808,6 +825,7 @@ const Home = ({ data }) => {
                       lg: "34px",
                     },
                   }}
+                  data-aos="fade-up"
                 >
                   OUR GALLERY
                 </Typography>
@@ -840,6 +858,7 @@ const Home = ({ data }) => {
                       lg: "34px",
                     },
                   }}
+                  data-aos="fade-up"
                 >
                   OUR LOCATION
                 </Typography>
@@ -1092,6 +1111,7 @@ const Home = ({ data }) => {
                               href={`mailto:${contactLogs[0].email}`}
                             >
                               <MarkEmailReadIcon
+                              
                                 sx={{ fontSize: "24px", marginRight: "15px" }}
                               />
                             </Link>
@@ -1147,6 +1167,7 @@ const Home = ({ data }) => {
                         {/* First Row */}
                         <Grid item xs={12}>
                           <TextField
+                          data-aos="fade-up"
                             InputLabelProps={{
                               sx: {
                                 color: colors.darkGreen[100],
@@ -1175,6 +1196,7 @@ const Home = ({ data }) => {
                         {/* Second Row */}
                         <Grid item xs={12}>
                           <TextField
+                          data-aos="fade-up"
                             InputLabelProps={{
                               sx: {
                                 color: colors.darkGreen[100],
@@ -1203,6 +1225,7 @@ const Home = ({ data }) => {
                         {/* Thirt Row */}
                         <Grid item xs={12}>
                           <TextField
+                          data-aos="fade-up"
                             InputLabelProps={{
                               sx: {
                                 color: colors.darkGreen[100],
@@ -1231,6 +1254,7 @@ const Home = ({ data }) => {
                         {/* Fourth Row */}
                         <Grid item xs={12}>
                           <TextField
+                          data-aos="fade-up"
                             InputLabelProps={{
                               sx: {
                                 color: colors.darkGreen[100],
@@ -1268,6 +1292,7 @@ const Home = ({ data }) => {
                           }}
                         >
                           <Button
+                          data-aos="fade-up"
                             variant="contained"
                             sx={{
                               width: "10vw",
