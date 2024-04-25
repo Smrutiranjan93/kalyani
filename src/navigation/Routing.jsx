@@ -14,6 +14,7 @@ import ParijatScene from '../components/global/ParijatScene';
 import OrchidScene from '../components/global/OrchidScene';
 import NeelkamalScene from '../components/global/NeelkamalScene';
 import MograScene from '../components/global/MograScene';
+import ThreeSixty from '../screen/private/ThreeSixty';
 
 function Routing() {
   return (
@@ -33,6 +34,7 @@ function Routing() {
         <Route path='/profile' element={<UserProfile />} />
         <Route path='/properties' element={<OurProperties />} />
         <Route path='/property/:id' element={<PropertyDetails />} />
+        <Route path='/three-sixty' element={<ThreeSixty />} />
       </Routes>
     </BrowserRouter>
   );
