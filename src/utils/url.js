@@ -1,9 +1,9 @@
 // apiConfig.js
 
 class ApiUrl {
-    // static API_BASE_URL = "https://api.bivabyashila.com/bivabs/yashla";
+    static API_BASE_URL = "https://api.bivabyashila.com/bivabs/yashla";
     static ImageHostURl = "https://api.bivabyashila.com/upload/";
-    static API_BASE_URL = "http://62.72.31.234:2009/bivabs/yashla";
+    // static API_BASE_URL = "http://62.72.31.234:2009/bivabs/yashla";
 
     
     static CONTACT_URL = `${ApiUrl.API_BASE_URL}/createContacts`;
@@ -20,7 +20,9 @@ class ApiUrl {
 
     static BIVAB_COMMERCIAL_URL = `${ApiUrl.API_BASE_URL}/getAllAboutBivabCommercial`;
 
-    static MISSION_VISION_URL = `${ApiUrl.API_BASE_URL}/getAllMission`;
+    static MISSION_URL = `${ApiUrl.API_BASE_URL}/getAllMission`;
+
+    static VISION_URL = `${ApiUrl.API_BASE_URL}/getAllVision`;
 }
 
 export default ApiUrl;

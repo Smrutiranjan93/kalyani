@@ -76,16 +76,31 @@ const AboutUs = ({ data }) => {
 
     successCounterData();
 
-    const aboutMissionVisionData = async () => {
+    const aboutMissionData = async () => {
       try {
-        const response = await GETNETWORK(ApiUrl.MISSION_VISION_URL);
+        const response = await GETNETWORK(ApiUrl.MISSION_URL);
         if (response.status) {
-          const missionTitleData = response.data[1]?.title || "";
-          const missionData = response.data[1]?.description || "";
-          const visionTitleData = response.data[0]?.title || "";
-          const visionData = response.data[0]?.description || "";
+          const missionTitleData = response.data[0]?.title || "";
+          const missionData = response.data[0]?.description || "";
           setMissionTitle(missionTitleData);
           setMission(missionData);
+        } else {
+          console.error("Error fetching data:", response.message);
+        }
+      } catch (error) {
+        console.error("Error during data fetching:", error);
+      }
+    };
+
+    aboutMissionData();
+
+
+    const aboutVisionData = async () => {
+      try {
+        const response = await GETNETWORK(ApiUrl.VISION_URL);
+        if (response.status) {
+          const visionTitleData = response.data[0]?.title || "";
+          const visionData = response.data[0]?.description || "";
           setVisionTitle(visionTitleData);
           setVision(visionData);
         } else {
@@ -96,7 +111,7 @@ const AboutUs = ({ data }) => {
       }
     };
 
-    aboutMissionVisionData();
+    aboutVisionData();
   }, []);
   {
     /* END API Integration */

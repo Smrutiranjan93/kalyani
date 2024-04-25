@@ -182,7 +182,7 @@ export default function PropertyDetails() {
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    backgroundImage: `url(/${property.gallery[0].imageurl})`,
+                    backgroundImage: `url(${property.gallery[0].imageurl})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     opacity: 0.4,
@@ -619,7 +619,7 @@ export default function PropertyDetails() {
                         }}
                       >
                         <img
-                          src={`/${imageurl.imageurl}`}
+                          src={`${imageurl.imageurl}`}
                           alt={"Property image"}
                           style={{
                             width: "100%",

@@ -570,9 +570,9 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Welcome to BIVAB® Yashila, a distinctive residential
+                      Welcome to Bivab® Yashila, a distinctive residential
                       enclave in the heart of Puri, Odisha. Boasting over 300
-                      meticulously crafted apartments, BIVAB Yashila is set to
+                      meticulously crafted apartments, Bivab Yashila is set to
                       redefine modern living in this serene coastal town.
                     </Typography>
                     <Typography
@@ -592,7 +592,7 @@ const Home = ({ data }) => {
                     >
                       Nestled in the tranquil ambiance of Puri, our latest
                       project reflects the essence of luxury, comfort, and
-                      innovation. BIVAB Yashila is more than just a collection
+                      innovation. Bivab Yashila is more than just a collection
                       of homes; it’s a lifestyle curated for those who seek the
                       perfect blend of tranquility and convenience.
                     </Typography>
@@ -615,7 +615,7 @@ const Home = ({ data }) => {
                     >
                       Discover a harmonious living experience with thoughtfully
                       designed spaces, modern amenities, and a scenic backdrop
-                      that echoes the spirit of Puri. Each apartment at BIVAB
+                      that echoes the spirit of Puri. Each apartment at Bivab
                       Yashila is a testament to our commitment to quality and
                       excellence.
                     </Typography>
@@ -635,7 +635,7 @@ const Home = ({ data }) => {
                       data-aos="fade-up"
                     >
                       Immerse yourself in the coastal charm of Puri and elevate
-                      your living standards with BIVAB Yashila. Your dream home
+                      your living standards with Bivab Yashila. Your dream home
                       awaits in this coastal paradise, where the beauty of the
                       surroundings meets the sophistication of modern
                       architecture.
@@ -655,7 +655,7 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Explore the allure of Puri living at BIVAB Yashila—where
+                      Explore the allure of Puri living at Bivab Yashila—where
                       home is not just a place; it’s an experience. Welcome to a
                       new era of residential excellence.
                     </Typography>

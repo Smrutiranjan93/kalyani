@@ -179,7 +179,7 @@ const OurProperties = ({ data }) => {
                             }}
                           >
                             <img
-                              src={`/${imageurl.imageurl}`}
+                              src={`${imageurl.imageurl}`}
                               alt={"Property image"}
                               style={{
                                 width: "100%",
@@ -211,7 +211,7 @@ const OurProperties = ({ data }) => {
                     >
                       <Box marginBottom="2px">
                         <img
-                          src={`/${item.gallery[0].imageurl}`}
+                          src={`${item.gallery[0].imageurl}`}
                           alt="Image"
                           style={{
                             width: "100%",
@@ -222,14 +222,14 @@ const OurProperties = ({ data }) => {
                       </Box>
                       <Box marginBottom="2px">
                         <img
-                          src={`/${item.gallery[1].imageurl}`}
+                          src={`${item.gallery[1].imageurl}`}
                           alt="Image"
                           style={{ width: "100%", height: "11.5vh" }}
                         />
                       </Box>
                       <Box sx={{ position: "relative" }}>
                         <img
-                          src={`/${item.gallery[2].imageurl}`}
+                          src={`${item.gallery[2].imageurl}`}
                           alt="Image"
                           style={{
                             width: "100%",
