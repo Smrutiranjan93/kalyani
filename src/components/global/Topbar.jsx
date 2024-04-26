@@ -227,6 +227,7 @@ const NavigationLinks = ({ select, handleSectionClick }) => {
         { id: "amentities", label: "Amenities", to: "/amentities" },
         { id: "photo", label: "Photo Gallery", to: "/photo-gallery" },
         { id: "property", label: "Property", to: "/properties" },
+        { id: "virtualtour", label: "Virtual Tour", to: "/three-sixty" },
         { id: "about", label: "About Us", to: "/about-us" },
         { id: "contact", label: "Contact Us", to: "/contact-us" },
       ].map((item) => (
