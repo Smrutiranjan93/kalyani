@@ -144,7 +144,15 @@ export default function PropertyDetails() {
                 </Box>
               </Box>
 
-              <Box sx={{display:'flex', margin:'auto', width:{xs:'95%', sm:'95%', md:'90%', lg:'80%'}, marginTop:'50px', marginBottom:'100px'}}>
+              <Box
+                sx={{
+                  display: "flex",
+                  margin: "auto",
+                  width: { xs: "95%", sm: "95%", md: "90%", lg: "80%" },
+                  marginTop: "50px",
+                  marginBottom: "100px",
+                }}
+              >
                 <Grid container spacing={5}>
                   <Grid item xs={12} sm={6} md={4}>
                     <Card>
@@ -156,10 +164,22 @@ export default function PropertyDetails() {
                           alt="green iguana"
                         />
                         <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
+                          <Typography
+                            gutterBottom
+                            variant="h4"
+                            component="div"
+                            sx={{ fontWeight: "bold" }}
+                          >
                             Mogra
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              fontSize: "14px",
+                              color: "black",
+                              fontWeight: "500",
+                            }}
+                          >
                             The Mogra, a flower held in high esteem by revered
                             deities such as Lord Vishnu and Goddess Laxmi, is an
                             enchanting bloom that serves as the inspiration for
@@ -172,15 +192,25 @@ export default function PropertyDetails() {
                         </CardContent>
                       </CardActionArea>
                       <CardActions>
-                        <Link to="/mogra" style={{textDecoration:'none', }}>
-                        <Button size="small" color="primary">
-                          360 Tour
-                        </Button>
+                        <Link to="/mogra" style={{ textDecoration: "none" }}>
+                          <Button
+                            size="small"
+                            sx={{
+                              color: "white",
+                              backgroundColor: colors.yellow[300],
+                              "&:hover": {
+                                color: "black",
+                                backgroundColor: colors.white[100],
+                              },
+                            }}
+                          >
+                            360 Tour
+                          </Button>
                         </Link>
                       </CardActions>
                     </Card>
                   </Grid>
-            
+
                   <Grid item xs={12} sm={6} md={4}>
                     <Card>
                       <CardActionArea>
@@ -191,19 +221,39 @@ export default function PropertyDetails() {
                           alt="green iguana"
                         />
                         <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                          Orchid
+                          <Typography gutterBottom variant="h4"
+                            component="div"
+                            sx={{ fontWeight: "bold" }}>
+                            Orchid
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                          Orchids' unique beauty and scarcity have rendered them as a symbol of opulence, status, and prestige. In certain spiritual practices, orchids are associated with personal growth, harmony, and spiritual enlightenment.Regarding the 2 Bhk property with a beach view, it boasts of two balconies and every room faces the beach, providing exceptional lighting and stunning views.
+                          <Typography variant="body2" sx={{
+                              fontSize: "14px",
+                              color: "black",
+                              fontWeight: "500",
+                            }}>
+                            Orchids' unique beauty and scarcity have rendered
+                            them as a symbol of opulence, status, and prestige.
+                            In certain spiritual practices, orchids are
+                            associated with personal growth, harmony, and
+                            spiritual enlightenment.Regarding the 2 Bhk property
+                            with a beach view, it boasts of two balconies and
+                            every room faces the beach, providing exceptional
+                            lighting and stunning views.
                           </Typography>
                         </CardContent>
                       </CardActionArea>
                       <CardActions>
-                      <Link to="/orchid" style={{textDecoration:'none', }}>
-                        <Button size="small" color="primary">
-                          360 Tour
-                        </Button>
+                        <Link to="/orchid" style={{ textDecoration: "none" }}>
+                          <Button size="small" sx={{
+                              color: "white",
+                              backgroundColor: colors.yellow[300],
+                              "&:hover": {
+                                color: "black",
+                                backgroundColor: colors.white[100],
+                              },
+                            }}>
+                            360 Tour
+                          </Button>
                         </Link>
                       </CardActions>
                     </Card>
@@ -219,19 +269,43 @@ export default function PropertyDetails() {
                           alt="green iguana"
                         />
                         <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                          Neelkamal
+                          <Typography gutterBottom variant="h4"
+                            component="div"
+                            sx={{ fontWeight: "bold" }}>
+                            Neelkamal
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                          The Neelkamal units, a crown jewel of our realm. These enchanted Ibhk units, blessed with the allure of the sea's embrace, offer a vista of endless wonder. And that's not ull, for the Neelkamal flats boast a lounge area adjacent to the balcony, a haven to bask in the majesty of the sea, all from the comfort of your chamber. So, come, indulge in the marvels of our Neelkamal units, and let the sea be your muse.
+                          <Typography variant="body2" sx={{
+                              fontSize: "14px",
+                              color: "black",
+                              fontWeight: "500",
+                            }}>
+                            The Neelkamal units, a crown jewel of our realm.
+                            These enchanted Ibhk units, blessed with the allure
+                            of the sea's embrace, offer a vista of endless
+                            wonder. And that's not ull, for the Neelkamal flats
+                            boast a lounge area adjacent to the balcony, a haven
+                            to bask in the majesty of the sea, all from the
+                            comfort of your chamber. So, come, indulge in the
+                            marvels of our Neelkamal units, and let the sea be
+                            your muse.
                           </Typography>
                         </CardContent>
                       </CardActionArea>
                       <CardActions>
-                      <Link to="/neelkamal" style={{textDecoration:'none', }}>
-                        <Button size="small" color="primary">
-                          360 Tour
-                        </Button>
+                        <Link
+                          to="/neelkamal"
+                          style={{ textDecoration: "none" }}
+                        >
+                          <Button size="small" sx={{
+                              color: "white",
+                              backgroundColor: colors.yellow[300],
+                              "&:hover": {
+                                color: "black",
+                                backgroundColor: colors.white[100],
+                              },
+                            }}>
+                            360 Tour
+                          </Button>
                         </Link>
                       </CardActions>
                     </Card>
@@ -247,24 +321,44 @@ export default function PropertyDetails() {
                           alt="green iguana"
                         />
                         <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                          Parijat
+                          <Typography gutterBottom variant="h4"
+                            component="div"
+                            sx={{ fontWeight: "bold" }}>
+                            Parijat
                           </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                          As legend whispers, the goddess of prosperity, T Lakshmi, delights in the fragrant petals of the Parijat blooms. This enchanting tree, steeped in magic and fore, has long been used to conjure the favor of the goddess. And now, dear seeker, a cozy I bhk abode beckons you, adorned with a grand balcony that gazes upon the central garden. May this enchanted dwelling bring you wealth and blessings, as the Parijat's bloom pleases the divine goddess.
+                          <Typography variant="body2" sx={{
+                              fontSize: "14px",
+                              color: "black",
+                              fontWeight: "500",
+                            }}>
+                            As legend whispers, the goddess of prosperity, T
+                            Lakshmi, delights in the fragrant petals of the
+                            Parijat blooms. This enchanting tree, steeped in
+                            magic and fore, has long been used to conjure the
+                            favor of the goddess. And now, dear seeker, a cozy I
+                            bhk abode beckons you, adorned with a grand balcony
+                            that gazes upon the central garden. May this
+                            enchanted dwelling bring you wealth and blessings,
+                            as the Parijat's bloom pleases the divine goddess.
                           </Typography>
                         </CardContent>
                       </CardActionArea>
                       <CardActions>
-                      <Link to="/parijat" style={{textDecoration:'none', }}>
-                        <Button size="small" color="primary">
-                          360 Tour
-                        </Button>
+                        <Link to="/parijat" style={{ textDecoration: "none" }}>
+                          <Button size="small" sx={{
+                              color: "white",
+                              backgroundColor: colors.yellow[300],
+                              "&:hover": {
+                                color: "black",
+                                backgroundColor: colors.white[100],
+                              },
+                            }}>
+                            360 Tour
+                          </Button>
                         </Link>
                       </CardActions>
                     </Card>
                   </Grid>
-
                 </Grid>
               </Box>
             </Box>
