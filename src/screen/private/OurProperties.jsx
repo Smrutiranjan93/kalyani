@@ -164,7 +164,7 @@ const OurProperties = ({ data }) => {
                     >
                       <Carousel
                         indicators={false}
-                        autoPlay={true}
+                        autoPlay={false}
                         height="257px"
                       >
                         {item.gallery.map((imageurl) => (
@@ -320,7 +320,7 @@ const OurProperties = ({ data }) => {
                             variant="h4"
                             sx={{ marginRight: "30px", fontWeight: "bold" }}
                           >
-                            {item.price}
+                            <span style={{ fontWeight: "bold", fontSize:'16px' }}>₹</span> {" "} {item.price}
                           </Typography>
 
                           {/* sq. ft. */}
@@ -542,11 +542,11 @@ const OurProperties = ({ data }) => {
                         autoPlay={false}
                         height="700px"
                       >
-                        {item.gallery.map((image) => (
+                        {item.gallery.map((imageurl) => (
                           <img
-                            key={image.id}
-                            src={`/${image.imageurl}`}
-                            alt={`Image ${image.id + 1}`}
+                            key={imageurl.id}
+                            src={`${imageurl.imageurl}`}
+                            alt={`imageurl ${imageurl.id + 1}`}
                             style={{
                               width: "100%",
                               height: "100%",
@@ -557,7 +557,7 @@ const OurProperties = ({ data }) => {
                         ))}
                       </Carousel>
                       <Box display="flex" marginTop={2} justifyContent="center">
-                        {item.gallery.map((image, index) => (
+                        {item.gallery.map((imageurl, index) => (
                           <Box
                             key={index}
                             marginRight={2}
@@ -565,7 +565,7 @@ const OurProperties = ({ data }) => {
                             style={{ cursor: "pointer" }}
                           >
                             <img
-                              src={`/${image.imageurl}`}
+                              src={`${imageurl.imageurl}`}
                               alt={`Small Property ${index + 1}`}
                               style={{
                                 width: "100%",

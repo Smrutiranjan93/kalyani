@@ -6,8 +6,12 @@ import MograImage5 from "../images/mogra/view22.jpg";
 import MograImage6 from "../images/mogra/view28.jpg";
 import MograImage7 from "../images/mogra/view26.jpg";
 import MograImage8 from "../images/mogra/view24.jpg";
-
-
+import MograImage9 from "../images/mogra/view6.jpg";
+import MograImage10 from "../images/mogra/view3.jpg";
+import MograImage11 from "../images/mogra/view15.jpg";
+import MograImage12 from "../images/mogra/view30.jpg";
+import MograImage13 from "../images/mogra/view29.jpg";
+import MograImage14 from "../images/mogra/view18.jpg";
 
 import OrchidImage1 from "../images/orchid/view1.jpg";
 import OrchidImage2 from "../images/orchid/view4.jpg";
@@ -17,7 +21,10 @@ import OrchidImage5 from "../images/orchid/view18.jpg";
 import OrchidImage6 from "../images/orchid/view16.jpg";
 import OrchidImage7 from "../images/orchid/view21.jpg";
 import OrchidImage8 from "../images/orchid/view5.jpg";
-
+import OrchidImage9 from "../images/orchid/view20.jpg";
+import OrchidImage10 from "../images/orchid/view10.jpg";
+import OrchidImage11 from "../images/orchid/view15.jpg";
+import OrchidImage12 from "../images/orchid/view16.jpg";
 
 
 
@@ -29,7 +36,8 @@ import NeelkamalImage5 from "../images/neelkamal/view8.jpg";
 import NeelkamalImage6 from "../images/neelkamal/view10.jpg";
 import NeelkamalImage7 from "../images/neelkamal/view11.jpg";
 import NeelkamalImage8 from "../images/neelkamal/view13.jpg";
-
+import NeelkamalImage9 from "../images/neelkamal/view9.jpg";
+import NeelkamalImage10 from "../images/neelkamal/view5.jpg";
 
 
 
@@ -49,6 +57,7 @@ export const propertyData = [
     name: "Mogra",
     location: "Puri, Odisha, India",
     size: "1580 sqft",
+    price:"1,35,00,000",
     rooms: "2 BHK",
     facing: "Sea Facing",
     unit: "14",
@@ -70,6 +79,12 @@ export const propertyData = [
       { id: "6", imageurl: MograImage6 },
       { id: "7", imageurl: MograImage7 },
       { id: "8", imageurl: MograImage8 },
+      { id: "9", imageurl: MograImage9 },
+      { id: "10", imageurl: MograImage10 },
+      { id: "11", imageurl: MograImage11 },
+      { id: "12", imageurl: MograImage12 },
+      { id: "13", imageurl: MograImage13 },
+      { id: "14", imageurl: MograImage14 },
     ],
     emipartner: [
       { id: "1", imageurl: "sbi.png", name: "State Bank Of India" },
@@ -88,6 +103,7 @@ export const propertyData = [
     name: "Orchid",
     location: "Puri, Odisha, India",
     size: "1450 sqft",
+    price:"1,23,00,000",
     rooms: "2 BHK",
     facing: "Sea Facing",
     unit: "14",
@@ -109,6 +125,10 @@ export const propertyData = [
       { id: "6", imageurl: OrchidImage6 },
       { id: "7", imageurl: OrchidImage7 },
       { id: "8", imageurl: OrchidImage8 },
+      { id: "9", imageurl: OrchidImage9 },
+      { id: "10", imageurl: OrchidImage10 },
+      { id: "11", imageurl: OrchidImage11 },
+      { id: "12", imageurl: OrchidImage12 },
     ],
     emipartner: [
       { id: "1", imageurl: "sbi.png", name: "State Bank Of India" },
@@ -127,6 +147,7 @@ export const propertyData = [
     name: "Neelkamal",
     location: "Puri, Odisha, India",
     size: "1020 sqft",
+    price:"86,00,000",
     rooms: "1 BHK",
     facing: "Sea Facing",
     unit: "14",
@@ -148,6 +169,8 @@ export const propertyData = [
       { id: "6", imageurl: NeelkamalImage6 },
       { id: "7", imageurl: NeelkamalImage7 },
       { id: "8", imageurl: NeelkamalImage8 },
+      { id: "9", imageurl: NeelkamalImage9 },
+      { id: "10", imageurl: NeelkamalImage10 },
     ],
     emipartner: [
       { id: "1", imageurl: "sbi.png", name: "State Bank Of India" },
@@ -166,6 +189,7 @@ export const propertyData = [
     name: "Parijat",
     location: "Puri, Odisha, India",
     size: "805 sqft",
+    price:"68,50,000",
     rooms: "1 BHK",
     facing: "Garden Facing",
     unit: "14",
