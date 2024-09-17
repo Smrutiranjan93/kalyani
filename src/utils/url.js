@@ -2,10 +2,10 @@
 
 class ApiUrl {
     static API_BASE_URL = "https://api.bivabyashila.com/bivabs/yashla";
-    static ImageHostURl = "https://bucket.huntill.com/bivabs/";
+    static ImageHostURl = "https://bucket.bivabyashila.com/";
     // static API_BASE_URL = "http://62.72.31.234:2009/bivabs/yashla";
 
-    
+
     static CONTACT_URL = `${ApiUrl.API_BASE_URL}/createContacts`;
 
     static ABOUT_OWNER_URL = `${ApiUrl.API_BASE_URL}/getAllAboutOwner`;
