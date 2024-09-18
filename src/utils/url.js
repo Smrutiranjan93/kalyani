@@ -2,7 +2,7 @@
 
 class ApiUrl {
     static API_BASE_URL = "https://api.bivabyashila.com/bivabs/yashla";
-    static ImageHostURl = "https://bucket.bivabyashila.com/";
+    static ImageHostURl = "https://bucket.bivabyashila.com/cloudemedia/";
     // static API_BASE_URL = "http://62.72.31.234:2009/bivabs/yashla";
 
 
