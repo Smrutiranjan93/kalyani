@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Box,
-  Typography,
-  useTheme,
-  Container,
   Button,
+  Container,
   Divider,
+  IconButton,
   Link,
   Modal,
+  Typography,
+  useTheme,
 } from "@mui/material";
-import { tokens } from "../../constants/theme";
-import Layout from "../../components/global/Layout";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import Carousel from "react-material-ui-carousel";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { propertyData } from "../../data/mockData";
+import { useEffect, useState } from "react";
+import Carousel from "react-material-ui-carousel";
+import Layout from "../../components/global/Layout";
 import Loading from "../../components/reusable/Loading";
+import { tokens } from "../../constants/theme";
+import { propertyData } from "../../data/mockData";
 
 const OurProperties = ({ data }) => {
   const theme = useTheme();
@@ -316,12 +316,12 @@ const OurProperties = ({ data }) => {
                         {/* Section One */}
                         <Box sx={{ display: "flex", flexDirection: "column" }}>
                           {/* Price */}
-                          <Typography
+                          {/* <Typography
                             variant="h4"
                             sx={{ marginRight: "30px", fontWeight: "bold" }}
                           >
                             <span style={{ fontWeight: "bold", fontSize:'16px' }}>₹</span> {" "} {item.price}
-                          </Typography>
+                          </Typography> */}
 
                           {/* sq. ft. */}
                           <Typography variant="h6" sx={{ marginRight: "10px" }}>
