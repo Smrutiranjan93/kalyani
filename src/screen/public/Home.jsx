@@ -570,7 +570,7 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Welcome to Bivab® Yashila, a distinctive residential
+                      Welcome to Kalyani Interior, a distinctive residential
                       enclave in the heart of Bhubaneswar, Odisha. Boasting over 300
                       meticulously crafted apartments, Kalyani Interiors is set to
                       redefine modern living in this serene coastal town.
@@ -862,16 +862,19 @@ const Home = ({ data }) => {
                 >
                   OUR LOCATION
                 </Typography>
-                <Box width="100%">
-                  <iframe
-                    loading="lazy"
-                    width="100%"
-                    height="400px"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.7529919752238!2d85.7823886!3d19.7910228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c53fa1abf977%3A0x188402cff8e2ca46!2sBivab%20Yashila%2C%20Nabakalebara%20Rd%2C%20Sipasurabali%2C%20Bhubaneswar%2C%20Sipasurubili%2C%20Odisha%20752001!5e0!3m2!1sen!2sin!4v1646464512896!5m2!1sen!2sin"
-                    title="Kalyani Interiors, Bhubaneswar"
-                    aria-label="Kalyani Interiors, Bhubaneswar"
-                  ></iframe>
-                </Box>
+                <Box width="100%" sx={{ borderRadius: "12px", overflow: "hidden" }}>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10745.867068837108!2d85.84847029054058!3d20.197516615560232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a700744a734f%3A0x55137dd8c50a5ea2!2sKALINGA%20INTERIORS!5e1!3m2!1sen!2sin!4v1767690272986!5m2!1sen!2sin"
+    width="100%"
+    height="400"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Kalinga Interiors Location"
+    aria-label="Kalinga Interiors Location"
+  />
+</Box>
               </Box>
 
               {/* Contact Info Section */}
