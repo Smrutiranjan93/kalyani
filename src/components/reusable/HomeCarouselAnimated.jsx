@@ -39,7 +39,7 @@ const HomeCarouselAnimated = () => {
                 Wake Up To The Sound Of Sea In The Land Of Lord
               </div>
               <div className="description">
-                Bivab Yashila where every sunrise is a melody, and every day is
+                Kalyani Interior where every sunrise is a melody, and every day is
                 an ode to coastal living
               </div>
             </div>
@@ -54,7 +54,7 @@ const HomeCarouselAnimated = () => {
                 Wake Up To The Sound Of Sea In The Land Of Lord
               </div>
               <div className="description">
-                Bivab Yashila where every sunrise is a melody, and every day is
+                Kalyani Interior where every sunrise is a melody, and every day is
                 an ode to coastal living
               </div>
             </div>
@@ -69,7 +69,7 @@ const HomeCarouselAnimated = () => {
                 Wake Up To The Sound Of Sea In The Land Of Lord
               </div>
               <div className="description">
-                Bivab Yashila where every sunrise is a melody, and every day is
+                Kalyani Interior where every sunrise is a melody, and every day is
                 an ode to coastal living
               </div>
             </div>
@@ -84,7 +84,7 @@ const HomeCarouselAnimated = () => {
                 Wake Up To The Sound Of Sea In The Land Of Lord
               </div>
               <div className="description">
-                Bivab Yashila where every sunrise is a melody, and every day is
+                Kalyani Interior where every sunrise is a melody, and every day is
                 an ode to coastal living
               </div>
             </div>

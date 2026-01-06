@@ -1,126 +1,93 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Box, Pagination } from "@mui/material";
 import Carousel from "react-spring-3d-carousel";
 import { v4 as uuidv4 } from "uuid";
 import { config } from "react-spring";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import { GETNETWORK } from "../../utils/network";
-import ApiUrl from "../../utils/url";
+import { propertyData } from "../../data/propertyData";
 
 const PhotoCarousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [goToSlide, setGoToSlide] = useState(0);
-  const [offsetRadius] = useState(1);
-  const [showNavigation] = useState(false);
-  const [autoSlide] = useState(true);
-  const [interval] = useState(3000);
   const [slides, setSlides] = useState([]);
+  const [goToSlide, setGoToSlide] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const autoSlideIntervalRef = useRef(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await GETNETWORK(ApiUrl.GALLERY_URL);
-        const imageData = response.data;
-        const processedSlides = imageData.map((image) => ({
-          key: uuidv4(),
-          content: (
-            <img
-              src={`${ApiUrl.ImageHostURl}${image.imageName}`}
-              alt={image.id}
-            />
-          ),
-        }));
-        setSlides(processedSlides);
-      } catch (error) {
-        console.error("Error during data fetching:", error);
-      }
-    };
+    // 🔥 TAKE IMAGES FROM MOCK DATA
+    const galleryImages = propertyData[0]?.gallery || [];
 
-    fetchData();
+    const processedSlides = galleryImages.map((img) => ({
+      key: uuidv4(),
+      content: (
+        <img
+          src={img.imageurl}
+          alt="gallery"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: "12px",
+          }}
+        />
+      ),
+    }));
 
-    return () => {
-      if (autoSlideIntervalRef.current) {
-        clearInterval(autoSlideIntervalRef.current);
-      }
-    };
+    setSlides(processedSlides);
   }, []);
 
   useEffect(() => {
-    if (autoSlide && slides.length > 0) {
+    if (slides.length > 0) {
       autoSlideIntervalRef.current = setInterval(() => {
-        setGoToSlide((prevGoToSlide) => (prevGoToSlide + 1) % slides.length);
-      }, interval);
-    } else {
-      clearInterval(autoSlideIntervalRef.current);
+        setGoToSlide((prev) => (prev + 1) % slides.length);
+      }, 3000);
     }
-    return () => {
-      if (autoSlideIntervalRef.current) {
-        clearInterval(autoSlideIntervalRef.current);
-      }
-    };
-  }, [slides, autoSlide, interval]);
+
+    return () => clearInterval(autoSlideIntervalRef.current);
+  }, [slides]);
 
   const handleChange = (event, value) => {
     setActiveIndex(value - 1);
     setGoToSlide(value - 1);
   };
 
-  const styleTheme = createTheme({
+  const theme = createTheme({
     breakpoints: {
       values: {
         xs: 0,
-        xs2: 350,
-        xs3: 400,
         sm: 600,
-        sm2: 800,
-        md: 1200,
-        lg: 1280,
-        xl: 1920,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
       },
     },
   });
 
   return (
-    <ThemeProvider theme={styleTheme}>
+    <ThemeProvider theme={theme}>
       <Box
         sx={{
           width: "100%",
-          height: {
-            xs: "100px",
-            xs2: "160px",
-            xs3: "200px",
-            sm: "290px",
-            sm2: "360px",
-            md: "600px",
-            lg: "600px",
-          },
+          height: { xs: 220, sm: 350, md: 500 },
           margin: "0 auto",
         }}
       >
-        <Carousel
-          slides={slides}
-          goToSlide={goToSlide}
-          offsetRadius={offsetRadius}
-          showNavigation={showNavigation}
-          animationConfig={config.gentle}
-          infinite
-        />
-        <Box
-          sx={{
-            display: { xs: "flex", sm: "flex", md: "none", lg: "none" },
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        {slides.length > 0 && (
+          <Carousel
+            slides={slides}
+            goToSlide={goToSlide}
+            offsetRadius={1}
+            showNavigation={false}
+            animationConfig={config.gentle}
+            infinite
+          />
+        )}
+
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
           <Pagination
             count={slides.length}
             page={activeIndex + 1}
             onChange={handleChange}
-            sx={{ marginTop: 2 }}
           />
         </Box>
       </Box>

@@ -15,7 +15,7 @@ import 'swiper/css/navigation';
 
 import {EffectCoverflow, Pagination, Navigation} from 'swiper';
 
-import slide_image_1 from "./carousel-one.jpg";
+import slide_image_1 from "./carousel-one.avif";
 import slide_image_2 from "./carousel-two.jpg";
 import slide_image_3 from "./carousel-three.jpg";
 import slide_image_4 from "./carousel-four.jpg";

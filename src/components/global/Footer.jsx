@@ -328,7 +328,7 @@ const FirstFooter = () => {
                     },
                   }}
                 >
-                  Coastal elegance meets modern living in Puri, Odisha.
+                  Coastal elegance meets modern living in Bhubaneswar, Odisha.
                   Experience serenity by the sea and elevate your lifestyle with
                   timeless sophistication.
                 </Typography>
@@ -659,7 +659,7 @@ const SecondFooter = () => {
               },
             }}
           >
-            Copyright ©2021 Bivab Developers (P) Limited. All Rights Reserved. |
+            Copyright ©2021 Kalyani Developers (P) Limited. All Rights Reserved. |
             Privacy Policy | Sitemap | Created by brandflik
           </Typography>
         </Container>

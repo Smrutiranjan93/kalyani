@@ -3,9 +3,9 @@ import Layout from "../../components/global/Layout";
 import { Box, Typography, Button, useTheme, Grid } from "@mui/material";
 import { tokens } from "../../constants/theme";
 import aboutBg from "../../assets/images/about-bg.jpeg";
-import bivabBuilding from "../../assets/images/bivab-building.png";
-import profileTwo from "../../assets/images/profile2.jpeg";
-import profileThree from "../../assets/images/profile3.jpeg";
+import bivabBuilding from "../../assets/images/bivab-building.jpg";
+import profileTwo from "../../assets/images/profile2.jpg";
+import profileThree from "../../assets/images/profile3.jpg";
 
 import PlaylistAddCheckCircleIcon from "@mui/icons-material/PlaylistAddCheckCircle";
 import PlaylistAddCircleIcon from "@mui/icons-material/PlaylistAddCircle";
@@ -34,8 +34,8 @@ const AboutUs = ({ data }) => {
 
 
   const aboutOwner = [
-    {id : "1", image: 'profile2.jpeg', name: "Er. Binay Krishna Das" , designation: "FOUNDER BIVAB"},
-    {id : "2", image: 'profile3.jpeg', name: "Mrs. Eva Pattnaik" , designation: "DIRECTOR"},
+    {id : "1", image: profileTwo, name: "Er. Roshan Pattnaik" , designation: "FOUNDER Kalyani"},
+    {id : "2", image: profileThree, name: "Mrs. Roshni Pattnaik" , designation: "DIRECTOR"},
   ]
   const [showMoreMission, setShowMoreMission] = useState(false);
   const [showMoreVision, setShowMoreVision] = useState(false);
@@ -264,7 +264,7 @@ const AboutUs = ({ data }) => {
                     }}
                     data-aos="fade-up"
                   >
-                    ABOUT BIVAB
+                    ABOUT KALYANI
                   </Typography>
                   <Typography
                     variant="h6"
@@ -281,8 +281,8 @@ const AboutUs = ({ data }) => {
                     }}
                     data-aos="fade-up"
                   >
-                    Bivab® Developers is an eminent company redefining real
-                    estate in Bhubaneswar
+                    Kalyani Interior  is an eminent company redefining Interior design
+                     in Bhubaneswar
                   </Typography>
                   <Typography
                     variant="h6"
@@ -299,9 +299,9 @@ const AboutUs = ({ data }) => {
                     }}
                     data-aos="fade-up"
                   >
-                    Welcome to Bivab® Yashila, a distinctive residential enclave
-                    in the heart of Puri, Odisha. Boasting over 300 meticulously
-                    crafted apartments, Bivab Yashila is set to redefine modern
+                    Welcome to Kalyani Interiors, a distinctive residential enclave
+                    in the heart of Bhubaneswar, Odisha. Boasting over 300 meticulously
+                    crafted apartments, Kalyani Interior is set to redefine modern
                     living in this serene coastal town.
                   </Typography>
                   <Typography
@@ -319,9 +319,9 @@ const AboutUs = ({ data }) => {
                     }}
                     data-aos="fade-up"
                   >
-                    Nestled in the tranquil ambiance of Puri, our latest project
+                    Nestled in the tranquil ambiance of Bhubaneswar, our latest project
                     reflects the essence of luxury, comfort, and innovation.
-                    Bivab Yashila is more than just a collection of homes; it’s
+                    Kalyani Interior is more than just a collection of homes; it’s
                     a lifestyle curated for those who seek the perfect blend of
                     tranquility and convenience.
                   </Typography>
@@ -342,8 +342,8 @@ const AboutUs = ({ data }) => {
                   >
                     Discover a harmonious living experience with thoughtfully
                     designed spaces, modern amenities, and a scenic backdrop
-                    that echoes the spirit of Puri. Each apartment at Bivab
-                    Yashila is a testament to our commitment to quality and
+                    that echoes the spirit of Bhubaneswar. Each apartment at Kalyani
+                    Interior is a testament to our commitment to quality and
                     excellence.
                   </Typography>
                   <Typography
@@ -361,8 +361,8 @@ const AboutUs = ({ data }) => {
                     }}
                     data-aos="fade-up"
                   >
-                    Immerse yourself in the coastal charm of Puri and elevate
-                    your living standards with Bivab Yashila. Your dream home
+                    Immerse yourself in the coastal charm of Bhubaneswar and elevate
+                    your living standards with Kalyani Interior. Your dream home
                     awaits in this coastal paradise, where the beauty of the
                     surroundings meets the sophistication of modern
                     architecture.
@@ -382,7 +382,7 @@ const AboutUs = ({ data }) => {
                     }}
                     data-aos="fade-up"
                   >
-                    Explore the allure of Puri living at Bivab Yashila—where
+                    Explore the allure of Bhubaneswar living at Kalyani Interior—where
                     home is not just a place; it’s an experience. Welcome to a
                     new era of residential excellence.
                   </Typography>
@@ -794,7 +794,7 @@ const AboutUs = ({ data }) => {
                             alt="profile-user"
                             width="100%"
                             height="100%"
-                            src={`/${about.image}`}
+                            src={about.image}
                             style={{
                               cursor: "pointer",
                               backgroundSize: "cover",

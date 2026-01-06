@@ -14,7 +14,7 @@ import {
   useTheme
 } from "@mui/material";
 import Layout from "../../components/global/Layout";
-import Profile from "../../assets/images/profile2.jpeg";
+import Profile from "../../assets/images/profile2.jpg";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { tokens } from "../../constants/theme";

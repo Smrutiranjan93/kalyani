@@ -431,7 +431,7 @@ const Home = ({ data }) => {
                               textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                             }}
                           >
-                            Bivab Yashila where every sunrise is a melody, and
+                            Kalyani Interiors where every sunrise is a melody, and
                             every day is an ode to coastal living
                           </Typography>
                         </Typography>
@@ -553,7 +553,7 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Welcome to Bivab Yashila
+                      Welcome to Kalyani Interiors
                     </Typography>
                     <Typography
                       variant="p"
@@ -571,8 +571,8 @@ const Home = ({ data }) => {
                       data-aos="fade-up"
                     >
                       Welcome to Bivab® Yashila, a distinctive residential
-                      enclave in the heart of Puri, Odisha. Boasting over 300
-                      meticulously crafted apartments, Bivab Yashila is set to
+                      enclave in the heart of Bhubaneswar, Odisha. Boasting over 300
+                      meticulously crafted apartments, Kalyani Interiors is set to
                       redefine modern living in this serene coastal town.
                     </Typography>
                     <Typography
@@ -590,9 +590,9 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Nestled in the tranquil ambiance of Puri, our latest
+                      Nestled in the tranquil ambiance of Bhubaneswar, our latest
                       project reflects the essence of luxury, comfort, and
-                      innovation. Bivab Yashila is more than just a collection
+                      innovation. Kalyani Interiors is more than just a collection
                       of homes; it’s a lifestyle curated for those who seek the
                       perfect blend of tranquility and convenience.
                     </Typography>
@@ -615,7 +615,7 @@ const Home = ({ data }) => {
                     >
                       Discover a harmonious living experience with thoughtfully
                       designed spaces, modern amenities, and a scenic backdrop
-                      that echoes the spirit of Puri. Each apartment at Bivab
+                      that echoes the spirit of Bhubaneswar. Each apartment at Bivab
                       Yashila is a testament to our commitment to quality and
                       excellence.
                     </Typography>
@@ -634,8 +634,8 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Immerse yourself in the coastal charm of Puri and elevate
-                      your living standards with Bivab Yashila. Your dream home
+                      Immerse yourself in the coastal charm of Bhubaneswar and elevate
+                      your living standards with Kalyani Interiors. Your dream home
                       awaits in this coastal paradise, where the beauty of the
                       surroundings meets the sophistication of modern
                       architecture.
@@ -655,7 +655,7 @@ const Home = ({ data }) => {
                       }}
                       data-aos="fade-up"
                     >
-                      Explore the allure of Puri living at Bivab Yashila—where
+                      Explore the allure of Bhubaneswar living at Kalyani Interiors—where
                       home is not just a place; it’s an experience. Welcome to a
                       new era of residential excellence.
                     </Typography>
@@ -867,9 +867,9 @@ const Home = ({ data }) => {
                     loading="lazy"
                     width="100%"
                     height="400px"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.7529919752238!2d85.7823886!3d19.7910228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c53fa1abf977%3A0x188402cff8e2ca46!2sBivab%20Yashila%2C%20Nabakalebara%20Rd%2C%20Sipasurabali%2C%20Puri%2C%20Sipasurubili%2C%20Odisha%20752001!5e0!3m2!1sen!2sin!4v1646464512896!5m2!1sen!2sin"
-                    title="Bivab Yashila, Puri"
-                    aria-label="Bivab Yashila, Puri"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.7529919752238!2d85.7823886!3d19.7910228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19c53fa1abf977%3A0x188402cff8e2ca46!2sBivab%20Yashila%2C%20Nabakalebara%20Rd%2C%20Sipasurabali%2C%20Bhubaneswar%2C%20Sipasurubili%2C%20Odisha%20752001!5e0!3m2!1sen!2sin!4v1646464512896!5m2!1sen!2sin"
+                    title="Kalyani Interiors, Bhubaneswar"
+                    aria-label="Kalyani Interiors, Bhubaneswar"
                   ></iframe>
                 </Box>
               </Box>
